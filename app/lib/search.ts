@@ -123,9 +123,25 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Level:');
-                return extractOnlyNumber(value);
+                if (!value) return null;
+                const num = parseInt(extractOnlyNumber(value) || '', 10);
+                if (isNaN(num)) return null;
+
+                // Only return the number, not an object
+                return num;
             },
-            transform: (value: string) => parseInt(value, 10)
+            transform: (value: number) => {
+                if (typeof value !== 'number' || isNaN(value)) return null;
+
+                // Only return min value since this is MIN_ONLY
+                return {
+                    min: value,
+                    originalValue: {
+                        min: value,
+                        max: value
+                    }
+                };
+            }
         },
         str: {
             type: FILTER_TYPES.RANGE,
@@ -243,18 +259,16 @@ const FILTER_CONFIG = {
                 const value = getValueFromTextKey(lines, 'Armour:');
                 if (!value) return null;
                 const num = parseInt(value);
-                return {
-                    min: num,
-                    max: num,
-                    originalValue: { min: num, max: num }
-                };
+                return isNaN(num) ? null : num;
             },
-            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
-                if (!value) return null;
+            transform: (value: number) => {
+                if (typeof value !== 'number' || isNaN(value)) return null;
                 return {
-                    min: value.min,
-                    max: value.max,
-                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                    min: value,
+                    originalValue: {
+                        min: value,
+                        max: value
+                    }
                 };
             }
         },
@@ -266,18 +280,16 @@ const FILTER_CONFIG = {
                 const value = getValueFromTextKey(lines, 'Evasion:');
                 if (!value) return null;
                 const num = parseInt(value);
-                return {
-                    min: num,
-                    max: num,
-                    originalValue: { min: num, max: num }
-                };
+                return isNaN(num) ? null : num;
             },
-            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
-                if (!value) return null;
+            transform: (value: number) => {
+                if (typeof value !== 'number' || isNaN(value)) return null;
                 return {
-                    min: value.min,
-                    max: value.max,
-                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                    min: value,
+                    originalValue: {
+                        min: value,
+                        max: value
+                    }
                 };
             }
         },
@@ -289,18 +301,16 @@ const FILTER_CONFIG = {
                 const value = getValueFromTextKey(lines, 'Energy Shield:');
                 if (!value) return null;
                 const num = parseInt(value);
-                return {
-                    min: num,
-                    max: num,
-                    originalValue: { min: num, max: num }
-                };
+                return isNaN(num) ? null : num;
             },
-            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
-                if (!value) return null;
+            transform: (value: number) => {
+                if (typeof value !== 'number' || isNaN(value)) return null;
                 return {
-                    min: value.min,
-                    max: value.max,
-                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                    min: value,
+                    originalValue: {
+                        min: value,
+                        max: value
+                    }
                 };
             }
         },
@@ -312,18 +322,16 @@ const FILTER_CONFIG = {
                 const value = getValueFromTextKey(lines, 'Block:');
                 if (!value) return null;
                 const num = parseInt(value.replace('%', ''));
-                return {
-                    min: num,
-                    max: num,
-                    originalValue: { min: num, max: num }
-                };
+                return isNaN(num) ? null : num;
             },
-            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
-                if (!value) return null;
+            transform: (value: number) => {
+                if (typeof value !== 'number' || isNaN(value)) return null;
                 return {
-                    min: value.min,
-                    max: value.max,
-                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                    min: value,
+                    originalValue: {
+                        min: value,
+                        max: value
+                    }
                 };
             }
         },

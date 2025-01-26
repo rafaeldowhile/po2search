@@ -45,7 +45,7 @@ export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.json() as SearchRequestBody;
     const {
         input,
-        rangeType = RANGE_TYPES.MIN_ONLY,
+        rangeType = RANGE_TYPES.MIN_MAX,
         enableStats,
         enabledFilterGroups,
         parsedQuery
@@ -67,19 +67,27 @@ export async function action({ request }: ActionFunctionArgs) {
 
         // If it's a refined search, handle disabled filters
         if (parsedQuery) {
-            // Handle type filters first
             const filters = { ...searchPayload.query.filters };
             for (const [groupKey, group] of Object.entries(filters)) {
                 if (group.filterStates) {
                     const activeFilters: Record<string, any> = {};
                     for (const [filterKey, isEnabled] of Object.entries(group.filterStates)) {
                         if (isEnabled && group.filters[filterKey]) {
-                            // Preserve originalValue but only send min for search
                             const filter = { ...group.filters[filterKey] };
-                            if (filter.originalValue) {
-                                filter.max = undefined; // Only use min for search
+                            const cleanFilter: Record<string, any> = {};
+
+                            // Only include properties that are explicitly set
+                            if (filter.min !== undefined && filter.min !== null) {
+                                cleanFilter.min = filter.min;
                             }
-                            activeFilters[filterKey] = filter;
+                            if (filter.max !== undefined && filter.max !== null) {
+                                cleanFilter.max = filter.max;
+                            }
+                            if (filter.option !== undefined) {
+                                cleanFilter.option = filter.option;
+                            }
+
+                            activeFilters[filterKey] = cleanFilter;
                         }
                     }
                     filters[groupKey] = {
