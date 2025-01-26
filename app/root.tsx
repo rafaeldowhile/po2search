@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import tailwind from "./tailwind.css?url"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -24,7 +24,20 @@ export const links: LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
   { rel: "stylesheet", href: tailwind, as: "style" },
+  { rel: "icon", href: "data:," },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { charset: "utf-8" },
+    { title: "Your App Name" },
+    { viewport: "width=device-width,initial-scale=1" },
+    // Override any favicon meta tags with null
+    { rel: "icon", href: null },
+    { rel: "shortcut icon", href: null },
+    { rel: "apple-touch-icon", href: null },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
