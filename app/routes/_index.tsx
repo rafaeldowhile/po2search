@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { RotateCcw } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useHotkeys } from 'react-hotkeys-hook';
 import { KeyboardShortcuts } from "~/components/keyboard-shortcuts";
 import { QueryEditor } from "~/components/search/query-editor/query-editor";
@@ -10,16 +10,15 @@ import { SearchInput } from "~/components/search/search-input";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Collapsible, CollapsibleContent } from "~/components/ui/collapsible";
-import { DEFAULT_SEARCH_PARAMS, RANGE_TYPES } from "~/constants/search";
 import equipmentFilters from '~/data/equipment_filters.json';
 import miscFilters from '~/data/misc_filters.json';
 import reqFilters from '~/data/req_filters.json';
 import typeFilters from '~/data/type_filters.json';
 import { useSearch } from "~/hooks/use-search";
 import { useSearchHistory } from "~/hooks/use-search-history";
-import { useToast } from "~/hooks/use-toast";
-import type { ParsedQuery, SearchParams } from "~/types/search";
 import { useSearchParams } from "~/hooks/use-search-params";
+import { useToast } from "~/hooks/use-toast";
+import type { ParsedQuery } from "~/types/search";
 
 export const meta: MetaFunction = () => {
   return [

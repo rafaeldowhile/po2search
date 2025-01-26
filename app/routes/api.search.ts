@@ -4,6 +4,8 @@ import { search } from "~/lib/search";
 import { RANGE_TYPES } from "~/lib/constants";
 import POE2TradeAPI from "~/lib/poe2api";
 
+export const config = { runtime: 'edge' };
+
 interface SearchRequestBody {
     input?: string;
     rangeType?: string;
