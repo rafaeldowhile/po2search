@@ -1,0 +1,29 @@
+Item Class: Two Hand Maces
+Rarity: Rare
+Blight Brand
+Temple Maul
+--------
+Physical Damage: 42-86 (augmented)
+Fire Damage: 25-43 (augmented)
+Critical Hit Chance: 5.00%
+Attacks per Second: 1.20
+--------
+Requirements:
+Level: 28
+Str: 65
+--------
+Sockets: S S S 
+--------
+Item Level: 28
+--------
+20% increased Physical Damage (rune)
+Adds 14 to 22 Fire Damage (rune)
+--------
+Adds 11 to 21 Fire Damage
++87 to Accuracy Rating
+43% increased Elemental Damage with Attacks
++5 to Strength
+Gain 5 Life per Enemy Killed
+Causes 31% increased Stun Buildup
+--------
+Corrupted

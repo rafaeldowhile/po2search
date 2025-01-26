@@ -1,0 +1,72 @@
+{
+    "id": "equipment_filters",
+    "title": "Equipment Filters",
+    "hidden": true,
+    "filters": [
+        {
+            "id": "damage",
+            "text": "Damage",
+            "minMax": true
+        },
+        {
+            "id": "aps",
+            "text": "Attacks per Second",
+            "minMax": true
+        },
+        {
+            "id": "crit",
+            "text": "Critical Chance",
+            "minMax": true
+        },
+        {
+            "id": "dps",
+            "text": "Damage per Second",
+            "minMax": true
+        },
+        {
+            "id": "pdps",
+            "text": "Physical DPS",
+            "minMax": true
+        },
+        {
+            "id": "edps",
+            "text": "Elemental DPS",
+            "minMax": true
+        },
+        {
+            "id": "ar",
+            "text": "Armour",
+            "tip": "Includes base value, local modifiers, and maximum quality",
+            "minMax": true
+        },
+        {
+            "id": "ev",
+            "text": "Evasion",
+            "tip": "Includes base value, local modifiers, and maximum quality",
+            "minMax": true
+        },
+        {
+            "id": "es",
+            "text": "Energy Shield",
+            "tip": "Includes base value, local modifiers, and maximum quality",
+            "minMax": true
+        },
+        {
+            "id": "block",
+            "text": "Block",
+            "tip": "Includes base value and local modifiers",
+            "minMax": true
+        },
+        {
+            "id": "spirit",
+            "text": "Spirit",
+            "tip": "Includes base value, local modifiers, and maximum quality",
+            "minMax": true
+        },
+        {
+            "id": "rune_sockets",
+            "text": "Rune Sockets",
+            "minMax": true
+        }
+    ]
+}

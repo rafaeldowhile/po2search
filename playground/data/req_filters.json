@@ -1,0 +1,22 @@
+[
+    {
+        "id": "lvl",
+        "text": "Level",
+        "minMax": true
+    },
+    {
+        "id": "str",
+        "text": "Strength",
+        "minMax": true
+    },
+    {
+        "id": "dex",
+        "text": "Dexterity",
+        "minMax": true
+    },
+    {
+        "id": "int",
+        "text": "Intelligence",
+        "minMax": true
+    }
+]
