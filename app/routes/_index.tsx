@@ -5,15 +5,12 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { KeyboardShortcuts } from "~/components/keyboard-shortcuts";
 import { QueryEditor } from "~/components/search/query-editor/query-editor";
 import { ResultsView } from "~/components/search/results-view";
+import { SearchGuide } from "~/components/search/search-guide";
 import { SearchHistory } from "~/components/search/search-history";
 import { SearchInput } from "~/components/search/search-input";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Collapsible, CollapsibleContent } from "~/components/ui/collapsible";
-import equipmentFilters from '~/data/equipment_filters.json';
-import miscFilters from '~/data/misc_filters.json';
-import reqFilters from '~/data/req_filters.json';
-import typeFilters from '~/data/type_filters.json';
 import { useSearch } from "~/hooks/use-search";
 import { useSearchHistory } from "~/hooks/use-search-history";
 import { useSearchParams } from "~/hooks/use-search-params";
@@ -27,115 +24,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-interface SearchRequestBody {
-  input?: string;
-  rangeType?: string;
-  enableStats?: boolean;
-  enabledFilterGroups?: {
-    type_filters?: boolean;
-    req_filters?: boolean;
-    equipment_filters?: boolean;
-    misc_filters?: boolean;
-  };
-  parsedQuery?: any;
-}
-
-// Add this component for range inputs
-function RangeInputs({
-  value,
-  originalValue,
-  onChange
-}: {
-  value: { min?: number; max?: number; };
-  originalValue?: { min?: number; max?: number; };
-  onChange: (newValue: { min?: number; max?: number; }) => void;
-}) {
-  return (
-    <div className="flex items-center space-x-2">
-      <input
-        type="number"
-        className="w-20 h-8 rounded-md border border-input px-2"
-        placeholder={originalValue?.min?.toString() || "min"}
-        value={value.min || ""}
-        onChange={(e) => {
-          const min = e.target.value ? Number(e.target.value) : undefined;
-          onChange({ ...value, min });
-        }}
-      />
-      <span>-</span>
-      <input
-        type="number"
-        className="w-20 h-8 rounded-md border border-input px-2"
-        placeholder={originalValue?.max?.toString() || "max"}
-        value={value.max || ""}
-        onChange={(e) => {
-          const max = e.target.value ? Number(e.target.value) : undefined;
-          onChange({ ...value, max });
-        }}
-      />
-    </div>
-  );
-}
-
-// Add interfaces to type the filter data
-interface FilterItem {
-  id: string;
-  text: string;
-  minMax?: boolean;
-}
-
-interface TypeFilters {
-  id: string;
-  title: string;
-  filters: FilterItem[];
-}
-
-// Update the helper function with proper typing
-const getFilterName = (groupKey: string, filterId: string): string => {
-  if (groupKey === "equipment_filters") {
-    const filter = (equipmentFilters as FilterItem[]).find(f => f.id === filterId);
-    return filter?.text || filterId.replace(/_/g, ' ');
-  }
-  if (groupKey === "req_filters") {
-    const filter = (reqFilters as FilterItem[]).find(f => f.id === filterId);
-    return filter?.text || filterId.replace(/_/g, ' ');
-  }
-  if (groupKey === "type_filters") {
-    const filter = (typeFilters as TypeFilters).filters.find(f => f.id === filterId);
-    return filter?.text || filterId.replace(/_/g, ' ');
-  }
-  if (groupKey === "misc_filters") {
-    const filter = (miscFilters as FilterItem[]).find(f => f.id === filterId);
-    return filter?.text || filterId.replace(/_/g, ' ');
-  }
-  return filterId.replace(/_/g, ' ');
-};
-
-// Add helper to convert filter group names to display format
-const getGroupDisplayName = (groupKey: string): string => {
-  switch (groupKey) {
-    case "equipment_filters":
-      return "Equipment";
-    case "req_filters":
-      return "Requirements";
-    case "type_filters":
-      return "Type";
-    case "misc_filters":
-      return "Miscellaneous";
-    default:
-      return groupKey.split('_')[0].charAt(0).toUpperCase() +
-        groupKey.split('_')[0].slice(1);
-  }
-};
-
 export default function Index() {
-  const [showInputSearch, setShowInputSearch] = useState(false);
+  const [showInputSearch, setShowInputSearch] = useState(true);
   const { toast } = useToast();
   const {
     searchParams,
     updateInput,
     updateParsedQuery,
-    resetParams
+    resetParams,
+    updateSearchParams,
   } = useSearchParams();
 
   const {
@@ -145,6 +42,7 @@ export default function Index() {
     result,
     validationErrors,
     retryCount,
+    reset,
   } = useSearch();
   const { searchHistory, addToHistory } = useSearchHistory();
 
@@ -165,6 +63,14 @@ export default function Index() {
 
   const handleClear = useCallback(() => {
     resetParams();
+    setEditedQuery(null);
+    setShowInputSearch(true);
+    reset();
+  }, [resetParams, reset]);
+
+  const handleNewSearch = useCallback(() => {
+    resetParams();
+    setEditedQuery(null);
     setShowInputSearch(true);
   }, [resetParams]);
 
@@ -246,8 +152,8 @@ export default function Index() {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-8">
-      <Card className="w-full max-w-4xl mx-auto">
+    <div className="container mx-auto p-4 space-y-8 max-w-[1400px]">
+      <Card className="w-full">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-3xl font-bold">PoE Item Search</CardTitle>
@@ -260,7 +166,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setShowInputSearch(!showInputSearch)}
+                onClick={handleNewSearch}
               >
                 {showInputSearch ? "Hide Input" : "New Search"}
               </Button>
@@ -281,9 +187,14 @@ export default function Index() {
               <SearchInput
                 value={searchParams.input || ""}
                 onChange={handleInputChange}
+                rangeType={searchParams.rangeType || "min_only"}
+                onRangeTypeChange={(value) => updateSearchParams({ rangeType: value })}
                 onSearch={() => handleSearch()}
                 isSearching={isSearching}
               />
+              {!result && !isSearching && !error && (
+                <SearchGuide />
+              )}
             </CollapsibleContent>
           </Collapsible>
 

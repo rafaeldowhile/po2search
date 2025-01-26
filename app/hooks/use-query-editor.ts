@@ -18,7 +18,7 @@ export function useQueryEditor(initialQuery: ParsedQuery, onChange: (query: Pars
         onChange(newQuery);
     }, [initialQuery, onChange]);
 
-    const updateFilter = useCallback((groupKey: string, filterKey: string, updates: Partial<{ enabled: boolean; min?: number; max?: number }>) => {
+    const updateFilter = useCallback((groupKey: string, filterKey: string, updates: any) => {
         const newQuery = {
             ...initialQuery,
             query: {
@@ -43,6 +43,30 @@ export function useQueryEditor(initialQuery: ParsedQuery, onChange: (query: Pars
                 }
             }
         };
+
+        // Handle boolean options (corrupted, identified, etc.)
+        if ('option' in updates) {
+            newQuery.query.filters[groupKey].filters[filterKey] = {
+                ...newQuery.query.filters[groupKey].filters[filterKey],
+                option: updates.option
+            };
+            newQuery.query.filters[groupKey].filterStates[filterKey] = updates.enabled;
+        }
+
+        // Update filter states
+        if ('enabled' in updates) {
+            newQuery.query.filters[groupKey].filterStates[filterKey] = updates.enabled;
+        }
+
+        // Update filter values
+        if (updates.min !== undefined || updates.max !== undefined) {
+            newQuery.query.filters[groupKey].filters[filterKey] = {
+                ...newQuery.query.filters[groupKey].filters[filterKey],
+                min: updates.min,
+                max: updates.max
+            };
+        }
+
         onChange(newQuery);
     }, [initialQuery, onChange]);
 

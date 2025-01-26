@@ -17,6 +17,20 @@ interface QueryEditorProps {
     isSearching: boolean;
 }
 
+// Add this helper function to get the prefix badge
+function getStatPrefix(statId: string) {
+    if (statId.startsWith('rune.')) {
+        return <span className="ml-1.5 px-1 py-0.5 text-[9px] bg-amber-500/10 text-amber-500 rounded">rune</span>;
+    }
+    if (statId.startsWith('enchant.')) {
+        return <span className="ml-1.5 px-1 py-0.5 text-[9px] bg-blue-500/10 text-blue-500 rounded">enchant</span>;
+    }
+    if (statId.startsWith('implicit.')) {
+        return <span className="ml-1.5 px-1 py-0.5 text-[9px] bg-purple-500/10 text-purple-500 rounded">implicit</span>;
+    }
+    return <span className="ml-1.5 px-1 py-0.5 text-[9px] bg-slate-500/10 text-slate-500 rounded">explicit</span>;
+}
+
 const StatFilterRow = memo(function StatFilterRow({
     stat,
     onUpdate
@@ -34,16 +48,20 @@ const StatFilterRow = memo(function StatFilterRow({
             />
             <label
                 htmlFor={stat.id}
-                className="flex-1 cursor-pointer text-muted-foreground group-hover:text-foreground transition-colors"
+                className="flex-1 cursor-pointer text-muted-foreground group-hover:text-foreground transition-colors flex items-center"
             >
-                {flatStats[stat.id as keyof typeof flatStats]?.text || stat.id}
+                <span>{flatStats[stat.id as keyof typeof flatStats]?.text || stat.id}</span>
+                {getStatPrefix(stat.id)}
             </label>
             <div className="flex items-center gap-1">
                 <Input
                     type="text"
                     value={stat.value.min ?? ''}
                     onChange={(e) => onUpdate({
-                        value: { ...stat.value, min: e.target.value ? Number(e.target.value) : undefined }
+                        value: {
+                            ...stat.value,
+                            min: e.target.value ? Number(e.target.value) : undefined
+                        }
                     })}
                     className="w-16 h-6 text-xs transition-colors hover:border-primary px-1"
                     placeholder={stat.value.originalValue?.min?.toString() ?? 'min'}
@@ -53,10 +71,13 @@ const StatFilterRow = memo(function StatFilterRow({
                     type="text"
                     value={stat.value.max ?? ''}
                     onChange={(e) => onUpdate({
-                        value: { ...stat.value, max: e.target.value ? Number(e.target.value) : undefined }
+                        value: {
+                            ...stat.value,
+                            max: e.target.value ? Number(e.target.value) : undefined
+                        }
                     })}
                     className="w-16 h-6 text-xs text-muted-foreground transition-colors hover:border-primary px-1"
-                    placeholder={stat.value.originalValue?.max?.toString() ?? 'max'}
+                    placeholder={stat.value.originalValue?.max !== undefined ? stat.value.originalValue.max.toString() : 'max'}
                 />
             </div>
         </div>
@@ -87,6 +108,16 @@ const FilterGroupSection = memo(function FilterGroupSection({
     const renderFilterRow = (filterKey: string, isEnabled: boolean) => {
         const filter = group.filters[filterKey];
         const isBooleanOption = isMiscGroup && ['corrupted', 'identified', 'mirrored', 'alternate_art'].includes(filterKey);
+        const isRangeFilter = isMiscGroup && [
+            'gem_level',
+            'gem_sockets',
+            'quality',
+            'stack_size',
+            'map_tier',
+            'map_packsize',
+            'map_iiq',
+            'map_iir'
+        ].includes(filterKey);
         const isDisplayOnly = isTypeGroup && ['category', 'rarity'].includes(filterKey);
 
         if (isDisplayOnly) {
@@ -106,12 +137,18 @@ const FilterGroupSection = memo(function FilterGroupSection({
             <div key={filterKey} className="flex items-center gap-1.5 py-0.5 group text-xs">
                 <Checkbox
                     id={`${groupKey}-${filterKey}`}
-                    checked={isBooleanOption ? filter.option === 'true' : isEnabled}
+                    checked={isBooleanOption ? filter?.option === "true" : isEnabled}
                     onCheckedChange={(checked) => {
                         if (isBooleanOption) {
                             onUpdate(filterKey, {
-                                enabled: true,
-                                option: checked ? 'true' : 'false'
+                                option: checked ? "true" : undefined,
+                                enabled: checked as boolean
+                            });
+                        } else if (isRangeFilter) {
+                            onUpdate(filterKey, {
+                                enabled: checked as boolean,
+                                min: filter.min,
+                                max: filter.max
                             });
                         } else {
                             onUpdate(filterKey, { enabled: checked as boolean });
@@ -125,13 +162,14 @@ const FilterGroupSection = memo(function FilterGroupSection({
                 >
                     {getFilterName(groupKey, filterKey)}
                 </label>
-                {!isBooleanOption && filter.min !== undefined && (
+                {(isRangeFilter || (!isBooleanOption && filter.min !== undefined)) && (
                     <div className="flex items-center gap-1">
                         <Input
                             type="text"
                             value={filter.min ?? ''}
                             onChange={(e) => onUpdate(filterKey, {
-                                min: e.target.value ? Number(e.target.value) : undefined
+                                ...filter,
+                                min: e.target.value ? Number(e.target.value) : undefined,
                             })}
                             className="w-16 h-6 text-xs transition-colors hover:border-primary px-1"
                             placeholder={filter.originalValue?.min?.toString() ?? 'min'}
@@ -141,10 +179,11 @@ const FilterGroupSection = memo(function FilterGroupSection({
                             type="text"
                             value={filter.max ?? ''}
                             onChange={(e) => onUpdate(filterKey, {
+                                ...filter,
                                 max: e.target.value ? Number(e.target.value) : undefined
                             })}
                             className="w-16 h-6 text-xs text-muted-foreground transition-colors hover:border-primary px-1"
-                            placeholder={filter.originalValue?.max?.toString() ?? 'max'}
+                            placeholder={filter.originalValue?.max !== undefined ? filter.originalValue.max.toString() : 'max'}
                         />
                     </div>
                 )}

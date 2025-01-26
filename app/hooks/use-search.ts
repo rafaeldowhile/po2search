@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import type { SearchParams, SearchResult, SearchError } from "~/types/search";
 import { validateSearchParams, type ValidationError } from "~/lib/validation";
 
@@ -83,21 +83,25 @@ export function useSearch() {
         },
     });
 
-    /**
-     * Perform a search with the given parameters
-     * @param params Search parameters
-     * @param isRefinedSearch Whether this is a refinement of a previous search
-     */
-    const search = async (params: SearchParams, isRefinedSearch = false) => {
-        // Reset state before new search
+    const reset = useCallback(() => {
         setSearchState({
             error: null,
             validationErrors: [],
             retryCount: 0,
         });
+    }, []);
+
+    /**
+     * Perform a search with the given parameters
+     * @param params Search parameters
+     * @param isRefinedSearch Whether this is a refinement of a previous search
+     */
+    const search = useCallback(async (params: SearchParams, isRefinedSearch = false) => {
+        // Reset state before new search
+        reset();
 
         return searchMutation.mutate(params);
-    };
+    }, [reset, searchMutation.mutate]);
 
     const clearErrors = () => {
         setSearchState({
@@ -115,6 +119,7 @@ export function useSearch() {
         clearErrors,
         result: searchMutation.data ?? cachedResult,
         retryCount: searchState.retryCount,
+        reset
     };
 }
 

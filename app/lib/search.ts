@@ -354,15 +354,35 @@ const FILTER_CONFIG = {
     misc_filters: {
         gem_sockets: {
             type: FILTER_TYPES.RANGE,
-            range_type: RANGE_TYPES.MIN_ONLY,
+            range_type: RANGE_TYPES.MIN_MAX,
             enabled: false,
             extractValue: (lines: string[]) => {
                 const socketLine = lines.find(line => line.includes('Sockets:'));
                 if (!socketLine) return null;
-                const socketPart = socketLine.split(':')[1];
-                return socketPart.split(' ').filter(s => s === 'S').length;
+                const socketPart = socketLine.split(':')[1].trim();
+                const count = socketPart.split(' ').filter(s => ['S', 'R', 'G', 'B', 'W'].includes(s)).length;
+                return {
+                    min: count,
+                    max: count,
+                    originalValue: {
+                        min: count,
+                        max: count
+                    }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: number | { min: number; max: number }) => {
+                if (typeof value === 'number') {
+                    return {
+                        min: value,
+                        max: value,
+                        originalValue: {
+                            min: value,
+                            max: value
+                        }
+                    };
+                }
+                return value;
+            }
         },
         area_level: {
             type: FILTER_TYPES.RANGE,
@@ -377,7 +397,7 @@ const FILTER_CONFIG = {
         stack_size: {
             type: FILTER_TYPES.RANGE,
             range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: true,
+            enabled: false,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Stack Size:');
                 return value ? parseInt(value) : null;
@@ -562,17 +582,21 @@ function buildFilters(
                 filters: {
                     mirrored: { option: "false" },
                     identified: { option: "true" },
-                    alternate_art: { option: "false" }
+                    alternate_art: { option: "false" },
+                    corrupted: { option: "true" },
                 },
                 disabled: false,
-                filterStates: {}
+                filterStates: {
+                    corrupted: true,
+                }
             };
         } else {
             // Ensure default values for misc filters that weren't set
             const defaultMiscFilters = {
                 mirrored: { option: "false" },
                 identified: { option: "true" },
-                alternate_art: { option: "false" }
+                alternate_art: { option: "false" },
+                corrupted: { option: "true" },
             };
 
             for (const [key, value] of Object.entries(defaultMiscFilters)) {
@@ -599,16 +623,53 @@ function buildFilters(
 }
 
 function normalizeStatText(text: string): string {
+    // Remove numbers and % signs for comparison
     return text.replace(/[+-]?\d+(\.\d+)?(%)?/g, match => match.endsWith('%') ? '#%' : '#');
 }
 
-function findStatId(normalizedText: string): string | null {
+function findStatId(text: string, context?: string): string | null {
+    const normalizedText = normalizeStatText(text);
     const lowerCaseInput = normalizedText.toLowerCase();
+
+    // Get the appropriate prefix based on context
+    let prefix = '';
+    if (text.includes('(rune)')) {
+        prefix = 'rune.';
+    } else if (text.includes('(enchant)')) {
+        prefix = 'enchant.';
+    } else if (text.includes('(implicit)')) {
+        prefix = 'implicit.';
+    }
+    // If no special context, it's an explicit mod
+
+    // First try to find exact match with the correct prefix
     for (const [id, stat] of Object.entries(flatStats)) {
-        if ((stat as StatData).text.toLowerCase() === lowerCaseInput) {
+        if (id.startsWith(prefix) && (stat as StatData).text.toLowerCase() === lowerCaseInput) {
             return id;
         }
     }
+
+    // If no exact match found with prefix, try finding the best match
+    let bestMatch: { id: string; similarity: number } | null = null;
+    for (const [id, stat] of Object.entries(flatStats)) {
+        // Only consider stats with the correct prefix
+        if (!id.startsWith(prefix)) continue;
+
+        const similarity = stringSimilarity(
+            lowerCaseInput,
+            (stat as StatData).text.toLowerCase()
+        );
+
+        if (!bestMatch || similarity > bestMatch.similarity) {
+            bestMatch = { id, similarity };
+        }
+    }
+
+    // Return the best match if it's similar enough
+    if (bestMatch && bestMatch.similarity >= 0.7) {
+        return bestMatch.id;
+    }
+
     return null;
 }
 
@@ -633,8 +694,8 @@ function extractStats(lines: string[], rangeType = RANGE_TYPES.MIN_MAX): any {
     });
 
     for (const line of modLines) {
-        const normalizedText = normalizeStatText(line);
-        const statId = findStatId(normalizedText);
+        // Pass the full line to findStatId to check for context
+        const statId = findStatId(line);
 
         if (statId) {
             const numbers = line.match(/[+-]?\d+(\.\d+)?/g);
