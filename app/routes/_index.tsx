@@ -72,7 +72,9 @@ export default function Index() {
     resetParams();
     setEditedQuery(null);
     setShowInputSearch(true);
-  }, [resetParams]);
+    updateParsedQuery(null);
+    reset();
+  }, [resetParams, updateParsedQuery, reset]);
 
   const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery) => {
     setEditedQuery(newQuery);
@@ -199,7 +201,7 @@ export default function Index() {
           </Collapsible>
 
           {/* Query Editor */}
-          {result?.parsedQuery && (
+          {result?.parsedQuery && !showInputSearch && (
             <QueryEditor
               parsedQuery={editedQuery ?? result.parsedQuery}
               onQueryChange={handleParsedQueryEdit}
