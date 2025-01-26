@@ -1,0 +1,190 @@
+{
+    "query": {
+        "status": {
+            "option": "onlineleague"
+        },
+        "stats": [
+            {
+                "type": "and",
+                "filters": [
+                    {
+                        "id": "explicit.stat_1379411836",
+                        "value": {
+                            "min": 1,
+                            "max": 2
+                        },
+                        "disabled": false
+                    },
+                    {
+                        "id": "explicit.stat_3489782002",
+                        "value": {
+                            "min": 5,
+                            "max": 1
+                        },
+                        "disabled": false
+                    }
+                ],
+                "disabled": false
+            }
+        ],
+        "filters": {
+            "equipment_filters": {
+                "disabled": false,
+                "filters": {
+                    "damage": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "crit": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "pdps": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "ar": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "es": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "spirit": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "aps": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "dps": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "edps": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "ev": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "block": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "rune_sockets": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            },
+            "req_filters": {
+                "disabled": false,
+                "filters": {
+                    "dex": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "int": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "lvl": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "str": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            },
+            "map_filters": {
+                "disabled": false,
+                "filters": {
+                    "map_tier": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "map_bonus": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            },
+            "misc_filters": {
+                "disabled": false,
+                "filters": {
+                    "gem_level": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "area_level": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "gem_sockets": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "stack_size": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "corrupted": {
+                        "option": "true"
+                    },
+                    "identified": {
+                        "option": "true"
+                    },
+                    "mirrored": {
+                        "option": "true"
+                    },
+                    "alternate_art": {
+                        "option": "true"
+                    },
+                    "sanctum_gold": {
+                        "min": 1,
+                        "max": 1
+                    },
+                    "unidentified_tier": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            },
+            "trade_filters": {
+                "disabled": false,
+                "filters": {
+                    "indexed": {
+                        "option": "1hour"
+                    }
+                }
+            },
+            "type_filters": {
+                "filters": {
+                    "category": {
+                        "option": "armour.gloves"
+                    },
+                    "rarity": {
+                        "option": "rare"
+                    },
+                    "ilvl": {
+                        "min": 10,
+                        "max": 20
+                    },
+                    "quality": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            }
+        }
+    },
+    "sort": {
+        "price": "asc"
+    }
+}

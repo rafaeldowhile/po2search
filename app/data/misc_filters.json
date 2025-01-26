@@ -1,0 +1,22 @@
+[
+    {
+        "id": "gem_level",
+        "text": "Gem Level",
+        "minMax": true
+    },
+    {
+        "id": "gem_sockets",
+        "text": "Gem Sockets",
+        "minMax": true
+    },
+    {
+        "id": "area_level",
+        "text": "Area Level",
+        "minMax": true
+    },
+    {
+        "id": "stack_size",
+        "text": "Stack Size",
+        "minMax": true
+    }
+]

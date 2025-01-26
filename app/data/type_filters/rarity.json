@@ -1,0 +1,30 @@
+[
+    {
+        "id": null,
+        "text": "Any"
+    },
+    {
+        "id": "normal",
+        "text": "Normal"
+    },
+    {
+        "id": "magic",
+        "text": "Magic"
+    },
+    {
+        "id": "rare",
+        "text": "Rare"
+    },
+    {
+        "id": "unique",
+        "text": "Unique"
+    },
+    {
+        "id": "uniquefoil",
+        "text": "Unique (Foil)"
+    },
+    {
+        "id": "nonunique",
+        "text": "Any Non-Unique"
+    }
+]
