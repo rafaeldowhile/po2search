@@ -1,7 +1,7 @@
-import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
-import { useState, useCallback } from "react";
-import type { SearchParams, SearchResult, SearchError } from "~/types/search";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useCallback, useState } from "react";
 import { validateSearchParams, type ValidationError } from "~/lib/validation";
+import type { SearchError, SearchParams, SearchResult } from "~/types/search";
 
 const SEARCH_CACHE_KEY = "poe-search";
 const MAX_RETRIES = 3;
@@ -10,7 +10,6 @@ const RETRY_DELAY = 1000; // 1 second
 interface SearchState {
     error: string | null;
     validationErrors: ValidationError[];
-    retryCount: number;
 }
 
 /**
@@ -22,7 +21,6 @@ export function useSearch() {
     const [searchState, setSearchState] = useState<SearchState>({
         error: null,
         validationErrors: [],
-        retryCount: 0,
     });
 
     // Cache the last successful search result
@@ -32,54 +30,64 @@ export function useSearch() {
         staleTime: 5 * 60 * 1000, // Consider data stale after 5 minutes
     });
 
-    const searchMutation: any = useMutation<SearchResult, SearchError, SearchParams>({
+    const searchMutation = useMutation<SearchResult, SearchError, SearchParams>({
         mutationFn: async (searchParams) => {
             // Validate params
             const validationErrors = validateSearchParams(searchParams);
             if (validationErrors.length > 0) {
+                // Instead of throwing immediately, we'll store the validation errors
+                // and return a rejected promise with a proper error object
                 setSearchState(prev => ({ ...prev, validationErrors }));
-                throw new Error("Validation failed");
-            }
-
-            try {
-                const response = await fetch("/api/search", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(searchParams),
+                return Promise.reject({
+                    type: 'ValidationError',
+                    message: 'Validation failed',
+                    validationErrors
                 });
-
-                if (!response.ok) {
-                    throw new Error("Search failed");
-                }
-
-                const data = await response.json();
-                // Update cache with successful result
-                queryClient.setQueryData([SEARCH_CACHE_KEY], data);
-                return data;
-            } catch (error) {
-                // Handle retries
-                if (searchState.retryCount < MAX_RETRIES) {
-                    setSearchState(prev => ({ ...prev, retryCount: prev.retryCount + 1 }));
-                    await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-                    return searchMutation.mutate(searchParams);
-                }
-                throw error;
             }
+
+            const response = await fetch("/api/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(searchParams),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || "Search failed");
+            }
+
+            const data = await response.json();
+            // Update cache with successful result
+            queryClient.setQueryData([SEARCH_CACHE_KEY], data);
+            return data;
         },
-        onError: (error) => {
-            setSearchState(prev => ({
-                ...prev,
-                error: error.message,
-            }));
+        onError: (error: any) => {
+            // Don't set error state for validation errors since we handle them separately
+            if (error.type !== 'ValidationError') {
+                setSearchState(prev => ({
+                    ...prev,
+                    error: error.message,
+                }));
+            }
         },
         onSuccess: () => {
             setSearchState({
                 error: null,
                 validationErrors: [],
-                retryCount: 0,
             });
+        },
+        retry: (failureCount, error: any) => {
+            // Don't retry validation errors
+            if (error.type === 'ValidationError') {
+                return false;
+            }
+            return failureCount < MAX_RETRIES;
+        },
+        retryDelay: (attemptIndex) => {
+            // Exponential backoff with a base of RETRY_DELAY
+            return Math.min(RETRY_DELAY * Math.pow(2, attemptIndex), 30000);
         },
     });
 
@@ -87,7 +95,6 @@ export function useSearch() {
         setSearchState({
             error: null,
             validationErrors: [],
-            retryCount: 0,
         });
     }, []);
 
@@ -97,17 +104,22 @@ export function useSearch() {
      * @param isRefinedSearch Whether this is a refinement of a previous search
      */
     const search = useCallback(async (params: SearchParams, isRefinedSearch = false) => {
-        // Reset state before new search
         reset();
-
-        return searchMutation.mutate(params);
-    }, [reset, searchMutation.mutate]);
+        try {
+            return await searchMutation.mutateAsync(params);
+        } catch (error: any) {
+            // If it's a validation error, we don't want to throw
+            // since the errors are already in the state
+            if (error.type !== 'ValidationError') {
+                throw error;
+            }
+        }
+    }, [reset, searchMutation.mutateAsync]);
 
     const clearErrors = () => {
         setSearchState({
             error: null,
             validationErrors: [],
-            retryCount: 0,
         });
     };
 
@@ -118,45 +130,7 @@ export function useSearch() {
         validationErrors: searchState.validationErrors,
         clearErrors,
         result: searchMutation.data ?? cachedResult,
-        retryCount: searchState.retryCount,
+        retryCount: searchMutation.failureCount,
         reset
     };
 }
-
-// Add a new helper function to preserve original values
-function preserveOriginalValues(value: any) {
-    if (!value || typeof value !== 'object') return value;
-
-    return {
-        ...value,
-        originalValue: {
-            min: value.min,
-            max: value.max
-        },
-        // By default, only use min value for search
-        max: undefined
-    };
-}
-
-// Modify the applyFilter function
-function applyFilter(filterConfig: FilterConfig, value: any): any {
-    if (!filterConfig.enabled || value === undefined || value === null) {
-        return null;
-    }
-
-    const transformedValue = filterConfig.transform(value, filterConfig);
-    if (transformedValue === null) {
-        return null;
-    }
-
-    switch (filterConfig.type) {
-        case FILTER_TYPES.RANGE: {
-            const result = preserveOriginalValues(transformedValue);
-            return Object.keys(result).length > 0 ? result : null;
-        }
-        case FILTER_TYPES.OPTION:
-            return transformedValue;
-        default:
-            return null;
-    }
-} 

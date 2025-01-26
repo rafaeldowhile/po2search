@@ -69,12 +69,20 @@ export default function Index() {
   }, [resetParams, reset]);
 
   const handleNewSearch = useCallback(() => {
+    // Reset all search params and states
     resetParams();
     setEditedQuery(null);
     setShowInputSearch(true);
     updateParsedQuery(null);
     reset();
-  }, [resetParams, updateParsedQuery, reset]);
+
+    // Reset search results and state
+    search({
+      input: '',
+      parsedQuery: null,
+      rangeType: 'min_only'
+    });
+  }, [resetParams, updateParsedQuery, reset, search]);
 
   const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery) => {
     setEditedQuery(newQuery);
@@ -100,7 +108,7 @@ export default function Index() {
     enableOnFormTags: false,
   });
 
-  useHotkeys('alt+n', () => setShowInputSearch(!showInputSearch), {
+  useHotkeys('alt+n', handleNewSearch, {
     description: 'New search',
     enableOnFormTags: false,
   });
