@@ -19,7 +19,7 @@ import type { ParsedQuery } from "~/types/search";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "PoE Item Search" },
+    { title: "PoE2 Trade Search" },
     { name: "description", content: "Search Path of Exile items" },
   ];
 };
@@ -166,7 +166,7 @@ export default function Index() {
       <Card className="w-full">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="text-3xl font-bold">PoE Item Search</CardTitle>
+            <CardTitle className="text-3xl font-bold">PoE2 Trade Search</CardTitle>
             <div className="flex items-center gap-4">
               <KeyboardShortcuts shortcuts={shortcuts} />
               <SearchHistory
