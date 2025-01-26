@@ -74,7 +74,12 @@ export async function action({ request }: ActionFunctionArgs) {
                     const activeFilters: Record<string, any> = {};
                     for (const [filterKey, isEnabled] of Object.entries(group.filterStates)) {
                         if (isEnabled && group.filters[filterKey]) {
-                            activeFilters[filterKey] = group.filters[filterKey];
+                            // Preserve originalValue but only send min for search
+                            const filter = { ...group.filters[filterKey] };
+                            if (filter.originalValue) {
+                                filter.max = undefined; // Only use min for search
+                            }
+                            activeFilters[filterKey] = filter;
                         }
                     }
                     filters[groupKey] = {
@@ -85,41 +90,29 @@ export async function action({ request }: ActionFunctionArgs) {
                 }
             }
 
-            // Handle stats filtering
+            // Handle stats filtering with original values
             if (parsedQuery.query.stats.length > 0) {
-                const activeQuery = {
+                const activeStats = searchPayload.query.stats.map(statGroup => ({
+                    ...statGroup,
+                    disabled: statGroup.filters.every((stat: any) => stat.disabled),
+                    activeFilters: statGroup.filters
+                        .filter((stat: any) => !stat.disabled)
+                        .map((stat: any) => ({
+                            ...stat,
+                            value: {
+                                ...stat.value,
+                                originalValue: stat.value.originalValue,
+                                max: undefined // Only use min for search
+                            }
+                        }))
+                }));
+
+                searchPayload = {
                     ...searchPayload,
                     query: {
                         ...searchPayload.query,
                         filters,
-                        stats: searchPayload.query.stats.map(statGroup => ({
-                            ...statGroup,
-                            disabled: statGroup.filters.every((stat: any) => stat.disabled),
-                            activeFilters: statGroup.filters.filter((stat: any) => !stat.disabled)
-                        }))
-                    }
-                };
-
-                // Create the actual search payload
-                searchPayload = {
-                    ...activeQuery,
-                    query: {
-                        ...activeQuery.query,
-                        stats: activeQuery.query.stats
-                            .filter(group => !group.disabled)
-                            .map(group => ({
-                                ...group,
-                                filters: group.activeFilters
-                            }))
-                    }
-                };
-            } else {
-                // Just update the filters if no stats
-                searchPayload = {
-                    ...searchPayload,
-                    query: {
-                        ...searchPayload.query,
-                        filters
+                        stats: activeStats
                     }
                 };
             }

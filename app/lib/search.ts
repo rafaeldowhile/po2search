@@ -164,13 +164,29 @@ const FILTER_CONFIG = {
             range_type: RANGE_TYPES.MIN_ONLY,
             enabled: true,
             extractValue: (lines: string[]) => {
-                const value = getValueFromTextKey(lines, 'Physical Damage:');
-                if (!value) return null;
-                const [min, max] = value.split('-').map(v => parseInt(v));
-                return { min, max };
+                const line = lines.find(line => line.includes('Physical Damage:'));
+                if (!line) return null;
+
+                const matches = line.match(/(\d+)-(\d+)/);
+                if (!matches) return null;
+
+                const [_, min, max] = matches;
+                return {
+                    min: parseInt(min),
+                    max: parseInt(max),
+                    originalValue: {
+                        min: parseInt(min),
+                        max: parseInt(max)
+                    }
+                };
             },
-            transform: (value: { min: number; max: number }, config: FilterConfig) => {
-                return config.range_type === RANGE_TYPES.MIN_ONLY ? value.min : value;
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
             }
         },
         aps: {
@@ -179,58 +195,45 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Attacks per Second:');
-                return value ? parseFloat(value) : null;
+                if (!value) return null;
+                const num = parseFloat(value);
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         crit: {
             type: FILTER_TYPES.RANGE,
             range_type: RANGE_TYPES.MIN_ONLY,
             enabled: true,
             extractValue: (lines: string[]) => {
-                const value = getValueFromTextKey(lines, 'Critical Hit Chance:');
-                return value ? parseFloat(value.replace('%', '')) : null;
+                const value = getValueFromTextKey(lines, 'Critical Strike Chance:');
+                if (!value) return null;
+                const num = parseFloat(value.replace('%', ''));
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
-        },
-        pdps: {
-            type: FILTER_TYPES.RANGE,
-            range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: true,
-            extractValue: (lines: string[]) => {
-                const damage = getValueFromTextKey(lines, 'Physical Damage:');
-                const aps = getValueFromTextKey(lines, 'Attacks per Second:');
-                if (!damage || !aps) return null;
-
-                const [min, max] = damage.split('-').map(v => parseInt(v));
-                const attacksPerSecond = parseFloat(aps);
-                return ((min + max) / 2) * attacksPerSecond;
-            },
-            transform: (value: number) => value
-        },
-        edps: {
-            type: FILTER_TYPES.RANGE,
-            range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: true,
-            extractValue: (lines: string[]) => {
-                // Find all elemental damage lines (fire, cold, lightning)
-                const elementalDamages = lines
-                    .filter(line => line.includes('Damage:') &&
-                        (line.includes('Fire') ||
-                            line.includes('Cold') ||
-                            line.includes('Lightning')))
-                    .map(line => {
-                        const damage = line.split(':')[1].trim();
-                        const [min, max] = damage.split('-').map(v => parseInt(v));
-                        return (min + max) / 2;
-                    });
-
-                if (elementalDamages.length === 0) return null;
-
-                // Just sum up the average elemental damages
-                return elementalDamages.reduce((sum, dmg) => sum + dmg, 0);
-            },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         ar: {
             type: FILTER_TYPES.RANGE,
@@ -238,9 +241,22 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Armour:');
-                return value ? parseInt(value) : null;
+                if (!value) return null;
+                const num = parseInt(value);
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         ev: {
             type: FILTER_TYPES.RANGE,
@@ -248,9 +264,22 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Evasion:');
-                return value ? parseInt(value) : null;
+                if (!value) return null;
+                const num = parseInt(value);
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         es: {
             type: FILTER_TYPES.RANGE,
@@ -258,9 +287,22 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Energy Shield:');
-                return value ? parseInt(value) : null;
+                if (!value) return null;
+                const num = parseInt(value);
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         block: {
             type: FILTER_TYPES.RANGE,
@@ -268,9 +310,22 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Block:');
-                return value ? parseInt(value.replace('%', '')) : null;
+                if (!value) return null;
+                const num = parseInt(value.replace('%', ''));
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         },
         spirit: {
             type: FILTER_TYPES.RANGE,
@@ -278,31 +333,22 @@ const FILTER_CONFIG = {
             enabled: true,
             extractValue: (lines: string[]) => {
                 const value = getValueFromTextKey(lines, 'Spirit:');
-                return value ? parseInt(value) : null;
+                if (!value) return null;
+                const num = parseInt(value);
+                return {
+                    min: num,
+                    max: num,
+                    originalValue: { min: num, max: num }
+                };
             },
-            transform: (value: number) => value
-        },
-        rune_sockets: {
-            type: FILTER_TYPES.RANGE,
-            range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: true,
-            extractValue: (lines: string[]) => {
-                const socketLine = lines.find(line => line.includes('Sockets:'));
-                if (!socketLine) return null;
-                const socketPart = socketLine.split(':')[1];
-                return socketPart.split(' ').filter(s => s === 'S').length;
-            },
-            transform: (value: number) => value
-        },
-        dps: {
-            type: FILTER_TYPES.RANGE,
-            range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: true,
-            extractValue: (lines: string[]) => {
-                const value = getValueFromTextKey(lines, 'Damage per Second:');
-                return value ? parseFloat(value) : null;
-            },
-            transform: (value: number) => value
+            transform: (value: { min: number; max: number; originalValue?: { min: number; max: number } }) => {
+                if (!value) return null;
+                return {
+                    min: value.min,
+                    max: value.max,
+                    originalValue: value.originalValue || { min: value.min, max: value.max }
+                };
+            }
         }
     },
     misc_filters: {
@@ -435,34 +481,35 @@ function applyFilter(filterConfig: FilterConfig, value: any): any {
 
     switch (filterConfig.type) {
         case FILTER_TYPES.RANGE: {
-            const result: { min?: number; max?: number } = {};
-            switch (filterConfig.range_type) {
-                case RANGE_TYPES.MIN_ONLY:
-                    if (transformedValue) {
-                        result.min = typeof transformedValue === 'object' ?
-                            transformedValue.min : transformedValue;
-                    }
-                    break;
-                case RANGE_TYPES.MAX_ONLY:
-                    if (transformedValue) {
-                        result.max = transformedValue;
-                    }
-                    break;
-                case RANGE_TYPES.MIN_MAX:
-                    if (transformedValue && 'min' in transformedValue && 'max' in transformedValue) {
-                        result.min = transformedValue.min;
-                        result.max = transformedValue.max;
-                    }
-                    break;
-                case RANGE_TYPES.EXACT:
-                    if (transformedValue) {
-                        result.min = transformedValue;
-                        result.max = transformedValue;
-                    }
-                    break;
-                default:
-                    return null;
+            const result: { min?: number; max?: number; originalValue?: { min?: number; max?: number } } = {};
+
+            // Handle range values with original values
+            if (typeof transformedValue === 'object') {
+                // Preserve original values if they exist
+                if (transformedValue.originalValue) {
+                    result.originalValue = transformedValue.originalValue;
+                } else {
+                    result.originalValue = {
+                        min: transformedValue.min,
+                        max: transformedValue.max
+                    };
+                }
+
+                // Only include values that are explicitly set
+                if (transformedValue.min !== undefined && transformedValue.min !== null) {
+                    result.min = transformedValue.min;
+                }
+                if (transformedValue.max !== undefined && transformedValue.max !== null) {
+                    result.max = transformedValue.max;
+                }
+            } else if (typeof transformedValue === 'number') {
+                result.originalValue = {
+                    min: transformedValue,
+                    max: transformedValue
+                };
+                result.min = transformedValue;
             }
+
             return Object.keys(result).length > 0 ? result : null;
         }
         case FILTER_TYPES.OPTION:
@@ -592,15 +639,24 @@ function extractStats(lines: string[], rangeType = RANGE_TYPES.MIN_MAX): any {
         if (statId) {
             const numbers = line.match(/[+-]?\d+(\.\d+)?/g);
             if (numbers) {
-                const value: { min?: number; max?: number } = {};
+                const value: { min?: number; max?: number; originalValue?: { min?: number; max?: number } } = {};
+                const num1 = parseFloat(numbers[0]);
+                const num2 = numbers[1] ? parseFloat(numbers[1]) : num1;
 
+                // Store original values
+                value.originalValue = {
+                    min: num1,
+                    max: num2
+                };
+
+                // Set search values based on range type
                 if (rangeType === RANGE_TYPES.MIN_ONLY) {
-                    value.min = parseFloat(numbers[0]);
+                    value.min = num1;
                 } else if (rangeType === RANGE_TYPES.MAX_ONLY) {
-                    value.max = parseFloat(numbers[0]);
+                    value.max = num1;
                 } else {
-                    value.min = parseFloat(numbers[0]);
-                    value.max = numbers[1] ? parseFloat(numbers[1]) : parseFloat(numbers[0]);
+                    value.min = num1;
+                    value.max = num2;
                 }
 
                 stats.filters.push({

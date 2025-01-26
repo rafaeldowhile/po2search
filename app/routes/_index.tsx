@@ -1,22 +1,25 @@
 import type { MetaFunction } from "@remix-run/node";
-import { ChevronDown, Copy, ExternalLink, Loader2, RotateCcw, Search } from "lucide-react";
-import { useState } from "react";
-import { Badge } from "~/components/ui/badge";
+import { RotateCcw } from "lucide-react";
+import { useState, useCallback } from "react";
+import { useHotkeys } from 'react-hotkeys-hook';
+import { KeyboardShortcuts } from "~/components/keyboard-shortcuts";
+import { QueryEditor } from "~/components/search/query-editor/query-editor";
+import { ResultsView } from "~/components/search/results-view";
+import { SearchHistory } from "~/components/search/search-history";
+import { SearchInput } from "~/components/search/search-input";
 import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "~/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/components/ui/collapsible";
-import { Label } from "~/components/ui/label";
-import { PoEItemCard } from "~/components/ui/poe-item-card";
-import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/popover";
-import { Switch } from "~/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
-import { Textarea } from "~/components/ui/textarea";
-import flatStats from '~/data/flat_stats.json';
-import { useToast } from "~/hooks/use-toast";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { Collapsible, CollapsibleContent } from "~/components/ui/collapsible";
+import { DEFAULT_SEARCH_PARAMS, RANGE_TYPES } from "~/constants/search";
 import equipmentFilters from '~/data/equipment_filters.json';
+import miscFilters from '~/data/misc_filters.json';
 import reqFilters from '~/data/req_filters.json';
 import typeFilters from '~/data/type_filters.json';
-import miscFilters from '~/data/misc_filters.json';
+import { useSearch } from "~/hooks/use-search";
+import { useSearchHistory } from "~/hooks/use-search-history";
+import { useToast } from "~/hooks/use-toast";
+import type { ParsedQuery, SearchParams } from "~/types/search";
+import { useSearchParams } from "~/hooks/use-search-params";
 
 export const meta: MetaFunction = () => {
   return [
@@ -24,14 +27,6 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Search Path of Exile items" },
   ];
 };
-
-const RANGE_TYPES = {
-  MIN_ONLY: "min_only",
-  MAX_ONLY: "max_only",
-  MINMAX: "minmax",
-} as const;
-
-const POE2_TRADE_URL = "https://www.pathofexile.com/trade2/search/poe2/Standard";
 
 interface SearchRequestBody {
   input?: string;
@@ -135,112 +130,120 @@ const getGroupDisplayName = (groupKey: string): string => {
 };
 
 export default function Index() {
-  const [searchParams, setSearchParams] = useState<SearchRequestBody>({
-    input: "",
-    rangeType: RANGE_TYPES.MIN_ONLY,
-    enableStats: true,
-    enabledFilterGroups: {
-      type_filters: true,
-      req_filters: true,
-      equipment_filters: true,
-      misc_filters: true,
-    },
-  });
-  const [isSearching, setIsSearching] = useState(false);
-  const [result, setResult] = useState<any>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [searchHistory, setSearchHistory] = useState<string[]>([]);
-  const { toast } = useToast();
   const [showInputSearch, setShowInputSearch] = useState(false);
+  const { toast } = useToast();
+  const {
+    searchParams,
+    updateInput,
+    updateParsedQuery,
+    resetParams
+  } = useSearchParams();
 
-  const handleSearch = async (isRefinedSearch = false) => {
-    if (!isRefinedSearch && !searchParams.input?.trim()) {
-      setError("Input is required");
-      return;
-    }
+  const {
+    search,
+    isSearching,
+    error,
+    result,
+    validationErrors,
+    retryCount,
+  } = useSearch();
+  const { searchHistory, addToHistory } = useSearchHistory();
 
-    setIsSearching(true);
-    setError(null);
+  const [editedQuery, setEditedQuery] = useState<ParsedQuery | null>(null);
 
-    try {
-      const response = await fetch("/api/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(isRefinedSearch ? {
-          parsedQuery: result.parsedQuery
-        } : searchParams),
-      });
+  const handleInputChange = useCallback((value: string) => {
+    updateInput(value);
+  }, [updateInput]);
 
-      if (!response.ok) {
-        throw new Error("Search failed");
-      }
-
-      const data = await response.json();
-      setResult(data);
-
-      // Only update search history for new searches, not refinements
-      if (!isRefinedSearch) {
-        setSearchHistory((prev) => [searchParams.input!, ...prev.slice(0, 4)]);
-        // Hide the input search after a successful initial search
-        setShowInputSearch(false);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An unknown error occurred");
-    } finally {
-      setIsSearching(false);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setSearchParams((prev) => ({ ...prev, input: e.target.value }));
-  };
-
-  const handleRangeTypeChange = (value: string) => {
-    setSearchParams((prev) => ({ ...prev, rangeType: value }));
-  };
-
-  const handleCopy = () => {
+  const handleCopy = useCallback(() => {
+    if (!result) return;
     navigator.clipboard.writeText(JSON.stringify(result, null, 2));
     toast({
       title: "Copied to clipboard",
       description: "The search result has been copied to your clipboard.",
     });
-  };
+  }, [result, toast]);
 
-  const handleClear = () => {
-    setSearchParams({
-      input: "",
-      rangeType: RANGE_TYPES.MIN_ONLY,
-      enableStats: true,
-      enabledFilterGroups: {
-        type_filters: true,
-        req_filters: true,
-        equipment_filters: true,
-        misc_filters: true,
-      },
-    });
-    setResult(null);
-    setError(null);
+  const handleClear = useCallback(() => {
+    resetParams();
     setShowInputSearch(true);
-  };
+  }, [resetParams]);
 
-  const getTradeUrl = (searchId: string) => {
-    return `${POE2_TRADE_URL}/${searchId}`;
-  };
+  const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery) => {
+    setEditedQuery(newQuery);
+  }, []);
 
-  const handleParsedQueryEdit = (newQuery: any) => {
-    // Update the result's parsedQuery
-    setResult((prev: any) => ({
-      ...prev,
-      parsedQuery: newQuery
-    }));
-  };
+  const handleRunQuery = useCallback(() => {
+    if (editedQuery) {
+      search({
+        ...searchParams,
+        parsedQuery: editedQuery,
+      }, true);
+    }
+  }, [editedQuery, searchParams, search]);
 
-  // Add a new button to rerun search with modified query
-  const handleRerunSearch = () => {
-    handleSearch(true);
+  const handleHistorySelect = useCallback((item: string) => {
+    updateInput(item);
+    setShowInputSearch(true);
+  }, [updateInput]);
+
+  // Define hotkeys
+  useHotkeys('shift+/', () => setShowInputSearch(true), {
+    description: 'Focus search input',
+    enableOnFormTags: false,
+  });
+
+  useHotkeys('alt+n', () => setShowInputSearch(!showInputSearch), {
+    description: 'New search',
+    enableOnFormTags: false,
+  });
+
+  useHotkeys('alt+r', () => handleRunQuery(), {
+    description: 'Rerun search',
+    enableOnFormTags: false,
+  });
+
+  useHotkeys('alt+c', handleClear, {
+    description: 'Clear search',
+    enableOnFormTags: false,
+  });
+
+  useHotkeys('esc', () => setShowInputSearch(false), {
+    description: 'Close search input',
+    enableOnFormTags: true,
+  });
+
+  // Get all registered hotkeys for the help dialog
+  const shortcuts = [
+    { key: 'shift + /', description: 'Focus search input' },
+    { key: 'alt + n', description: 'New search' },
+    { key: 'alt + r', description: 'Rerun search' },
+    { key: 'alt + c', description: 'Clear search' },
+    { key: 'esc', description: 'Close search input' },
+  ];
+
+  const handleSearch = async (isRefinedSearch = false) => {
+    if (isRefinedSearch) {
+      await search({ ...searchParams, parsedQuery: result?.parsedQuery }, true);
+    } else {
+      await search(searchParams);
+      if (searchParams.input) {
+        addToHistory(searchParams.input);
+        setShowInputSearch(false);
+      }
+    }
+
+    // Show validation errors if any
+    if (validationErrors.length > 0) {
+      validationErrors.forEach(error => {
+        toast({
+          title: "Validation Error",
+          description: `${error.field}: ${error.message}`,
+          variant: "destructive",
+        });
+      });
+      return;
+    }
   };
 
   return (
@@ -250,33 +253,11 @@ export default function Index() {
           <div className="flex items-center justify-between">
             <CardTitle className="text-3xl font-bold">PoE Item Search</CardTitle>
             <div className="flex items-center gap-4">
-              {/* Recent Searches Popover */}
-              {searchHistory.length > 0 && (
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button variant="outline" size="sm">
-                      Recent Searches
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-80">
-                    <div className="flex flex-wrap gap-2">
-                      {searchHistory.map((item, index) => (
-                        <Badge
-                          key={index}
-                          variant="secondary"
-                          className="cursor-pointer"
-                          onClick={() => {
-                            setSearchParams((prev) => ({ ...prev, input: item }));
-                            setShowInputSearch(true);
-                          }}
-                        >
-                          {item.slice(0, 30)}...
-                        </Badge>
-                      ))}
-                    </div>
-                  </PopoverContent>
-                </Popover>
-              )}
+              <KeyboardShortcuts shortcuts={shortcuts} />
+              <SearchHistory
+                history={searchHistory}
+                onSelect={handleHistorySelect}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -298,410 +279,39 @@ export default function Index() {
         <CardContent className="space-y-4">
           <Collapsible open={showInputSearch}>
             <CollapsibleContent className="space-y-4">
-              <Textarea
-                value={searchParams.input}
+              <SearchInput
+                value={searchParams.input || ""}
                 onChange={handleInputChange}
-                placeholder="Enter item details here..."
-                className="min-h-[200px] font-mono text-sm"
+                onSearch={() => handleSearch()}
+                isSearching={isSearching}
               />
-              <Button onClick={() => handleSearch()} disabled={isSearching} className="w-full">
-                {isSearching ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Searching...
-                  </>
-                ) : (
-                  <>
-                    <Search className="mr-2 h-4 w-4" />
-                    Search
-                  </>
-                )}
-              </Button>
             </CollapsibleContent>
           </Collapsible>
 
-          {/* Query Editor - Only show when we have a result */}
+          {/* Query Editor */}
           {result?.parsedQuery && (
-            <Card className="w-full max-w-4xl mx-auto">
-              <Collapsible defaultOpen={false}>
-                <div className="flex items-center justify-between p-4 bg-muted/50 rounded-t-lg cursor-pointer">
-                  <CollapsibleTrigger asChild>
-                    <div className="flex items-center gap-2">
-                      <Button variant="ghost" size="sm">
-                        <ChevronDown className="h-4 w-4" />
-                      </Button>
-                      <h3 className="text-lg font-semibold">Query Editor</h3>
-                    </div>
-                  </CollapsibleTrigger>
-                  <Button
-                    onClick={handleRerunSearch}
-                    disabled={isSearching}
-                    size="sm"
-                  >
-                    {isSearching ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>
-                        <Search className="mr-2 h-4 w-4" />
-                        Run Query
-                      </>
-                    )}
-                  </Button>
-                </div>
-
-                <CollapsibleContent>
-                  <div className="p-4 space-y-4">
-                    <div className="flex items-center space-x-2">
-                      <Switch
-                        id="parsed-stats"
-                        checked={result?.parsedQuery?.query?.stats?.length > 0}
-                        onCheckedChange={(checked) => {
-                          const newQuery = {
-                            ...result.parsedQuery,
-                            query: {
-                              ...result.parsedQuery.query,
-                              stats: checked ? result.parsedQuery.query.stats : []
-                            }
-                          };
-                          handleParsedQueryEdit(newQuery);
-                        }}
-                      />
-                      <Label htmlFor="parsed-stats">Stats Filtering</Label>
-                    </div>
-
-                    {result?.parsedQuery?.query?.stats?.[0]?.filters?.map((stat: any, index: number) => (
-                      <div key={index} className="flex items-center space-x-4 ml-4">
-                        <Switch
-                          id={`stat-${index}`}
-                          checked={!stat.disabled}
-                          onCheckedChange={(checked) => {
-                            const newQuery = {
-                              ...result.parsedQuery,
-                              query: {
-                                ...result.parsedQuery.query,
-                                stats: result.parsedQuery.query.stats.map((statGroup: any) => ({
-                                  ...statGroup,
-                                  filters: statGroup.filters.map((s: any, i: number) =>
-                                    i === index ? { ...s, disabled: !checked } : s
-                                  )
-                                }))
-                              }
-                            };
-                            handleParsedQueryEdit(newQuery);
-                          }}
-                        />
-                        <Label htmlFor={`stat-${index}`} className="text-sm flex-1">
-                          {flatStats[stat.id]?.text || stat.id}
-                        </Label>
-                        <RangeInputs
-                          value={stat.value}
-                          originalValue={stat.originalValue}
-                          onChange={(newValue) => {
-                            const newQuery = {
-                              ...result.parsedQuery,
-                              query: {
-                                ...result.parsedQuery.query,
-                                stats: result.parsedQuery.query.stats.map((statGroup: any) => ({
-                                  ...statGroup,
-                                  filters: statGroup.filters.map((s: any, i: number) =>
-                                    i === index ? { ...s, value: newValue } : s
-                                  )
-                                }))
-                              }
-                            };
-                            handleParsedQueryEdit(newQuery);
-                          }}
-                        />
-                      </div>
-                    ))}
-
-                    {/* Type Filters Section */}
-                    {Object.entries(result?.parsedQuery?.query?.filters || {}).map(([groupKey, group]: [string, any]) => (
-                      <div key={groupKey} className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <Label className="text-base font-semibold">
-                            {getGroupDisplayName(groupKey)}
-                          </Label>
-                          <Switch
-                            id={`filter-group-${groupKey}`}
-                            checked={!group.disabled}
-                            onCheckedChange={(checked) => {
-                              const newQuery = {
-                                ...result.parsedQuery,
-                                query: {
-                                  ...result.parsedQuery.query,
-                                  filters: {
-                                    ...result.parsedQuery.query.filters,
-                                    [groupKey]: {
-                                      ...group,
-                                      disabled: !checked
-                                    }
-                                  }
-                                }
-                              };
-                              handleParsedQueryEdit(newQuery);
-                            }}
-                          />
-                        </div>
-
-                        {/* Individual Filter Toggles */}
-                        {group.filterStates && Object.entries(group.filterStates).map(([filterKey, isEnabled]: [string, boolean]) => (
-                          <div key={filterKey} className="flex items-center space-x-4 ml-4">
-                            <Switch
-                              id={`filter-${groupKey}-${filterKey}`}
-                              checked={isEnabled}
-                              onCheckedChange={(checked) => {
-                                const newQuery = {
-                                  ...result.parsedQuery,
-                                  query: {
-                                    ...result.parsedQuery.query,
-                                    filters: {
-                                      ...result.parsedQuery.query.filters,
-                                      [groupKey]: {
-                                        ...group,
-                                        filterStates: {
-                                          ...group.filterStates,
-                                          [filterKey]: checked
-                                        }
-                                      }
-                                    }
-                                  }
-                                };
-                                handleParsedQueryEdit(newQuery);
-                              }}
-                            />
-                            <Label htmlFor={`filter-${groupKey}-${filterKey}`} className="text-sm flex-1">
-                              {getFilterName(groupKey, filterKey)}
-                            </Label>
-                            {group.filters[filterKey].min !== undefined && (
-                              <RangeInputs
-                                value={group.filters[filterKey]}
-                                originalValue={group.filters[filterKey].originalValue}
-                                onChange={(newValue) => {
-                                  const newQuery = {
-                                    ...result.parsedQuery,
-                                    query: {
-                                      ...result.parsedQuery.query,
-                                      filters: {
-                                        ...result.parsedQuery.query.filters,
-                                        [groupKey]: {
-                                          ...group,
-                                          filters: {
-                                            ...group.filters,
-                                            [filterKey]: {
-                                              ...group.filters[filterKey],
-                                              ...newValue
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  };
-                                  handleParsedQueryEdit(newQuery);
-                                }}
-                              />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-            </Card>
+            <QueryEditor
+              parsedQuery={editedQuery ?? result.parsedQuery}
+              onQueryChange={handleParsedQueryEdit}
+              onSearch={handleRunQuery}
+              isSearching={isSearching}
+            />
           )}
+
+          <ResultsView
+            result={result}
+            error={error}
+            onCopy={handleCopy}
+            isLoading={isSearching}
+            onOpenQueryEditor={() => {
+              const queryEditor = document.querySelector('[data-query-editor-trigger]');
+              if (queryEditor instanceof HTMLElement) {
+                queryEditor.click();
+              }
+            }}
+          />
         </CardContent>
       </Card>
-
-      {/* Results Section */}
-      {(result || error) && (
-        <Card className="w-full max-w-4xl mx-auto">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-4">
-              <CardTitle>Search Results</CardTitle>
-              {result?.matches > 0 && (
-                <Badge variant="secondary">
-                  {result.matches} {result.matches === 1 ? 'match' : 'matches'} found
-                </Badge>
-              )}
-              {result?.items?.length > 0 && (
-                <Badge variant="outline">
-                  Showing {result.items.length} items
-                </Badge>
-              )}
-              {result?.searchId && (
-                <Button
-                  variant="link"
-                  size="sm"
-                  className="text-muted-foreground"
-                  onClick={() => window.open(getTradeUrl(result.searchId), '_blank')}
-                >
-                  Open on PathOfExile Trade
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              )}
-            </div>
-          </CardHeader>
-          <CardContent>
-            {error ? (
-              <p className="text-destructive">{error}</p>
-            ) : (
-              <Tabs defaultValue="details" className="w-full">
-                <TabsList>
-                  <TabsTrigger value="details">Details</TabsTrigger>
-                  <TabsTrigger value="raw">Raw</TabsTrigger>
-                </TabsList>
-                <TabsContent value="details">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {result?.items?.map((item: any, index: number) => (
-                      <PoEItemCard
-                        key={index}
-                        item={item.item}
-                        listing={item.listing}
-                      />
-                    ))}
-                  </div>
-                </TabsContent>
-                <TabsContent value="raw">
-                  <div className="space-y-4">
-                    <Collapsible>
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold">Parsed Query</h3>
-                        <div className="flex items-center space-x-2">
-                          <CollapsibleTrigger asChild>
-                            <Button variant="ghost" size="sm">
-                              <ChevronDown className="h-4 w-4" />
-                            </Button>
-                          </CollapsibleTrigger>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={handleRerunSearch}
-                            disabled={isSearching}
-                          >
-                            {isSearching ? (
-                              <Loader2 className="h-4 w-4 animate-spin" />
-                            ) : (
-                              "Rerun Search"
-                            )}
-                          </Button>
-                        </div>
-                      </div>
-                      <CollapsibleContent>
-                        <div className="mt-2 space-y-2">
-                          <div className="flex items-center space-x-2">
-                            <Switch
-                              id="parsed-stats"
-                              checked={result?.parsedQuery?.query?.stats?.length > 0}
-                              onCheckedChange={(checked) => {
-                                const newQuery = {
-                                  ...result.parsedQuery,
-                                  query: {
-                                    ...result.parsedQuery.query,
-                                    stats: checked ? result.parsedQuery.query.stats : []
-                                  }
-                                };
-                                handleParsedQueryEdit(newQuery);
-                              }}
-                            />
-                            <Label htmlFor="parsed-stats">Stats Filtering</Label>
-                          </div>
-
-                          {result?.parsedQuery?.query?.stats?.[0]?.filters?.map((stat: any, index: number) => (
-                            <div key={index} className="flex items-center space-x-4 ml-4">
-                              <Switch
-                                id={`stat-${index}`}
-                                checked={!stat.disabled}
-                                onCheckedChange={(checked) => {
-                                  const newQuery = {
-                                    ...result.parsedQuery,
-                                    query: {
-                                      ...result.parsedQuery.query,
-                                      stats: result.parsedQuery.query.stats.map((statGroup: any) => ({
-                                        ...statGroup,
-                                        filters: statGroup.filters.map((s: any, i: number) =>
-                                          i === index ? { ...s, disabled: !checked } : s
-                                        )
-                                      }))
-                                    }
-                                  };
-                                  handleParsedQueryEdit(newQuery);
-                                }}
-                              />
-                              <Label htmlFor={`stat-${index}`} className="text-sm flex-1">
-                                {flatStats[stat.id]?.text || stat.id}
-                              </Label>
-                              <RangeInputs
-                                value={stat.value}
-                                originalValue={stat.originalValue}
-                                onChange={(newValue) => {
-                                  const newQuery = {
-                                    ...result.parsedQuery,
-                                    query: {
-                                      ...result.parsedQuery.query,
-                                      stats: result.parsedQuery.query.stats.map((statGroup: any) => ({
-                                        ...statGroup,
-                                        filters: statGroup.filters.map((s: any, i: number) =>
-                                          i === index ? { ...s, value: newValue } : s
-                                        )
-                                      }))
-                                    }
-                                  };
-                                  handleParsedQueryEdit(newQuery);
-                                }}
-                              />
-                            </div>
-                          ))}
-
-                          <div className="grid gap-2">
-                            {Object.entries(result?.parsedQuery?.query?.filters || {}).map(([key, value]: [string, any]) => (
-                              <div key={key} className="flex items-center space-x-2">
-                                <Switch
-                                  id={`parsed-${key}`}
-                                  checked={!value.disabled}
-                                  onCheckedChange={(checked) => {
-                                    const newQuery = {
-                                      ...result.parsedQuery,
-                                      query: {
-                                        ...result.parsedQuery.query,
-                                        filters: {
-                                          ...result.parsedQuery.query.filters,
-                                          [key]: {
-                                            ...value,
-                                            disabled: !checked
-                                          }
-                                        }
-                                      }
-                                    };
-                                    handleParsedQueryEdit(newQuery);
-                                  }}
-                                />
-                                <Label htmlFor={`parsed-${key}`}>{key.replace(/_/g, ' ')}</Label>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </CollapsibleContent>
-                    </Collapsible>
-
-                    <pre className="whitespace-pre-wrap font-mono text-sm">
-                      {JSON.stringify(result, null, 2)}
-                    </pre>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            )}
-          </CardContent>
-          {result && (
-            <CardFooter>
-              <Button onClick={handleCopy} variant="outline" className="ml-auto">
-                <Copy className="mr-2 h-4 w-4" />
-                Copy Result
-              </Button>
-            </CardFooter>
-          )}
-        </Card>
-      )}
     </div>
   );
 }
