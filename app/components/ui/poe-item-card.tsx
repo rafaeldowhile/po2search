@@ -284,7 +284,7 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
                         "text-xs shrink-0 ml-2",
                         matched ? "text-green-500" : "text-muted-foreground"
                     )}>
-                        ({tier} - {name})
+                        ({tier})
                     </span>
                 )}
             </div>
