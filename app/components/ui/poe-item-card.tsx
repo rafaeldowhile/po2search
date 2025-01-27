@@ -157,6 +157,54 @@ function Sockets({ sockets }: { sockets?: { group: number; sColor: string }[] })
     );
 }
 
+function ItemMods({ item }: { item: any }) {
+    if (!item) return null;
+
+    return (
+        <div className="space-y-2">
+            {/* Implicit Mods */}
+            {item.implicitMods?.length > 0 && (
+                <div className="space-y-1">
+                    <div className="text-xs text-muted-foreground">Implicit Modifier{item.implicitMods.length > 1 ? 's' : ''}</div>
+                    {item.implicitMods.map((mod: string, idx: number) => (
+                        <div key={idx} className="text-xs text-blue-400">{mod}</div>
+                    ))}
+                </div>
+            )}
+
+            {/* Explicit Mods */}
+            {item.explicitMods?.length > 0 && (
+                <div className="space-y-1">
+                    <div className="text-xs text-muted-foreground">Explicit Modifier{item.explicitMods.length > 1 ? 's' : ''}</div>
+                    {item.explicitMods.map((mod: string, idx: number) => (
+                        <div key={idx} className="text-xs text-blue-500">{mod}</div>
+                    ))}
+                </div>
+            )}
+
+            {/* Crafted Mods */}
+            {item.craftedMods?.length > 0 && (
+                <div className="space-y-1">
+                    <div className="text-xs text-muted-foreground">Crafted Modifier{item.craftedMods.length > 1 ? 's' : ''}</div>
+                    {item.craftedMods.map((mod: string, idx: number) => (
+                        <div key={idx} className="text-xs text-blue-300">{mod}</div>
+                    ))}
+                </div>
+            )}
+
+            {/* Enchant Mods */}
+            {item.enchantMods?.length > 0 && (
+                <div className="space-y-1">
+                    <div className="text-xs text-muted-foreground">Enchantment{item.enchantMods.length > 1 ? 's' : ''}</div>
+                    {item.enchantMods.map((mod: string, idx: number) => (
+                        <div key={idx} className="text-xs text-purple-400">{mod}</div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
 export function PoEItemCard({ item, listing }: PoEItemCardProps) {
     const { toast } = useToast();
     const currencyData = getCurrencyData(listing.price.currency);
@@ -241,24 +289,26 @@ export function PoEItemCard({ item, listing }: PoEItemCardProps) {
                 </div>
 
                 {/* Properties and Mods */}
-                <div className="mt-2 space-y-1">
+                <div className="mt-2 space-y-2">
                     {/* Properties */}
-                    {item.properties?.map((prop: any, idx: number) => (
-                        <div key={idx} className="text-xs flex justify-between text-muted-foreground">
-                            <span>{prop.name}</span>
-                            <span>{prop.values[0]?.[0] || "-"}</span>
+                    {item.properties?.length > 0 && (
+                        <div className="space-y-1">
+                            {item.properties?.map((prop: any, idx: number) => (
+                                <div key={idx} className="text-xs flex justify-between text-muted-foreground">
+                                    <span>{prop.name}</span>
+                                    <span>{prop.values[0]?.[0] || "-"}</span>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    )}
 
-                    {/* Divider if both properties and mods exist */}
-                    {(item.properties?.length || item.grantedSkills?.length) && item.explicitMods?.length ? (
-                        <div className="border-t my-2" />
-                    ) : null}
+                    {/* Divider if properties exist */}
+                    {item.properties?.length > 0 && (
+                        <div className="border-t" />
+                    )}
 
-                    {/* Explicit Mods */}
-                    {item.explicitMods?.map((mod: string, idx: number) => (
-                        <div key={idx} className="text-xs text-blue-500">{mod}</div>
-                    ))}
+                    {/* Mods */}
+                    <ItemMods item={item} />
                 </div>
 
                 {/* Footer */}
