@@ -3,7 +3,7 @@ import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 import { Copy, ExternalLink } from "lucide-react";
 import { PoEItemCard } from "~/components/ui/poe-item-card";
-import type { SearchResult } from "~/types/search";
+import type { SearchResult, ParsedQuery } from "~/types/search";
 import { POE2_TRADE_URL } from "~/constants/search";
 import { LoadingState } from "~/components/ui/loading-state";
 import { EmptyState } from "./empty-state";
@@ -14,6 +14,7 @@ interface ResultsViewProps {
     onCopy: () => void;
     isLoading?: boolean;
     onOpenQueryEditor: () => void;
+    parsedQuery?: ParsedQuery;
 }
 
 export function ResultsView({
@@ -21,7 +22,8 @@ export function ResultsView({
     error,
     onCopy,
     isLoading,
-    onOpenQueryEditor
+    onOpenQueryEditor,
+    parsedQuery
 }: ResultsViewProps) {
     if (!result && !error && !isLoading) return null;
 
@@ -71,11 +73,12 @@ export function ResultsView({
                 />
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {result?.items?.map((item, index) => (
+                    {result?.items?.map((item: any) => (
                         <PoEItemCard
-                            key={index}
+                            key={item.id}
                             item={item.item}
                             listing={item.listing}
+                            parsedQuery={parsedQuery}
                         />
                     ))}
                 </div>

@@ -234,6 +234,7 @@ export default function Index() {
                 queryEditor.click();
               }
             }}
+            parsedQuery={editedQuery || result?.parsedQuery}
           />
         </CardContent>
       </Card>
