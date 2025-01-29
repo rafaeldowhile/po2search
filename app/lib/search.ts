@@ -442,6 +442,19 @@ const FILTER_CONFIG = {
     }
 };
 
+// First, let's add a configuration for default disabled states
+const DEFAULT_DISABLED_FILTERS: { [key: string]: { [key: string]: boolean } } = {
+    req_filters: {
+        lvl: true,
+        str: true,
+        dex: true,
+        int: true
+    },
+    type_filters: {
+        ilvl: true,
+    },
+};
+
 function parseText(input: string): string[] {
     return input.split('\n').filter(line => line !== '--------');
 }
@@ -560,7 +573,7 @@ function buildFilters(
         }
 
         const filters: { [key: string]: any } = {};
-        const filterStates: { [key: string]: boolean } = {}; // Track individual filter states
+        const filterStates: { [key: string]: boolean } = {};
         let hasFilters = false;
 
         for (const [filterName, filterConfig] of Object.entries(filterGroup)) {
@@ -569,7 +582,9 @@ function buildFilters(
 
             if (filterResult !== null) {
                 filters[filterName] = filterResult;
-                filterStates[filterName] = true; // Default to enabled
+                // Check if this filter should be disabled by default
+                const shouldBeDisabled = DEFAULT_DISABLED_FILTERS[groupName as keyof typeof DEFAULT_DISABLED_FILTERS]?.[filterName];
+                filterStates[filterName] = !shouldBeDisabled; // false if should be disabled, true otherwise
                 hasFilters = true;
             }
         }
@@ -761,7 +776,7 @@ function search(input: string, options: SearchOptions = {}): SearchResult {
             filters,
             stats: Object.keys(stats).length > 0 ? [stats] : [],
             status: {
-                option: "onlineleague"
+                option: "any"
             }
         },
         sort: {

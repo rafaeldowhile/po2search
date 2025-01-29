@@ -8,6 +8,7 @@ import { cn } from "~/lib/utils";
 import flatStats from "~/data/flat_stats.json";
 import { ParsedQuery } from "~/types/search";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import { formatDistanceToNow } from 'date-fns';
 
 
 interface PoEItemCardProps {
@@ -598,9 +599,14 @@ export function PoEItemCard({ item, listing, parsedQuery }: PoEItemCardProps) {
 
                 {/* Footer */}
                 <div className="flex items-center flex-col justify-between pt-2 border-t gap-2">
-                    <span className="text-xs text-muted-foreground">
-                        {listing.account.name}
-                    </span>
+                    <div className="flex flex-col items-center gap-0.5">
+                        <span className="text-xs text-muted-foreground">
+                            {listing.account.name}
+                        </span>
+                        <span className="text-[10px] text-muted-foreground/80">
+                            Listed {formatDistanceToNow(new Date(listing.indexed))} ago
+                        </span>
+                    </div>
                     <Button
                         variant="ghost"
                         size="sm"
