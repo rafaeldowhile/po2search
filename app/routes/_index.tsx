@@ -102,6 +102,26 @@ export default function Index() {
     setShowInputSearch(true);
   }, [updateInput]);
 
+  const handleSortChange = useCallback((value: string) => {
+    if (editedQuery) {
+      setEditedQuery({
+        ...editedQuery,
+        sort: {
+          ...editedQuery.sort,
+          price: value
+        }
+      });
+      // Optionally trigger a new search immediately
+      search({
+        ...searchParams,
+        parsedQuery: {
+          ...editedQuery,
+          sort: { ...editedQuery.sort, price: value }
+        }
+      }, true);
+    }
+  }, [editedQuery, searchParams, search]);
+
   // Define hotkeys
   useHotkeys('shift+/', () => setShowInputSearch(true), {
     description: 'Focus search input',
@@ -235,6 +255,7 @@ export default function Index() {
               }
             }}
             parsedQuery={editedQuery || result?.parsedQuery}
+            onSortChange={handleSortChange}
           />
         </CardContent>
       </Card>

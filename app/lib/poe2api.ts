@@ -125,10 +125,16 @@ class POE2TradeAPI {
             throw new Error('Item IDs must be a non-empty array');
         }
 
-        const batchSize = 10;
+        const batchSize = 10; // API limit of 10 items per request
         const batches = [];
+        
+        // Split itemIds into batches of 10
         for (let i = 0; i < itemIds.length; i += batchSize) {
-            const batch = itemIds.slice(i, i + batchSize);
+            batches.push(itemIds.slice(i, i + batchSize));
+        }
+
+        // Create fetch promises for all batches
+        const fetchPromises = batches.map(async (batch) => {
             const url = `${this.baseUrl}/fetch/${batch.join(',')}?query=${query}&realm=${realm}`;
 
             const headers = {
@@ -154,19 +160,18 @@ class POE2TradeAPI {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
-                batches.push(response.data);
-
-                if (i + batchSize < itemIds.length) {
-                    await new Promise(resolve => setTimeout(resolve, 100));
-                }
+                return response.data;
             } catch (error) {
                 console.error('Error fetching item details:', error);
                 throw error;
             }
-        }
+        });
+
+        // Execute all requests in parallel
+        const results = await Promise.all(fetchPromises);
 
         const combinedResult = {
-            result: batches.flatMap(batch => batch.result || [])
+            result: results.flatMap(batch => batch.result || [])
         };
 
         return {

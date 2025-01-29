@@ -99,8 +99,8 @@ const FILTER_CONFIG = {
         quality: {
             type: FILTER_TYPES.RANGE,
             range_type: RANGE_TYPES.MIN_ONLY,
-            enabled: false,
-            extractValue: (lines: string[]) => extractOnlyNumber(getValueFromTextKey(lines, 'Quality:')),
+            enabled: true,
+            extractValue: (lines: string[]) => extractOnlyNumber(getValueFromTextKey(lines, '[Quality]:')),
             transform: (value: string) => parseInt(value, 10)
         },
         category: {
@@ -452,7 +452,16 @@ const DEFAULT_DISABLED_FILTERS: { [key: string]: { [key: string]: boolean } } = 
     },
     type_filters: {
         ilvl: true,
+        quality: true
     },
+};
+
+// Add this mapping near the top of the file with other constants
+const MANUAL_CATEGORY_MAPPING: { [key: string]: string } = {
+    "Staves": "weapon.staff",
+    "Staff": "weapon.staff",
+    "Foci": "accessory.focus",
+    // Add more manual mappings if needed
 };
 
 function parseText(input: string): string[] {
@@ -472,6 +481,12 @@ function getCategory(inputData: string[]): string {
     const value = getValueFromTextKey(inputData, 'Item Class:')
     if (!value) {
         throw new Error('No Item Class found in input');
+    }
+
+    // First check manual mapping
+    const manualCategory = MANUAL_CATEGORY_MAPPING[value];
+    if (manualCategory) {
+        return manualCategory;
     }
 
     const normalizedValue = value.toLowerCase();

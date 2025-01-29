@@ -9,6 +9,7 @@ import { memo } from "react";
 import { getFilterName, getGroupDisplayName } from "~/lib/filters";
 import flatStats from "~/data/flat_stats.json";
 import typeFiltersData from '~/data/type_filters.json';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 
 interface QueryEditorProps {
     parsedQuery: ParsedQuery;
@@ -224,6 +225,16 @@ export const QueryEditor = memo(function QueryEditor({
         )
     ].length;
 
+    const handleSortChange = (value: string) => {
+        onQueryChange({
+            ...parsedQuery,
+            sort: {
+                ...parsedQuery.sort,
+                price: value
+            }
+        });
+    };
+
     return (
         <div className="w-full border rounded-lg bg-background p-3 space-y-4">
             <div className="flex items-center justify-between">
@@ -233,21 +244,35 @@ export const QueryEditor = memo(function QueryEditor({
                         {activeFiltersCount} active filters
                     </div>
                 </div>
-                <Button
-                    onClick={onSearch}
-                    disabled={isSearching}
-                    size="sm"
-                    className="bg-primary hover:bg-primary/90 h-7 text-xs"
-                >
-                    {isSearching ? (
-                        <Loader2 className="h-3 w-3 animate-spin" />
-                    ) : (
-                        <>
-                            <Search className="h-3 w-3 mr-1.5" />
-                            Run Query
-                        </>
-                    )}
-                </Button>
+                <div className="flex items-center gap-2">
+                    <Select
+                        value={parsedQuery.sort?.price || 'asc'}
+                        onValueChange={handleSortChange}
+                    >
+                        <SelectTrigger className="h-7 w-[100px] text-xs">
+                            <SelectValue placeholder="Sort by" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="asc" className="text-xs">Price: Low to High</SelectItem>
+                            <SelectItem value="desc" className="text-xs">Price: High to Low</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <Button
+                        onClick={onSearch}
+                        disabled={isSearching}
+                        size="sm"
+                        className="bg-primary hover:bg-primary/90 h-7 text-xs"
+                    >
+                        {isSearching ? (
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                        ) : (
+                            <>
+                                <Search className="h-3 w-3 mr-1.5" />
+                                Run Query
+                            </>
+                        )}
+                    </Button>
+                </div>
             </div>
 
             <div className="grid grid-cols-2 gap-x-6 gap-y-4">

@@ -7,6 +7,7 @@ import type { SearchResult, ParsedQuery } from "~/types/search";
 import { POE2_TRADE_URL } from "~/constants/search";
 import { LoadingState } from "~/components/ui/loading-state";
 import { EmptyState } from "./empty-state";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 
 interface ResultsViewProps {
     result?: SearchResult;
@@ -15,6 +16,7 @@ interface ResultsViewProps {
     isLoading?: boolean;
     onOpenQueryEditor: () => void;
     parsedQuery?: ParsedQuery;
+    onSortChange?: (value: string) => void;
 }
 
 export function ResultsView({
@@ -23,7 +25,8 @@ export function ResultsView({
     onCopy,
     isLoading,
     onOpenQueryEditor,
-    parsedQuery
+    parsedQuery,
+    onSortChange
 }: ResultsViewProps) {
     if (!result && !error && !isLoading) return null;
 
@@ -44,6 +47,22 @@ export function ResultsView({
                         <Badge variant="outline">
                             Showing {result.items.length} items
                         </Badge>
+                    )}
+                </div>
+                <div className="flex items-center gap-2">
+                    {hasResults && (
+                        <Select
+                            value={parsedQuery?.sort?.price || 'asc'}
+                            onValueChange={onSortChange}
+                        >
+                            <SelectTrigger className="h-8">
+                                <SelectValue placeholder="Sort by price" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="asc">Price: Low to High</SelectItem>
+                                <SelectItem value="desc">Price: High to Low</SelectItem>
+                            </SelectContent>
+                        </Select>
                     )}
                     {result?.searchId && (
                         <Button
