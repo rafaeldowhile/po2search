@@ -716,8 +716,9 @@ function extractStats(lines: string[], rangeType = RANGE_TYPES.MIN_MAX): any {
         type: string;
         filters: StatFilter[];
         disabled: boolean;
+        value?: { min?: number; max?: number };
     } = {
-        type: "and",
+        type: "and", // Default to "and" type
         filters: [],
         disabled: false
     };
@@ -732,7 +733,6 @@ function extractStats(lines: string[], rangeType = RANGE_TYPES.MIN_MAX): any {
     });
 
     for (const line of modLines) {
-        // Pass the full line to findStatId to check for context
         const statId = findStatId(line);
 
         if (statId) {

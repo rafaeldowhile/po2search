@@ -17,6 +17,8 @@ interface ResultsViewProps {
     onOpenQueryEditor: () => void;
     parsedQuery?: ParsedQuery;
     onSortChange?: (value: string) => void;
+    onQueryChange: (newQuery: ParsedQuery) => void;
+    onSearch: () => void;
 }
 
 export function ResultsView({
@@ -26,12 +28,14 @@ export function ResultsView({
     isLoading,
     onOpenQueryEditor,
     parsedQuery,
-    onSortChange
+    onSortChange,
+    onQueryChange,
+    onSearch
 }: ResultsViewProps) {
     if (!result && !error && !isLoading) return null;
 
     const hasResults = result?.items && result.items.length > 0;
-    const showEmptyState = result && !isLoading && !error && !hasResults;
+    const showEmptyState = !isLoading && !error && !hasResults;
 
     return (
         <div className="space-y-4">
@@ -87,8 +91,11 @@ export function ResultsView({
                 </div>
             ) : showEmptyState ? (
                 <EmptyState
-                    searchId={result.searchId}
+                    searchId={result?.searchId}
                     onOpenQueryEditor={onOpenQueryEditor}
+                    parsedQuery={parsedQuery}
+                    onQueryChange={onQueryChange}
+                    onSearch={onSearch}
                 />
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

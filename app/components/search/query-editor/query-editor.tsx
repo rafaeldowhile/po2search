@@ -10,6 +10,7 @@ import { getFilterName, getGroupDisplayName } from "~/lib/filters";
 import flatStats from "~/data/flat_stats.json";
 import typeFiltersData from '~/data/type_filters.json';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
+import { Label } from "~/components/ui/label";
 
 interface QueryEditorProps {
     parsedQuery: ParsedQuery;
@@ -285,14 +286,110 @@ export const QueryEditor = memo(function QueryEditor({
                             <div className="h-px flex-1 bg-border" />
                         </CollapsibleTrigger>
                         <CollapsibleContent className="pt-1.5">
-                            <div className="space-y-0.5">
-                                {parsedQuery.query.stats[0]?.filters.map((stat, index) => (
-                                    <StatFilterRow
-                                        key={stat.id}
-                                        stat={stat}
-                                        onUpdate={(updates) => updateStats(index, updates)}
-                                    />
-                                ))}
+                            <div className="space-y-2">
+                                {/* Stats Mode Selection */}
+                                <div className="flex items-center gap-4 pb-2">
+                                    <div className="flex items-center gap-1.5">
+                                        <input
+                                            type="radio"
+                                            id="and"
+                                            name="stats-mode"
+                                            value="and"
+                                            checked={parsedQuery.query.stats[0]?.type === 'and'}
+                                            onChange={(e) => {
+                                                const newStats = [...parsedQuery.query.stats];
+                                                if (newStats[0]) {
+                                                    newStats[0] = {
+                                                        ...newStats[0],
+                                                        type: 'and',
+                                                        value: undefined
+                                                    };
+                                                    onQueryChange({
+                                                        ...parsedQuery,
+                                                        query: {
+                                                            ...parsedQuery.query,
+                                                            stats: newStats
+                                                        }
+                                                    });
+                                                }
+                                            }}
+                                            className="h-3 w-3"
+                                        />
+                                        <Label htmlFor="and" className="text-xs cursor-pointer">Match All</Label>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <input
+                                            type="radio"
+                                            id="count"
+                                            name="stats-mode"
+                                            value="count"
+                                            checked={parsedQuery.query.stats[0]?.type === 'count'}
+                                            onChange={(e) => {
+                                                const newStats = [...parsedQuery.query.stats];
+                                                if (newStats[0]) {
+                                                    newStats[0] = {
+                                                        ...newStats[0],
+                                                        type: 'count',
+                                                        value: { min: 1 }
+                                                    };
+                                                    onQueryChange({
+                                                        ...parsedQuery,
+                                                        query: {
+                                                            ...parsedQuery.query,
+                                                            stats: newStats
+                                                        }
+                                                    });
+                                                }
+                                            }}
+                                            className="h-3 w-3"
+                                        />
+                                        <Label htmlFor="count" className="text-xs cursor-pointer">Count Matching</Label>
+                                    </div>
+                                </div>
+
+                                {/* Count input in count mode */}
+                                {parsedQuery.query.stats[0]?.type === 'count' && (
+                                    <div className="flex items-center gap-2 pb-2">
+                                        <Label className="text-xs text-muted-foreground">
+                                            Minimum matching stats:
+                                        </Label>
+                                        <Input
+                                            type="number"
+                                            value={parsedQuery.query.stats[0]?.value?.min ?? ''}
+                                            onChange={(e) => {
+                                                const newStats = [...parsedQuery.query.stats];
+                                                if (newStats[0]) {
+                                                    newStats[0] = {
+                                                        ...newStats[0],
+                                                        value: {
+                                                            ...newStats[0].value,
+                                                            min: e.target.value ? Number(e.target.value) : undefined
+                                                        }
+                                                    };
+                                                    onQueryChange({
+                                                        ...parsedQuery,
+                                                        query: {
+                                                            ...parsedQuery.query,
+                                                            stats: newStats
+                                                        }
+                                                    });
+                                                }
+                                            }}
+                                            className="w-20 h-6 text-xs"
+                                            placeholder="Min count"
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="space-y-0.5">
+                                    {parsedQuery.query.stats[0]?.filters.map((stat, index) => (
+                                        <StatFilterRow
+                                            key={stat.id}
+                                            stat={stat}
+                                            onUpdate={(updates) => updateStats(index, updates)}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </CollapsibleContent>
                     </Collapsible>

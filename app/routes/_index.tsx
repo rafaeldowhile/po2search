@@ -254,6 +254,8 @@ export default function Index() {
                 queryEditor.click();
               }
             }}
+            onQueryChange={handleParsedQueryEdit}
+            onSearch={handleRunQuery}
             parsedQuery={editedQuery || result?.parsedQuery}
             onSortChange={handleSortChange}
           />
