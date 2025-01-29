@@ -1,4 +1,4 @@
-import { Copy } from "lucide-react";
+import { Copy, ArrowDownIcon, ArrowUpIcon } from "lucide-react";
 import { Badge } from "./badge";
 import { Button } from "./button";
 import { useToast } from "~/hooks/use-toast";
@@ -7,6 +7,8 @@ import { Card } from "./card";
 import { cn } from "~/lib/utils";
 import flatStats from "~/data/flat_stats.json";
 import { ParsedQuery } from "~/types/search";
+import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+
 
 interface PoEItemCardProps {
     item: any;
@@ -192,7 +194,8 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
                     name: "Rune Effect",
                     tier: null,
                     matched: !!matchingFilter,
-                    type
+                    type,
+                    hash
                 };
             }).filter(Boolean);
         }
@@ -200,7 +203,6 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
         return hashMapping
             .filter(([_, indices]) => indices !== null)
             .map(([hash, [modIndex]], index) => {
-                // Rest of the function remains the same for other mod types
                 const mod = extendedMods?.[modIndex];
                 if (!mod) return null;
 
@@ -228,7 +230,8 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
                     name: mod.name,
                     tier: mod.tier,
                     matched: !!matchingFilter,
-                    type
+                    type,
+                    hash
                 };
             }).filter(Boolean);
     };
@@ -255,10 +258,50 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
         'enchant'
     );
 
+    const compareValues = (text: string, matchingFilter: any) => {
+        if (!matchingFilter?.value) return null;
+        
+        const numbers = extractNumbers(text);
+        // Prioritize user-set values over original values
+        const filterMin = matchingFilter.value.min ?? matchingFilter.value.originalValue?.min;
+        const filterMax = matchingFilter.value.max ?? matchingFilter.value.originalValue?.max ?? filterMin;
+
+        // For mods with min-max ranges (e.g., "Adds 6-9 damage" vs "Adds 4-7 damage")
+        if (numbers.length === 2 && filterMin !== undefined) {
+            // Compare both min and max values
+            const itemMin = numbers[0];
+            const itemMax = numbers[1];
+            
+            // Calculate percentage difference for both min and max
+            const minDiff = ((itemMin - filterMin) / filterMin) * 100;
+            const maxDiff = ((itemMax - filterMax) / filterMax) * 100;
+            
+            // Use the average of the two differences
+            const avgDiff = Math.round((minDiff + maxDiff) / 2);
+            
+            if (avgDiff > 0) {
+                return { type: 'higher', diff: avgDiff };
+            } else if (avgDiff < 0) {
+                return { type: 'lower', diff: Math.abs(avgDiff) };
+            }
+        } 
+        // For single value mods
+        else if (numbers[0] !== undefined && filterMin !== undefined) {
+            if (numbers[0] > filterMin) {
+                const percentDiff = Math.round(((numbers[0] - filterMin) / filterMin) * 100);
+                return { type: 'higher', diff: percentDiff };
+            } else if (numbers[0] < filterMin) {
+                const percentDiff = Math.round(((filterMin - numbers[0]) / filterMin) * 100);
+                return { type: 'lower', diff: percentDiff };
+            }
+        }
+        return null;
+    };
+
     const renderMod = (modInfo: ReturnType<typeof buildMods>[0], baseClassName: string) => {
         if (!modInfo) return null;
 
-        const { text, matched, tier, name, type } = modInfo;
+        const { text, matched, tier, name, type, hash } = modInfo;
 
         // Choose color based on mod type
         const textColor = {
@@ -268,6 +311,43 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
             enchant: "text-purple-400"
         }[type];
 
+        // Find matching filter to compare values
+        const matchingFilter = parsedQuery?.query?.stats?.[0]?.filters?.find(
+            filter => filter.id === hash && !filter.disabled
+        );
+
+        const comparison = matched ? compareValues(text, matchingFilter) : null;
+
+        // Format the search criteria for the tooltip using the original mod text pattern
+        const searchCriteria = matchingFilter?.value && (() => {
+            const statInfo = flatStats[hash];
+            if (!statInfo) return null;
+
+            let tooltipText = statInfo.text;
+            const min = matchingFilter.value.min ?? matchingFilter.value.originalValue?.min;
+            const max = matchingFilter.value.max ?? matchingFilter.value.originalValue?.max;
+
+            // Count how many # symbols are in the text
+            const hashCount = (tooltipText.match(/#/g) || []).length;
+
+            if (hashCount === 2) {
+                // For mods with two values (ranges), handle "Adds # to # Damage" format
+                const parts = tooltipText.split('#');
+                if (parts.length === 3 && parts[1].includes('to')) {
+                    // This is a "# to #" format
+                    return `${parts[0]}${min} to ${max}${parts[2]}`;
+                } else {
+                    // Other formats with two numbers
+                    return `${parts[0]}${min}-${max}${parts[1]}${min}-${max}${parts[2]}`;
+                }
+            } else {
+                // For mods with single values
+                tooltipText = tooltipText.replace(/#/g, min?.toString() || '#');
+            }
+
+            return tooltipText;
+        })();
+
         return (
             <div className="flex items-center justify-between py-0.5">
                 <div className="flex items-center gap-2">
@@ -275,9 +355,59 @@ function ItemMods({ item, parsedQuery }: { item: any, parsedQuery?: ParsedQuery 
                         "w-1.5 h-1.5 rounded-full shrink-0",
                         matched ? "bg-green-500" : "bg-border"
                     )} />
-                    <span className={cn("leading-relaxed", baseClassName, textColor)}>
-                        {text}
-                    </span>
+                    {matched && searchCriteria ? (
+                        <Popover>
+                            <PopoverTrigger asChild>
+                                <div 
+                                    className="flex items-center gap-1 cursor-default"
+                                    onMouseEnter={(e) => {
+                                        const target = e.currentTarget;
+                                        const popover = target.nextElementSibling;
+                                        if (popover) {
+                                            popover.setAttribute('data-state', 'open');
+                                        }
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        const target = e.currentTarget;
+                                        const popover = target.nextElementSibling;
+                                        if (popover) {
+                                            popover.setAttribute('data-state', 'closed');
+                                        }
+                                    }}
+                                >
+                                    <span className={cn("leading-relaxed", baseClassName, textColor)}>
+                                        {text}
+                                    </span>
+                                    {comparison?.type === 'higher' && (
+                                        <div className="flex items-center gap-0.5 text-green-500">
+                                            <ArrowUpIcon className="h-3 w-3" />
+                                            <span className="text-xs">+{comparison.diff}%</span>
+                                        </div>
+                                    )}
+                                    {comparison?.type === 'lower' && (
+                                        <div className="flex items-center gap-0.5 text-red-500">
+                                            <ArrowDownIcon className="h-3 w-3" />
+                                            <span className="text-xs">-{comparison.diff}%</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </PopoverTrigger>
+                            <PopoverContent 
+                                className="px-3 py-1.5 text-xs pointer-events-none"
+                                side="top"
+                                align="center"
+                                sideOffset={5}
+                            >
+                                Your search: {searchCriteria}
+                            </PopoverContent>
+                        </Popover>
+                    ) : (
+                        <div className="flex items-center gap-1">
+                            <span className={cn("leading-relaxed", baseClassName, textColor)}>
+                                {text}
+                            </span>
+                        </div>
+                    )}
                 </div>
                 {tier && (
                     <span className={cn(
