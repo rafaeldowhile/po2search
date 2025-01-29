@@ -140,7 +140,7 @@ export async function action({ request }: ActionFunctionArgs) {
         }
 
         const totalResults = searchResult.result.length;
-        const itemIds = searchResult.result.slice(0, 12);
+        const itemIds = searchResult.result.slice(0, 100);
         const fetchResult = await api.fetch(itemIds, searchResult.id);
 
         return json({
