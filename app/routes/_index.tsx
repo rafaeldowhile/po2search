@@ -84,9 +84,15 @@ export default function Index() {
     });
   }, [resetParams, updateParsedQuery, reset, search]);
 
-  const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery) => {
+  const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery, shouldSearch = false) => {
     setEditedQuery(newQuery);
-  }, []);
+    if (shouldSearch) {
+      search({
+        ...searchParams,
+        parsedQuery: newQuery,
+      }, true);
+    }
+  }, [searchParams, search]);
 
   const handleRunQuery = useCallback(() => {
     if (editedQuery) {
@@ -121,6 +127,14 @@ export default function Index() {
       }, true);
     }
   }, [editedQuery, searchParams, search]);
+
+  const handleQueryEditorChange = useCallback((newQuery: ParsedQuery) => {
+    handleParsedQueryEdit(newQuery, false);
+  }, [handleParsedQueryEdit]);
+
+  const handleResultsViewChange = useCallback((newQuery: ParsedQuery) => {
+    handleParsedQueryEdit(newQuery, true);
+  }, [handleParsedQueryEdit]);
 
   // Define hotkeys
   useHotkeys('shift+/', () => setShowInputSearch(true), {
@@ -233,16 +247,17 @@ export default function Index() {
             </CollapsibleContent>
           </Collapsible>
 
-          {/* Query Editor */}
+          {/* Query Editor - Don't trigger search on every change */}
           {result?.parsedQuery && !showInputSearch && (
             <QueryEditor
               parsedQuery={editedQuery ?? result.parsedQuery}
-              onQueryChange={handleParsedQueryEdit}
+              onQueryChange={handleQueryEditorChange}
               onSearch={handleRunQuery}
               isSearching={isSearching}
             />
           )}
 
+          {/* Results View - Do trigger search on count mode changes */}
           <ResultsView
             result={result}
             error={error}
@@ -254,8 +269,7 @@ export default function Index() {
                 queryEditor.click();
               }
             }}
-            onQueryChange={handleParsedQueryEdit}
-            onSearch={handleRunQuery}
+            onQueryChange={handleResultsViewChange}
             parsedQuery={editedQuery || result?.parsedQuery}
             onSortChange={handleSortChange}
           />

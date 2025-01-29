@@ -16,6 +16,7 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
         const currentStats = parsedQuery?.query?.stats?.[0];
         if (!currentStats) return;
 
+        // Count all enabled stats, including runes and enchants
         const enabledStatsCount = currentStats.filters.filter(f => !f.disabled).length;
         const newMinCount = Math.max(1, enabledStatsCount - 1);
 

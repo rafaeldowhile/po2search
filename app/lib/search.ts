@@ -415,7 +415,7 @@ const FILTER_CONFIG = {
         corrupted: {
             type: FILTER_TYPES.OPTION,
             enabled: true,
-            extractValue: (lines: string[]) => lines.some(line => line.includes('Corrupted')),
+            extractValue: (lines: string[]) => lines.some(line => line.trim() === 'Corrupted' || line.trim() === '[Corrupted]'),
             transform: (value: boolean) => ({ option: value.toString() })
         },
         identified: {

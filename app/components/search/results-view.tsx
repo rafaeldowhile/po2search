@@ -1,13 +1,12 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "~/components/ui/card";
-import { Button } from "~/components/ui/button";
+import { ExternalLink } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
-import { Copy, ExternalLink } from "lucide-react";
-import { PoEItemCard } from "~/components/ui/poe-item-card";
-import type { SearchResult, ParsedQuery } from "~/types/search";
-import { POE2_TRADE_URL } from "~/constants/search";
+import { Button } from "~/components/ui/button";
 import { LoadingState } from "~/components/ui/loading-state";
-import { EmptyState } from "./empty-state";
+import { PoEItemCard } from "~/components/ui/poe-item-card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
+import { POE2_TRADE_URL } from "~/constants/search";
+import type { ParsedQuery, SearchResult } from "~/types/search";
+import { EmptyState } from "./empty-state";
 
 interface ResultsViewProps {
     result?: SearchResult;
