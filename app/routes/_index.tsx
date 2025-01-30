@@ -198,40 +198,44 @@ export default function Index() {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
+    <div className="container mx-auto px-2 sm:px-4 py-4 space-y-6 sm:space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
       <Card className="w-full">
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 sm:gap-6">
             <div className="space-y-2">
-              <CardTitle className="text-3xl font-bold">PoE2 Trade Search</CardTitle>
+              <CardTitle className="text-2xl sm:text-3xl font-bold">PoE2 Trade Search</CardTitle>
               <p className="text-sm text-muted-foreground">
                 A simple tool to help you price check and find upgrades for your Path of Exile 2 items.
               </p>
             </div>
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-              <KeyboardShortcuts shortcuts={shortcuts} />
-              <SearchHistory
-                history={searchHistory}
-                onSelect={handleHistorySelect}
-              />
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleNewSearch}
-                className="bg-background hover:bg-accent hover:text-accent-foreground"
-              >
-                {showInputSearch ? "Hide Input" : "New Search"}
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleClear}
-                className="bg-background hover:bg-accent hover:text-accent-foreground"
-              >
-                <RotateCcw className="h-4 w-4 mr-2" />
-                Clear All
-              </Button>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <ThemeToggle />
+                <KeyboardShortcuts shortcuts={shortcuts} />
+                <SearchHistory
+                  history={searchHistory}
+                  onSelect={handleHistorySelect}
+                />
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleNewSearch}
+                  className="flex-1 sm:flex-none bg-background hover:bg-accent hover:text-accent-foreground"
+                >
+                  {showInputSearch ? "Hide Input" : "New Search"}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleClear}
+                  className="flex-1 sm:flex-none bg-background hover:bg-accent hover:text-accent-foreground"
+                >
+                  <RotateCcw className="h-4 w-4 mr-2" />
+                  Clear All
+                </Button>
+              </div>
             </div>
           </div>
         </CardHeader>
