@@ -17,6 +17,7 @@ import { useSearchParams } from "~/hooks/use-search-params";
 import { useToast } from "~/hooks/use-toast";
 import type { ParsedQuery } from "~/types/search";
 import { ThemeToggle } from "~/components/theme-toggle";
+import { SearchPreview } from "~/components/search/search-preview";
 
 export const meta: MetaFunction = () => {
   return [
@@ -246,7 +247,10 @@ export default function Index() {
                 isSearching={isSearching}
               />
               {!result && !isSearching && !error && (
-                <SearchGuide />
+                <>
+                  <SearchGuide />
+                  <SearchPreview />
+                </>
               )}
             </CollapsibleContent>
           </Collapsible>
