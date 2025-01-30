@@ -13,6 +13,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { useState } from "react";
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes";
 import { themeSessionResolver } from "~/utils/theme-session.server";
+import { Theme } from "remix-themes";
 
 import tailwind from "./tailwind.css?url";
 
@@ -40,7 +41,7 @@ export const meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async ({ request }) => {
   const themeSession = await themeSessionResolver(request);
-  const theme = await themeSession.getTheme();
+  const theme = await themeSession.getTheme() || Theme.LIGHT;
   const session = await themeSession.commit();
 
   return json(

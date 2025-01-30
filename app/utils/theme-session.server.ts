@@ -8,7 +8,7 @@ const sessionStorage = createCookieSessionStorage({
     httpOnly: true,
     sameSite: "lax",
     secrets: [process.env.SESSION_SECRET || "theme_secret_k3y_f0r_s3cur1ty_2024"],
-    secure: process.env.NODE_ENV === "production",
+    ...(process.env.NODE_ENV === "production" ? { domain: "poe2search.com", secure: true } : {}),
   },
 });
 
