@@ -1,16 +1,20 @@
+import type { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useRouteLoaderData,
 } from "@remix-run/react";
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React, { useState } from "react";
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes";
+import { themeSessionResolver } from "~/utils/theme-session.server";
 
-import tailwind from "./tailwind.css?url"
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import React from "react";
-
+import tailwind from "./tailwind.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,28 +28,42 @@ export const links: LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
   { rel: "stylesheet", href: tailwind, as: "style" },
-  { rel: "icon", href: "data:," },
 ];
 
 export const meta: MetaFunction = () => {
   return [
     { charset: "utf-8" },
-    { title: "Your App Name" },
+    { title: "PoE2 Trade Search" },
     { viewport: "width=device-width,initial-scale=1" },
-    // Override any favicon meta tags with null
-    { rel: "icon", href: null },
-    { rel: "shortcut icon", href: null },
-    { rel: "apple-touch-icon", href: null },
   ];
 };
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const loader: LoaderFunction = async ({ request }) => {
+  const { getTheme } = await themeSessionResolver(request);
+  const theme = await getTheme();
+  return json({
+    theme,
+    env: {
+      NODE_ENV: process.env.NODE_ENV,
+    }
+  });
+};
+
+const HTMLRender = ({
+  ssrTheme,
+  children,
+}: {
+  ssrTheme: boolean;
+  children: React.ReactNode;
+}) => {
+  const [theme] = useTheme();
   return (
-    <html lang="en">
+    <html lang="en" className={theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <PreventFlashOnWrongTheme ssrTheme={ssrTheme} />
         <Links />
       </head>
       <body>
@@ -55,23 +73,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+};
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  const { theme } = useRouteLoaderData<typeof loader>("root") ?? {};
+  const [client] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+      },
+    },
+  }));
+
+  return (
+    <QueryClientProvider client={client}>
+      <ThemeProvider
+        disableTransitionOnThemeChange
+        specifiedTheme={theme}
+        themeAction="/api/theme"
+      >
+        <HTMLRender ssrTheme={!!theme}>{children}</HTMLRender>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default function App() {
-  const [queryClient] = React.useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            staleTime: 60 * 1000,
-          },
-        },
-      }),
-  )
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-    </QueryClientProvider>
-  );
+  const { env } = useLoaderData<typeof loader>();
+  return <Outlet context={{ env }} />;
 }

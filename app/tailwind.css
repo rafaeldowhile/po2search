@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;

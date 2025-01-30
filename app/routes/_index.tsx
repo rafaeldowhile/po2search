@@ -16,6 +16,7 @@ import { useSearchHistory } from "~/hooks/use-search-history";
 import { useSearchParams } from "~/hooks/use-search-params";
 import { useToast } from "~/hooks/use-toast";
 import type { ParsedQuery } from "~/types/search";
+import { ThemeToggle } from "~/components/theme-toggle";
 
 export const meta: MetaFunction = () => {
   return [
@@ -196,7 +197,7 @@ export default function Index() {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-8 max-w-[1400px]">
+    <div className="container mx-auto p-4 space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
       <Card className="w-full">
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -207,6 +208,7 @@ export default function Index() {
               </p>
             </div>
             <div className="flex items-center gap-4">
+              <ThemeToggle />
               <KeyboardShortcuts shortcuts={shortcuts} />
               <SearchHistory
                 history={searchHistory}

@@ -40,18 +40,8 @@ export const SearchInput = memo(function SearchInput({
                 className="w-full min-h-[100px] p-3 text-sm bg-background border rounded-md resize-y"
                 onKeyDown={handleKeyDown}
             />
-            <div className="flex justify-between items-center">
+            <div className="flex justify-end items-center gap-4">
                 <div className="flex items-center gap-4">
-                    <Select value={rangeType} onValueChange={onRangeTypeChange}>
-                        <SelectTrigger className="w-[180px]">
-                            <SelectValue placeholder="Select range type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="min_only">Minimum Values Only</SelectItem>
-                            <SelectItem value="max_only">Maximum Values Only</SelectItem>
-                            <SelectItem value="minmax">Min and Max Values</SelectItem>
-                        </SelectContent>
-                    </Select>
                     <p className="text-sm text-muted-foreground">
                         Press {navigator.platform.includes('Mac') ? '⌘' : 'Ctrl'} + Enter to search
                     </p>

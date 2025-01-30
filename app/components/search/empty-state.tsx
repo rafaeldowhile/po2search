@@ -16,14 +16,10 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
         const currentStats = parsedQuery?.query?.stats?.[0];
         if (!currentStats) return;
 
-        // Count all enabled stats, including runes and enchants
         const enabledStatsCount = currentStats.filters.filter(f => !f.disabled).length;
         const newMinCount = Math.max(1, enabledStatsCount - 1);
 
-        // Show how many stats will be required
-        const message = `Try matching ${newMinCount} out of ${enabledStatsCount} stats`;
-
-        return { newMinCount, message };
+        return { newMinCount, enabledStatsCount };
     };
 
     const countSuggestion = handleSwitchToCount();
@@ -33,54 +29,18 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
         const currentStats = parsedQuery?.query?.stats?.[0];
         if (!currentStats || !countSuggestion) return;
 
-        // If already in count mode, reduce the count by 1
-        if (isCountMode) {
-            const currentMin = currentStats.value?.min || 0;
-            const enabledStatsCount = currentStats.filters.filter(f => !f.disabled).length;
-            const newMinCount = Math.max(1, currentMin - 1);
-
-            onQueryChange({
-                ...parsedQuery,
-                query: {
-                    ...parsedQuery.query,
-                    stats: [{
-                        ...currentStats,
-                        value: { min: newMinCount }
-                    }]
-                }
-            });
-        } else {
-            // Switch to count mode
-            onQueryChange({
-                ...parsedQuery,
-                query: {
-                    ...parsedQuery.query,
-                    stats: [{
-                        ...currentStats,
-                        type: 'count',
-                        value: { min: countSuggestion.newMinCount }
-                    }]
-                }
-            });
-        }
-
-        // Immediately trigger the search
+        onQueryChange({
+            ...parsedQuery,
+            query: {
+                ...parsedQuery.query,
+                stats: [{
+                    ...currentStats,
+                    type: 'count',
+                    value: { min: countSuggestion.newMinCount }
+                }]
+            }
+        });
         onSearch();
-    };
-
-    const getButtonText = () => {
-        const currentStats = parsedQuery?.query?.stats?.[0];
-        if (!currentStats) return '';
-
-        const enabledStatsCount = currentStats.filters.filter(f => !f.disabled).length;
-        
-        if (isCountMode) {
-            const currentMin = currentStats.value?.min || 0;
-            if (currentMin <= 1) return `Currently matching ${currentMin} out of ${enabledStatsCount} stats`;
-            return `Try matching ${currentMin - 1} out of ${enabledStatsCount} stats`;
-        }
-        
-        return countSuggestion?.message || `Try matching ${enabledStatsCount - 1} out of ${enabledStatsCount} stats`;
     };
 
     return (
@@ -89,23 +49,43 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                 <AlertCircle className="h-8 w-8 text-muted-foreground/70" />
             </div>
 
-            <div className="max-w-[450px] text-center space-y-3 mb-8">
+            <div className="max-w-[450px] text-center space-y-4 mb-8">
                 <h3 className="text-xl font-semibold">
-                    No items found
+                    No exact matches found
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                    We couldn't find any items matching your search criteria. You can try:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-2 mt-2">
-                    <li className="flex items-center gap-2 justify-center">
-                        <Filter className="h-4 w-4" />
-                        Adjusting your filters to broaden your search
-                    </li>
-                    <li className="flex items-center gap-2 justify-center">
-                        <ExternalLink className="h-4 w-4" />
-                        Continuing your search on Path of Exile Trade
-                    </li>
-                </ul>
+                <div className="space-y-6">
+                    {!isCountMode && countSuggestion && (
+                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 space-y-2">
+                            <h4 className="font-medium text-sm text-primary">Recommended: Try Count Matching</h4>
+                            <p className="text-sm text-muted-foreground">
+                                Instead of requiring all {countSuggestion.enabledStatsCount} stats to match, we can search for items with at least {countSuggestion.newMinCount} matching stats.
+                            </p>
+                            <Button
+                                variant="default"
+                                size="sm"
+                                onClick={handleCountModeSwitch}
+                                className="w-full mt-2"
+                            >
+                                <Calculator className="mr-2 h-4 w-4" />
+                                Try with {countSuggestion.newMinCount} matching stats
+                            </Button>
+                        </div>
+                    )}
+
+                    <div className="space-y-2">
+                        <h4 className="font-medium text-sm">Other options to find matches:</h4>
+                        <ul className="text-sm text-muted-foreground space-y-3">
+                            <li className="flex items-start gap-2">
+                                <Filter className="h-4 w-4 mt-0.5 shrink-0" />
+                                <span>Adjust your stat ranges or disable some less important stats</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <ExternalLink className="h-4 w-4 mt-0.5 shrink-0" />
+                                <span>Continue your search on Path of Exile Trade</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
@@ -117,15 +97,6 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                     <Filter className="mr-2 h-4 w-4" />
                     Adjust Filters
                 </Button>
-                <Button
-                    variant="secondary"
-                    className="flex-1"
-                    onClick={handleCountModeSwitch}
-                    disabled={parsedQuery?.query?.stats?.[0]?.value?.min === 1}
-                >
-                    <Calculator className="mr-2 h-4 w-4" />
-                    {getButtonText()}
-                </Button>
                 {searchId && (
                     <Button
                         variant="outline"
@@ -136,20 +107,6 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                         Open in PoE Trade
                     </Button>
                 )}
-            </div>
-
-            {/* Quick Tips */}
-            <div className="mt-8 w-full max-w-md">
-                <div className="bg-muted/30 rounded-lg p-4">
-                    <h4 className="font-medium text-sm mb-2">Quick Tips</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1.5">
-                        <li>• Try removing some stat filters</li>
-                        <li>• Reduce the Match Count</li>
-                        <li>• Increase the min-max ranges</li>
-                        <li>• Check if required stats are enabled</li>
-                        <li>• Consider alternative item types</li>
-                    </ul>
-                </div>
             </div>
         </div>
     );
