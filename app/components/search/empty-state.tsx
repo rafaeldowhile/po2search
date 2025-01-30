@@ -17,9 +17,17 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
         if (!currentStats) return;
 
         const enabledStatsCount = currentStats.filters.filter(f => !f.disabled).length;
-        const newMinCount = Math.max(1, enabledStatsCount - 1);
+        const currentMinCount = currentStats.type === 'count' 
+            ? currentStats.value?.min ?? enabledStatsCount 
+            : enabledStatsCount;
+        
+        const newMinCount = Math.max(1, currentMinCount - 1);
 
-        return { newMinCount, enabledStatsCount };
+        return { 
+            newMinCount, 
+            enabledStatsCount,
+            currentMinCount 
+        };
     };
 
     const countSuggestion = handleSwitchToCount();
@@ -36,12 +44,16 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                 stats: [{
                     ...currentStats,
                     type: 'count',
-                    value: { min: countSuggestion.newMinCount }
+                    value: {
+                        min: countSuggestion.newMinCount
+                    }
                 }]
             }
         });
         onSearch();
     };
+
+    if (!countSuggestion) return null;
 
     return (
         <div className="flex flex-col items-center justify-center py-16 px-4">
@@ -54,20 +66,28 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                     No exact matches found
                 </h3>
                 <div className="space-y-6">
-                    {!isCountMode && countSuggestion && (
+                    {countSuggestion && (
                         <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 space-y-2">
-                            <h4 className="font-medium text-sm text-primary">Recommended: Try Count Matching</h4>
+                            <h4 className="font-medium text-sm text-primary">
+                                {isCountMode ? 'Recommended: Reduce Required Stats' : 'Recommended: Try Count Matching'}
+                            </h4>
                             <p className="text-sm text-muted-foreground">
-                                Instead of requiring all {countSuggestion.enabledStatsCount} stats to match, we can search for items with at least {countSuggestion.newMinCount} matching stats.
+                                {isCountMode 
+                                    ? `Currently requiring ${countSuggestion.currentMinCount} matching stats. We can reduce this to ${countSuggestion.newMinCount} to see more results.`
+                                    : `Instead of requiring all ${countSuggestion.enabledStatsCount} stats to match, we can search for items with at least ${countSuggestion.newMinCount} matching stats.`
+                                }
                             </p>
-                            <Button
+                            <Button 
                                 variant="default"
                                 size="sm"
                                 onClick={handleCountModeSwitch}
                                 className="w-full mt-2"
                             >
                                 <Calculator className="mr-2 h-4 w-4" />
-                                Try with {countSuggestion.newMinCount} matching stats
+                                {isCountMode 
+                                    ? `Reduce to ${countSuggestion.newMinCount} matching stats`
+                                    : `Try with ${countSuggestion.newMinCount} matching stats`
+                                }
                             </Button>
                         </div>
                     )}
@@ -75,11 +95,7 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
                     <div className="space-y-2">
                         <h4 className="font-medium text-sm">Other options to find matches:</h4>
                         <ul className="text-sm text-muted-foreground space-y-3">
-                            <li className="flex items-start gap-2">
-                                <Filter className="h-4 w-4 mt-0.5 shrink-0" />
-                                <span>Adjust your stat ranges or disable some less important stats</span>
-                            </li>
-                            <li className="flex items-start gap-2">
+                            <li className="flex justify-center gap-2">
                                 <ExternalLink className="h-4 w-4 mt-0.5 shrink-0" />
                                 <span>Continue your search on Path of Exile Trade</span>
                             </li>
@@ -89,14 +105,6 @@ export function EmptyState({ searchId, onOpenQueryEditor, parsedQuery, onQueryCh
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-                <Button
-                    variant="default"
-                    className="flex-1"
-                    onClick={onOpenQueryEditor}
-                >
-                    <Filter className="mr-2 h-4 w-4" />
-                    Adjust Filters
-                </Button>
                 {searchId && (
                     <Button
                         variant="outline"
