@@ -218,6 +218,7 @@ export default function Index() {
                 variant="outline"
                 size="sm"
                 onClick={handleNewSearch}
+                className="bg-background hover:bg-accent hover:text-accent-foreground"
               >
                 {showInputSearch ? "Hide Input" : "New Search"}
               </Button>
@@ -225,6 +226,7 @@ export default function Index() {
                 variant="outline"
                 size="sm"
                 onClick={handleClear}
+                className="bg-background hover:bg-accent hover:text-accent-foreground"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
                 Clear All

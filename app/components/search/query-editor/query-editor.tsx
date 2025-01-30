@@ -16,6 +16,7 @@ import typeFiltersData from '~/data/type_filters.json';
 import { useQueryEditor } from "~/hooks/use-query-editor";
 import { getFilterName, getGroupDisplayName } from "~/lib/filters";
 import type { FilterGroup as FilterGroupType, ParsedQuery, StatFilter as StatFilterType } from "~/types/search";
+import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
 interface QueryEditorProps {
     parsedQuery: ParsedQuery;
@@ -293,22 +294,20 @@ export const QueryEditor = memo(function QueryEditor({
                         <CollapsibleContent className="pt-1.5">
                             <div className="space-y-2">
                                 {/* Stats Mode Selection */}
-                                <div className="flex items-center gap-4 pb-2 bg-muted/30 p-2 rounded-md">
+                                <div className="pb-2 bg-muted/30 p-2 rounded-md">
                                     <div className="flex items-center gap-4">
-                                        <div className="flex items-center gap-1.5">
-                                            <input
-                                                type="radio"
-                                                id="and"
-                                                name="stats-mode"
-                                                value="and"
-                                                checked={parsedQuery.query.stats[0]?.type === 'and'}
-                                                onChange={(e) => {
+                                        <div className="flex items-center gap-2">
+                                            <ToggleGroup
+                                                type="single"
+                                                value={parsedQuery.query.stats[0]?.type || 'and'}
+                                                onValueChange={(value) => {
+                                                    if (!value) return; // Prevent unselecting
                                                     const newStats = [...parsedQuery.query.stats];
                                                     if (newStats[0]) {
                                                         newStats[0] = {
                                                             ...newStats[0],
-                                                            type: 'and',
-                                                            value: undefined
+                                                            type: value as 'and' | 'count',
+                                                            value: value === 'count' ? { min: 1 } : undefined
                                                         };
                                                         onQueryChange({
                                                             ...parsedQuery,
@@ -319,100 +318,67 @@ export const QueryEditor = memo(function QueryEditor({
                                                         });
                                                     }
                                                 }}
-                                                className="h-3 w-3"
-                                            />
-                                            <Label htmlFor="and" className="text-xs cursor-pointer">Match All</Label>
-                                        </div>
-                                        <div className="flex items-center gap-1.5">
-                                            <input
-                                                type="radio"
-                                                id="count"
-                                                name="stats-mode"
-                                                value="count"
-                                                checked={parsedQuery.query.stats[0]?.type === 'count'}
-                                                onChange={(e) => {
-                                                    const newStats = [...parsedQuery.query.stats];
-                                                    if (newStats[0]) {
-                                                        newStats[0] = {
-                                                            ...newStats[0],
-                                                            type: 'count',
-                                                            value: { min: 1 }
-                                                        };
-                                                        onQueryChange({
-                                                            ...parsedQuery,
-                                                            query: {
-                                                                ...parsedQuery.query,
-                                                                stats: newStats
-                                                            }
-                                                        });
-                                                    }
-                                                }}
-                                                className="h-3 w-3"
-                                            />
-                                            <Label htmlFor="count" className="text-xs cursor-pointer">Count Matching</Label>
+                                            >
+                                                <ToggleGroupItem value="and" aria-label="Match All">
+                                                    <span className="text-xs">Match All</span>
+                                                </ToggleGroupItem>
+                                                <ToggleGroupItem value="count" aria-label="Count Matching">
+                                                    <span className="text-xs">Count Matching</span>
+                                                </ToggleGroupItem>
+                                            </ToggleGroup>
+
                                             <Popover>
-                                                <PopoverTrigger asChild>
-                                                    <InfoIcon className="h-3 w-3 text-muted-foreground hover:text-foreground cursor-help ml-1" />
+                                                <PopoverTrigger>
+                                                    <InfoIcon className="h-3 w-3 text-muted-foreground hover:text-foreground cursor-help" />
                                                 </PopoverTrigger>
                                                 <PopoverContent className="w-80">
-                                                    <div className="space-y-3">
+                                                    <div className="space-y-2">
                                                         <h4 className="font-medium text-sm">Count Matching</h4>
-                                                        <div className="space-y-2">
-                                                            <p className="text-sm text-muted-foreground">
-                                                                Instead of requiring all stats to match exactly, Count Matching lets you find items that have at least X number of your desired stats.
-                                                            </p>
-                                                            <p className="text-sm text-muted-foreground">
-                                                                For example: If you're looking for an item with 6 specific stats, but set the count to 4, it will find items that match any 4 (or more) of those 6 stats.
-                                                            </p>
-                                                            <p className="text-sm text-muted-foreground font-medium">
-                                                                This is especially useful when:
-                                                            </p>
-                                                            <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
-                                                                <li>You want to see more options</li>
-                                                                <li>Finding exact matches is too restrictive</li>
-                                                                <li>You're flexible about which stats you need</li>
-                                                            </ul>
-                                                        </div>
+                                                        <p className="text-sm text-muted-foreground">
+                                                            Instead of requiring all stats to match exactly, Count Matching lets you find items that have at least X number of your desired stats.
+                                                        </p>
+                                                        <p className="text-sm text-muted-foreground">
+                                                            For example: If you're looking for an item with 6 specific stats, but set the count to 4, it will find items that match any 4 (or more) of those 6 stats.
+                                                        </p>
                                                     </div>
                                                 </PopoverContent>
                                             </Popover>
                                         </div>
+
+                                        {/* Count input in count mode */}
+                                        {parsedQuery.query.stats[0]?.type === 'count' && (
+                                            <div className="flex items-center gap-2">
+                                                <Label className="text-xs text-muted-foreground">
+                                                    Minimum matching stats:
+                                                </Label>
+                                                <Input
+                                                    type="number"
+                                                    value={parsedQuery.query.stats[0]?.value?.min ?? ''}
+                                                    onChange={(e) => {
+                                                        const newStats = [...parsedQuery.query.stats];
+                                                        if (newStats[0]) {
+                                                            newStats[0] = {
+                                                                ...newStats[0],
+                                                                value: {
+                                                                    ...newStats[0].value,
+                                                                    min: e.target.value ? Number(e.target.value) : undefined
+                                                                }
+                                                            };
+                                                            onQueryChange({
+                                                                ...parsedQuery,
+                                                                query: {
+                                                                    ...parsedQuery.query,
+                                                                    stats: newStats
+                                                                }
+                                                            });
+                                                        }
+                                                    }}
+                                                    className="h-7 w-16 text-xs"
+                                                />
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
-
-                                {/* Count input in count mode */}
-                                {parsedQuery.query.stats[0]?.type === 'count' && (
-                                    <div className="flex items-center gap-2 pb-2">
-                                        <Label className="text-xs text-muted-foreground">
-                                            Minimum matching stats:
-                                        </Label>
-                                        <Input
-                                            type="number"
-                                            value={parsedQuery.query.stats[0]?.value?.min ?? ''}
-                                            onChange={(e) => {
-                                                const newStats = [...parsedQuery.query.stats];
-                                                if (newStats[0]) {
-                                                    newStats[0] = {
-                                                        ...newStats[0],
-                                                        value: {
-                                                            ...newStats[0].value,
-                                                            min: e.target.value ? Number(e.target.value) : undefined
-                                                        }
-                                                    };
-                                                    onQueryChange({
-                                                        ...parsedQuery,
-                                                        query: {
-                                                            ...parsedQuery.query,
-                                                            stats: newStats
-                                                        }
-                                                    });
-                                                }
-                                            }}
-                                            className="w-20 h-6 text-xs"
-                                            placeholder="Min count"
-                                        />
-                                    </div>
-                                )}
 
                                 <div className="space-y-0.5">
                                     {parsedQuery.query.stats[0]?.filters.map((stat, index) => (
