@@ -450,6 +450,16 @@ const DEFAULT_DISABLED_FILTERS: { [key: string]: { [key: string]: boolean } } = 
         dex: true,
         int: true
     },
+    equipment_filters: {
+        damage: true,
+        aps: true,
+        crit: true,
+        ar: true,
+        ev: true,
+        es: true,
+        block: true,
+        spirit: true
+    },
     type_filters: {
         ilvl: true,
         quality: true
