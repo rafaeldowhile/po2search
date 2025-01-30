@@ -1,4 +1,8 @@
-import { themeSessionResolver } from "~/utils/theme-session.server";
 import { ActionFunction } from "@vercel/remix";
 import { createThemeAction } from "remix-themes";
-export const action: ActionFunction = createThemeAction(themeSessionResolver);
+import { themeSessionResolver } from "~/utils/theme-session.server";
+
+export const action: ActionFunction = async (args) => {
+  const response = await createThemeAction(themeSessionResolver)(args);
+  return response;
+};

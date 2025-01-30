@@ -39,14 +39,23 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const { getTheme } = await themeSessionResolver(request);
-  const theme = await getTheme();
-  return json({
-    theme,
-    env: {
-      NODE_ENV: process.env.NODE_ENV,
+  const themeSession = await themeSessionResolver(request);
+  const theme = await themeSession.getTheme();
+  const session = await themeSession.commit();
+
+  return json(
+    {
+      theme,
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+      }
+    },
+    {
+      headers: {
+        "Set-Cookie": session,
+      },
     }
-  });
+  );
 };
 
 const HTMLRender = ({
