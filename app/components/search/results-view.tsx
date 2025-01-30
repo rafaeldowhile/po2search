@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Circle, ArrowUp, ArrowDown } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { LoadingState } from "~/components/ui/loading-state";
@@ -38,20 +38,57 @@ export function ResultsView({
 
     return (
         <div className="space-y-4">
-            <div className="flex flex-row items-center justify-between">
-                <div className="flex items-center gap-4">
-                    <h2 className="text-2xl font-semibold">Search Results</h2>
-                    {result?.matches !== undefined && result.matches > 0 && (
-                        <Badge variant="secondary">
-                            {result.matches} {result.matches === 1 ? 'match' : 'matches'} found
-                        </Badge>
-                    )}
+            <div className="flex flex-row items-start justify-between">
+                <div className="space-y-2">
+                    <div className="flex items-center gap-4">
+                        <h2 className="text-2xl font-semibold">Search Results</h2>
+                        {result?.matches !== undefined && result.matches > 0 && (
+                            <Badge variant="secondary">
+                                {result.matches} {result.matches === 1 ? 'match' : 'matches'} found
+                            </Badge>
+                        )}
+                        {hasResults && (
+                            <Badge variant="outline">
+                                Showing {result.items.length} items
+                            </Badge>
+                        )}
+                    </div>
+
                     {hasResults && (
-                        <Badge variant="outline">
-                            Showing {result.items.length} items
-                        </Badge>
+                        <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-1.5">
+                                    <Circle className="h-3 w-3 fill-green-500 text-green-500" />
+                                    <span>Matched mod</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <Circle className="h-3 w-3 fill-border text-border" />
+                                    <span>Unmatched mod</span>
+                                </div>
+                            </div>
+
+                            <div className="h-4 border-l border-border" />
+
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-1.5">
+                                    <div className="flex items-center gap-0.5 text-green-500">
+                                        <ArrowUp className="h-3 w-3" />
+                                        <span>+X%</span>
+                                    </div>
+                                    <span>Above search value</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <div className="flex items-center gap-0.5 text-red-500">
+                                        <ArrowDown className="h-3 w-3" />
+                                        <span>-X%</span>
+                                    </div>
+                                    <span>Below search value</span>
+                                </div>
+                            </div>
+                        </div>
                     )}
                 </div>
+
                 <div className="flex items-center gap-2">
                     {hasResults && (
                         <Select
