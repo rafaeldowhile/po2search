@@ -1,6 +1,6 @@
 import { GameDescription } from "../constants";
 import { extractFloat, findBlockWithLine } from "../helpers";
-import { Item } from "../searchv2";
+import { Item } from "../models/item";
 import { InputData } from "../types";
 
 export function parseCriticalHitChance(inputData: InputData, item: Item) {

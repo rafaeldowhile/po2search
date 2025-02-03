@@ -1,30 +1,30 @@
+import { GameDescription } from "./constants";
 import { extractFloat, extractInteger } from "./helpers";
-import { GENERAL_DESCRIPTIONS } from "./i18n/en";
 import { ParsedEquipment, ParsedItem } from "./types";
 
 
 function armour(lines: string[]): number | null {
-    return extractInteger(GENERAL_DESCRIPTIONS.descriptionArmour, lines);
+    return extractInteger(GameDescription.armour, lines);
 }
 
 function evasion(lines: string[]): number | null {
-    return extractInteger(GENERAL_DESCRIPTIONS.descriptionEvasion, lines);
+    return extractInteger(GameDescription.evasion, lines);
 }
 
 function energyShield(lines: string[]): number | null {
-    return extractInteger(GENERAL_DESCRIPTIONS.descriptionEnergyShield, lines);
+    return extractInteger(GameDescription.energyShield, lines);
 }
 
 function blockChance(lines: string[]): number | null {
-    return extractInteger(GENERAL_DESCRIPTIONS.descriptionBlockChance, lines);
+    return extractInteger(GameDescription.block, lines);
 }
 
 function attacksPerSecond(lines: string[]): number | null {
-    return extractFloat(GENERAL_DESCRIPTIONS.descriptionAttacksPerSecond, lines);
+    return extractFloat(GameDescription.attackSpeed, lines);
 }
 
 function criticalStrikeChance(lines: string[]): number | null {
-    return extractFloat(GENERAL_DESCRIPTIONS.descriptionCriticalStrikeChance, lines);
+    return extractFloat(GameDescription.criticalHitChance, lines);
 }
 
 export function extractEquipment(lines: string[], parsed: ParsedItem): ParsedEquipment {
@@ -42,6 +42,7 @@ export function extractEquipment(lines: string[], parsed: ParsedItem): ParsedEqu
         spirit: null,
         es: energyShield(lines),
         ar: armour(lines),
+        ev: evasion(lines),
         pdps: null,
         crit: criticalStrikeChance(lines)
     };

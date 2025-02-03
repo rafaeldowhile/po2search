@@ -1,10 +1,10 @@
 import { GameDescription } from "../constants";
-import { findBlockWithLine } from "../helpers";
+import { extractInteger, findBlockWithLine } from "../helpers";
 import { InputData, ItemRequirements } from "../types";
 
 export function parserRequirements(inputData: InputData): ItemRequirements | null {
     const requirementsBlock = findBlockWithLine(inputData, 'Requirements:');
-    
+
     if (!requirementsBlock) {
         return null;
     }
@@ -19,12 +19,12 @@ export function parserRequirements(inputData: InputData): ItemRequirements | nul
             if (!key || !value) return acc;
             return {
                 ...acc,
-                [key.toLowerCase().trim()]: value.trim()
+                [key.toLowerCase().trim()]: extractInteger(value, requirementsBlock.lines.map(line => line.text))
             };
         }, {} as ItemRequirements);
-        
+
     const reqLine = requirementsBlock.lines.find(line => line.text.includes(GameDescription.requirements))
-    
+
     if (reqLine) {
         reqLine.parsed = true;
     }

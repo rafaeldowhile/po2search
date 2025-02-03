@@ -1,13 +1,13 @@
 import { GameDescription } from "../constants";
 import { extractInteger, findBlockWithLine } from "../helpers";
-import { Item } from "../searchv2";
+import { Item } from "../models/item";
 import { InputData } from "../types";
 
 export function parseBlock(inputData: InputData, item: Item) {
     const allowedClassId = ['armour'];
 
     if (!allowedClassId.includes(item.header?.category ?? '')) {
-        return null;    
+        return null;
     }
 
     const blockBlock = findBlockWithLine(inputData, GameDescription.block);

@@ -1,9 +1,9 @@
 import Fuse from 'fuse.js';
 import statsData from '../../data/stats.json';
-import { Item } from "../searchv2";
-import { InputData, Mod, ModLine, SearchModResult } from "../types";
-import { replaceNumbersWithHash, removeSquareBrackets } from '../helpers';
 import { GameDescription } from '../constants';
+import { removeSquareBrackets, replaceNumbersWithHash } from '../helpers';
+import { Item } from "../models/item";
+import { InputData, ModLine, SearchModResult } from "../types";
 
 interface StatEntry {
     id: string;
@@ -29,7 +29,17 @@ const fuseIndex = Fuse.createIndex(fuseOptions.keys, allStats);
 const fuse = new Fuse(allStats, fuseOptions, fuseIndex);
 
 export function parseMods(inputData: InputData, item: Item) {
-    const lines = inputData.blocks.flatMap(block => block.lines.filter(line => !line.parsed));
+    let lines = inputData.blocks.flatMap(block => block.lines.filter(line => !line.parsed));
+    lines = lines.filter(line =>
+        ![
+            `${GameDescription.damageTypes.physical}:`,
+            `${GameDescription.damageTypes.chaos}:`,
+            `${GameDescription.damageTypes.elemental}:`,
+            `${GameDescription.damageTypes.fire}:`,
+            `${GameDescription.damageTypes.cold}:`,
+            `${GameDescription.damageTypes.lightning}:`
+        ].some(pattern => line.text.includes(pattern))
+    );
 
     const modsPromises = lines.map(async line => {
         line.text = removeSquareBrackets(line.text)
@@ -91,7 +101,6 @@ function fuseSearch(line: string, suffix: keyof typeof GameDescription.suffixesR
     });
 
     if (searchResults.length > 0) {
-        const bestMatch = searchResults[0];
         return searchResults.map(result => ({
             id: result.item.id,
             pattern: result.item.text,
@@ -104,7 +113,6 @@ function fuseSearch(line: string, suffix: keyof typeof GameDescription.suffixesR
 }
 
 function extractSuffix(text: string): keyof typeof GameDescription.suffixesRegex {
-
     for (const [suffix, regex] of Object.entries(GameDescription.suffixesRegex)) {
         const regexObj = new RegExp(regex, 'i');
         if (regexObj.test(text)) {

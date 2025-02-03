@@ -2,7 +2,7 @@ import { findBlockWithLine } from "../helpers";
 import { GameDescription } from "../constants";
 import { extractInteger } from "../helpers";
 import { InputData } from "../types";
-import { Item } from "../searchv2";
+import { Item } from "../models/item";
 
 export const parseItemLevel = (inputData: InputData, item: Item) => {
     const itemLevelBlock = findBlockWithLine(inputData, GameDescription.itemLevel);

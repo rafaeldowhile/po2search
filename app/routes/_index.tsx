@@ -1,292 +1,165 @@
-import type { MetaFunction } from "@remix-run/node";
-import { RotateCcw } from "lucide-react";
-import { useCallback, useState } from "react";
-import { useHotkeys } from 'react-hotkeys-hook';
+import type { ServerRuntimeMetaFunction as MetaFunction } from "@remix-run/server-runtime";
+import { MailIcon, Sparkles } from "lucide-react";
+import { useState } from "react";
 import { KeyboardShortcuts } from "~/components/keyboard-shortcuts";
-import { QueryEditor } from "~/components/search/query-editor/query-editor";
-import { ResultsView } from "~/components/search/results-view";
-import { SearchGuide } from "~/components/search/search-guide";
 import { SearchHistory } from "~/components/search/search-history";
-import { SearchInput } from "~/components/search/search-input";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { Collapsible, CollapsibleContent } from "~/components/ui/collapsible";
-import { useSearch } from "~/hooks/use-search";
-import { useSearchHistory } from "~/hooks/use-search-history";
-import { useSearchParams } from "~/hooks/use-search-params";
-import { useToast } from "~/hooks/use-toast";
-import type { ParsedQuery } from "~/types/search";
 import { ThemeToggle } from "~/components/theme-toggle";
-import { SearchPreview } from "~/components/search/search-preview";
+import { Button } from "~/components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "~/components/ui/dialog";
+import { NoResultsFound } from "~/components/v2/NoResultsFound";
+import { QueryEditor } from "~/components/v2/QueryEditor";
+import { Results } from "~/components/v2/Results";
+import { SearchForm } from "~/components/v2/SearchForm";
+import { Item } from "~/lib/models/item";
+import { POE2Query } from "~/lib/poe2-query-schema";
+import { QueryOptions, SearchResponse } from "~/lib/types";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "PoE2 Trade Search" },
-    { name: "description", content: "Search Path of Exile items" },
-  ];
+    return [
+        { title: "PoE2 Trade Search" },
+        { name: "description", content: "Search Path of Exile items" },
+    ];
 };
 
-export default function Index() {
-  const [showInputSearch, setShowInputSearch] = useState(true);
-  const { toast } = useToast();
-  const {
-    searchParams,
-    updateInput,
-    updateParsedQuery,
-    resetParams,
-    updateSearchParams,
-  } = useSearchParams();
+const WhatsNewDialog = () => {
+    return (
+        <Dialog>
+            <DialogTrigger asChild>
+                <div className="flex items-center gap-2">
+                    <span className="px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">v1.0</span>
+                    <button className="text-xs flex items-center gap-1.5 px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 animate-pulse hover:animate-none hover:bg-primary/20 transition-colors">
+                        <Sparkles className="w-3 h-3" />
+                        <span>NEW</span>
+                    </button>
+                </div>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl">
+                <DialogHeader>
+                    <DialogTitle>What's New in v1.0</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-6">
+                    <div className="space-y-4">
+                        <p className="text-sm text-muted-foreground">
+                            Welcome to the latest version of PoE2 Trade Search! We've made several improvements to help you find items more efficiently:
+                        </p>
+                        <div className="text-sm space-y-2">
+                            <ul className="list-disc list-inside space-y-2">
+                                <li>More accurate mod matching for better search results</li>
+                                <li>Improved DPS calculations including physical and elemental damage</li>
+                                <li>Faster search results with optimized filtering</li>
+                                <li>Better item property detection</li>
+                                <li>Enhanced search filters for more precise results</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  const {
-    search,
-    isSearching,
-    error,
-    result,
-    validationErrors,
-    retryCount,
-    reset,
-  } = useSearch();
-  const { searchHistory, addToHistory } = useSearchHistory();
+                    <div className="border-t pt-4">
+                        <div className="flex items-start gap-2 text-sm">
+                            <MailIcon className="w-4 h-4 mt-0.5 text-muted-foreground" />
+                            <div className="space-y-1">
+                                <p className="font-medium">Get in Touch</p>
+                                <p className="text-muted-foreground">
+                                    Have feedback, found a bug, or want to request a feature?
+                                    Contact us at{" "}
+                                    <a
+                                        href="mailto:poe2search@gmail.com"
+                                        className="text-primary hover:underline"
+                                    >
+                                        poe2search@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </DialogContent>
+        </Dialog>
+    );
+};
 
-  const [editedQuery, setEditedQuery] = useState<ParsedQuery | null>(null);
+export const Header = () => {
+    const shortcuts = [
+        { key: 'alt + n', description: 'New search' },
+        { key: 'alt + c', description: 'Clear search' },
+    ];
 
-  const handleInputChange = useCallback((value: string) => {
-    updateInput(value);
-  }, [updateInput]);
-
-  const handleCopy = useCallback(() => {
-    if (!result) return;
-    navigator.clipboard.writeText(JSON.stringify(result, null, 2));
-    toast({
-      title: "Copied to clipboard",
-      description: "The search result has been copied to your clipboard.",
-    });
-  }, [result, toast]);
-
-  const handleClear = useCallback(() => {
-    resetParams();
-    setEditedQuery(null);
-    setShowInputSearch(true);
-    reset();
-  }, [resetParams, reset]);
-
-  const handleNewSearch = useCallback(() => {
-    // Reset all search params and states
-    resetParams();
-    setEditedQuery(null);
-    setShowInputSearch(true);
-    updateParsedQuery(null);
-    reset();
-
-    // Reset search results and state
-    search({
-      input: '',
-      parsedQuery: null,
-      rangeType: 'min_only'
-    });
-  }, [resetParams, updateParsedQuery, reset, search]);
-
-  const handleParsedQueryEdit = useCallback((newQuery: ParsedQuery, shouldSearch = false) => {
-    setEditedQuery(newQuery);
-    if (shouldSearch) {
-      search({
-        ...searchParams,
-        parsedQuery: newQuery,
-      }, true);
-    }
-  }, [searchParams, search]);
-
-  const handleRunQuery = useCallback(() => {
-    if (editedQuery) {
-      search({
-        ...searchParams,
-        parsedQuery: editedQuery,
-      }, true);
-    }
-  }, [editedQuery, searchParams, search]);
-
-  const handleHistorySelect = useCallback((item: string) => {
-    updateInput(item);
-    setShowInputSearch(true);
-  }, [updateInput]);
-
-  const handleSortChange = useCallback((value: string) => {
-    if (editedQuery) {
-      setEditedQuery({
-        ...editedQuery,
-        sort: {
-          ...editedQuery.sort,
-          price: value
-        }
-      });
-      // Optionally trigger a new search immediately
-      search({
-        ...searchParams,
-        parsedQuery: {
-          ...editedQuery,
-          sort: { ...editedQuery.sort, price: value }
-        }
-      }, true);
-    }
-  }, [editedQuery, searchParams, search]);
-
-  const handleQueryEditorChange = useCallback((newQuery: ParsedQuery) => {
-    handleParsedQueryEdit(newQuery, false);
-  }, [handleParsedQueryEdit]);
-
-  const handleResultsViewChange = useCallback((newQuery: ParsedQuery) => {
-    handleParsedQueryEdit(newQuery, true);
-  }, [handleParsedQueryEdit]);
-
-  // Define hotkeys
-  useHotkeys('shift+/', () => setShowInputSearch(true), {
-    description: 'Focus search input',
-    enableOnFormTags: false,
-  });
-
-  useHotkeys('alt+n', handleNewSearch, {
-    description: 'New search',
-    enableOnFormTags: false,
-  });
-
-  useHotkeys('alt+r', () => handleRunQuery(), {
-    description: 'Rerun search',
-    enableOnFormTags: false,
-  });
-
-  useHotkeys('alt+c', handleClear, {
-    description: 'Clear search',
-    enableOnFormTags: false,
-  });
-
-  useHotkeys('esc', () => setShowInputSearch(false), {
-    description: 'Close search input',
-    enableOnFormTags: true,
-  });
-
-  // Get all registered hotkeys for the help dialog
-  const shortcuts = [
-    { key: 'shift + /', description: 'Focus search input' },
-    { key: 'alt + n', description: 'New search' },
-    { key: 'alt + r', description: 'Rerun search' },
-    { key: 'alt + c', description: 'Clear search' },
-    { key: 'esc', description: 'Close search input' },
-  ];
-
-  const handleSearch = async (isRefinedSearch = false) => {
-    if (isRefinedSearch) {
-      await search({ ...searchParams, parsedQuery: result?.parsedQuery }, true);
-    } else {
-      await search(searchParams);
-      if (searchParams.input) {
-        addToHistory(searchParams.input);
-        setShowInputSearch(false);
-      }
-    }
-
-    // Show validation errors if any
-    if (validationErrors.length > 0) {
-      validationErrors.forEach(error => {
-        toast({
-          title: "Validation Error",
-          description: `${error.field}: ${error.message}`,
-          variant: "destructive",
-        });
-      });
-      return;
-    }
-  };
-
-  return (
-    <div className="container mx-auto px-2 sm:px-4 py-4 space-y-6 sm:space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
-      <Card className="w-full">
-        <CardHeader>
-          <div className="flex flex-col gap-4 sm:gap-6">
+    return (
+        <div className="space-y-6">
             <div className="space-y-2">
-              <CardTitle className="text-2xl sm:text-3xl font-bold">PoE2 Trade Search</CardTitle>
-              <p className="text-sm text-muted-foreground">
-                A simple tool to help you price check and find upgrades for your Path of Exile 2 items.
-              </p>
+                <div className="flex items-center gap-3">
+                    <h1 className="text-2xl sm:text-3xl font-bold">PoE2 Trade Search</h1>
+                    <WhatsNewDialog />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                    A simple tool to help you price check and find upgrades for your Path of Exile 2 items.
+                </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <ThemeToggle />
-                <KeyboardShortcuts shortcuts={shortcuts} />
-                <SearchHistory
-                  history={searchHistory}
-                  onSelect={handleHistorySelect}
-                />
-              </div>
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleNewSearch}
-                  className="flex-1 sm:flex-none bg-background hover:bg-accent hover:text-accent-foreground"
-                >
-                  {showInputSearch ? "Hide Input" : "New Search"}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleClear}
-                  className="flex-1 sm:flex-none bg-background hover:bg-accent hover:text-accent-foreground"
-                >
-                  <RotateCcw className="h-4 w-4 mr-2" />
-                  Clear All
-                </Button>
-              </div>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <ThemeToggle />
+                    <KeyboardShortcuts shortcuts={shortcuts} />
+                    <SearchHistory history={[]} onSelect={() => { }} />
+                </div>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.location.reload()}
+                        className="flex-1 sm:flex-none bg-background hover:bg-accent hover:text-accent-foreground"
+                    >
+                        New Search
+                    </Button>
+                </div>
             </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <Collapsible open={showInputSearch}>
-            <CollapsibleContent className="space-y-4">
-              <SearchInput
-                value={searchParams.input || ""}
-                onChange={handleInputChange}
-                rangeType={searchParams.rangeType || "min_only"}
-                onRangeTypeChange={(value) => updateSearchParams({ rangeType: value })}
-                onSearch={() => handleSearch()}
-                isSearching={isSearching}
-              />
-              {!result && !isSearching && !error && (
-                <>
-                  <SearchGuide />
-                  <SearchPreview />
-                </>
-              )}
-            </CollapsibleContent>
-          </Collapsible>
+        </div>
+    )
+}
 
-          {/* Query Editor - Don't trigger search on every change */}
-          {result?.parsedQuery && !showInputSearch && (
-            <QueryEditor
-              parsedQuery={editedQuery ?? result.parsedQuery}
-              onQueryChange={handleQueryEditorChange}
-              onSearch={handleRunQuery}
-              isSearching={isSearching}
-            />
-          )}
+export default function Index() {
+    const [query, setQuery] = useState<POE2Query>();
+    const [item, setItem] = useState<Item>();
+    const [searchResponse, setSearchResponse] = useState<SearchResponse>();
+    const [searchFormVisible, setSearchFormVisible] = useState(true);
+    const [options, setOptions] = useState<QueryOptions>();
 
-          {/* Results View - Do trigger search on count mode changes */}
-          <ResultsView
-            result={result}
-            error={error}
-            onCopy={handleCopy}
-            isLoading={isSearching}
-            onOpenQueryEditor={() => {
-              const queryEditor = document.querySelector('[data-query-editor-trigger]');
-              if (queryEditor instanceof HTMLElement) {
-                queryEditor.click();
-              }
-            }}
-            onQueryChange={handleResultsViewChange}
-            parsedQuery={editedQuery || result?.parsedQuery}
-            onSortChange={handleSortChange}
-          />
-        </CardContent>
-      </Card>
-    </div>
-  );
+    const onSuccess = (response: SearchResponse, options: QueryOptions) => {
+        setItem(response.item);
+        setQuery(response.query);
+        setSearchResponse(response);
+        setOptions(options);
+        setSearchFormVisible(false);
+    }
+
+    const onSearchUpdate = (response: SearchResponse) => {
+        setSearchResponse(response);
+    }
+
+    const handleQueryUpdate = async (newQuery: POE2Query, response: SearchResponse) => {
+        setQuery(newQuery);
+        console.log(response)
+        setSearchResponse(response);
+    };
+
+    return (
+        <div className="container mx-auto px-2 sm:px-4 py-4 space-y-6 sm:space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
+            <Header />
+            {searchFormVisible && <SearchForm onSuccess={onSuccess} />}
+            {!searchFormVisible && <QueryEditor item={item!} query={query!} onSearchUpdate={onSearchUpdate} options={options} />}
+            {searchResponse && searchResponse.data?.results?.length > 0 && <Results searchResponse={searchResponse} query={query!} />}
+            {searchResponse && searchResponse.data?.results?.length === 0 && (
+                <NoResultsFound
+                    query={query!}
+                    options={options!}
+                    searchId={searchResponse.data?.id}
+                    onUpdateQuery={handleQueryUpdate}
+                />
+            )}
+        </div>
+    )
 }

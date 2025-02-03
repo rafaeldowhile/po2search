@@ -13,6 +13,10 @@ export function getValueFromTextKey(inputData: string[], text: string): string |
     return line.substring(line.toLowerCase().indexOf(text.toLowerCase()) + text.length).trim();
 }
 
+export function removeSuffix(text: string): string {
+    return text.replace(/ \(.*?\)$/, '');
+}
+
 export function extractInteger(text: string, lines: string[]): number | null {
     const line = lines.find(line => line.toLowerCase().includes(text.toLowerCase()));
     if (!line) return null;
