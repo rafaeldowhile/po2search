@@ -88,6 +88,10 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
         }
     };
 
+    const handleTextAreaClick = (e: React.MouseEvent<HTMLTextAreaElement>) => {
+        e.currentTarget.select();
+    };
+
     const onSubmit = async (data: ItemFormValues) => {
         try {
             setApiError(null);
@@ -131,6 +135,7 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
                     {...register("itemDescription")} 
                     className="w-full min-h-[100px] p-3 text-sm bg-background border rounded-md resize-y"
                     onPaste={handlePaste}
+                    onClick={handleTextAreaClick}
                 />
                 {errors.itemDescription && (
                     <p className="text-red-500 text-xs italic">{errors.itemDescription.message}</p>

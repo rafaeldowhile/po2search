@@ -106,6 +106,9 @@ export const Header = () => {
                 <p className="text-sm text-muted-foreground">
                     A simple tool to help you price check and find upgrades for your Path of Exile 2 items.
                 </p>
+                <small className=" text-muted-foreground">
+                    * Currently supports only English version
+                </small>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                 <div className="flex items-center gap-2 w-full sm:w-auto">
