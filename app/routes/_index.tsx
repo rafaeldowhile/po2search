@@ -1,5 +1,5 @@
+import { InfoIcon, MailIcon, Sparkles } from "lucide-react";
 import type { ServerRuntimeMetaFunction as MetaFunction } from "@remix-run/server-runtime";
-import { MailIcon, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { KeyboardShortcuts } from "~/components/keyboard-shortcuts";
 import { SearchHistory } from "~/components/search/search-history";
@@ -57,6 +57,13 @@ const WhatsNewDialog = () => {
                                 <li>Enhanced search filters for more precise results</li>
                             </ul>
                         </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-2 p-3 rounded-md bg-blue-500/10 border border-blue-500/20">
+                        <InfoIcon className="w-4 h-4 mt-0.5 text-blue-500" />
+                        <p className="text-sm text-muted-foreground">
+                            Currently, the search only works with items in English. Support for other languages will be available in the coming weeks.
+                        </p>
                     </div>
 
                     <div className="border-t pt-4">
