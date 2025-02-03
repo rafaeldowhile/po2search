@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { InfoIcon, Loader2, Search } from "lucide-react";
+import { InfoIcon, Loader2, Search, MinusCircle, PlusCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Item } from "~/lib/models/item";
 import { POE2Query, poe2QuerySchema } from "~/lib/poe2-query-schema";
@@ -16,6 +16,26 @@ import { FormStatFilters } from "./filters/FormStatFilters";
 import { FormTypeFilters } from "./filters/FormTypeFilters";
 import { FormRequirementFilters } from "./filters/FormRequirementFilters";
 import { useEffect } from "react";
+
+// Add these utility functions before the component
+const adjustNumericValue = (value: any, multiplier: number): any => {
+    if (typeof value === 'number') {
+        const result = value * multiplier;
+        // Check if original value was an integer
+        return Number.isInteger(value) ? Math.floor(result) : Math.round(result * 100) / 100;
+    }
+    if (Array.isArray(value)) {
+        return value.map(item => adjustNumericValue(item, multiplier));
+    }
+    if (typeof value === 'object' && value !== null) {
+        const newObj: any = {};
+        for (const key in value) {
+            newObj[key] = adjustNumericValue(value[key], multiplier);
+        }
+        return newObj;
+    }
+    return value;
+};
 
 interface QueryEditorProps {
     item: Item;
@@ -47,6 +67,14 @@ export const QueryEditor = ({ item, query, onSearchUpdate, options }: QueryEdito
         }
     }
 
+    const adjustAllValues = async (direction: 'up' | 'down') => {
+        const multiplier = direction === 'up' ? 1.1 : 0.9;
+        const currentValues = form.getValues();
+        const adjustedQuery = adjustNumericValue(currentValues, multiplier);
+        form.reset(adjustedQuery);
+        onSubmit(adjustedQuery);
+    };
+
     return (
         <div className="w-full border rounded-lg bg-background px-4 py-2">
             <Form {...form}>
@@ -64,11 +92,36 @@ export const QueryEditor = ({ item, query, onSearchUpdate, options }: QueryEdito
                             </details>
                         </div> */}
 
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <h2 className="text-base font-semibold">Query Editor</h2>
-                                <div className="px-1.5 py-0.5 text-[10px] bg-muted text-muted-foreground rounded">
-                                    Active filters
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <h2 className="text-base font-semibold">Query Editor</h2>
+                                    <div className="px-1.5 py-0.5 text-[10px] bg-muted text-muted-foreground rounded">
+                                        Active filters
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-1.5">
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="h-7 px-2"
+                                        onClick={() => adjustAllValues('down')}
+                                    >
+                                        <MinusCircle className="h-3.5 w-3.5 mr-1" />
+                                        <span className="text-xs">10%</span>
+                                    </Button>
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="h-7 px-2"
+                                        onClick={() => adjustAllValues('up')}
+                                    >
+                                        <PlusCircle className="h-3.5 w-3.5 mr-1" />
+                                        <span className="text-xs">10%</span>
+                                    </Button>
                                 </div>
                             </div>
 
@@ -106,7 +159,6 @@ export const QueryEditor = ({ item, query, onSearchUpdate, options }: QueryEdito
                                                     onValueChange={(value) => {
                                                         field.onChange(value);
                                                         if (value === 'count' && !form.getValues('query.stats.0.value.min')) {
-                                                            // Only set initial count if it's not already set
                                                             const currentCount = form.getValues().query?.stats?.[0]?.filters?.length ?? 0;
                                                             form.setValue('query.stats.0.value.min', currentCount > 1 ? currentCount : 1);
                                                         } else if (value === 'and') {
