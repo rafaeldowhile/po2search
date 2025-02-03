@@ -63,7 +63,7 @@ interface SearchOptions {
     rangeType?: string;
 }
 
-const typeFilters: {
+export const typeFilters: {
     categories: any[];
     rarities: any[];
     requirements: any[];
@@ -467,7 +467,7 @@ const DEFAULT_DISABLED_FILTERS: { [key: string]: { [key: string]: boolean } } = 
 };
 
 // Add this mapping near the top of the file with other constants
-const MANUAL_CATEGORY_MAPPING: { [key: string]: string } = {
+export const MANUAL_CATEGORY_MAPPING: { [key: string]: string } = {
     "Staves": "weapon.staff",
     "Staff": "weapon.staff",
     "Foci": "accessory.focus",
@@ -478,12 +478,11 @@ function parseText(input: string): string[] {
     return input.split('\n').filter(line => line !== '--------');
 }
 
-function getValueFromTextKey(inputData: string[], text: string): string | null {
+export function getValueFromTextKey(inputData: string[], text: string): string | null {
     const line = inputData.find(line =>
         line.toLowerCase().includes(text.toLowerCase())
     );
     if (!line) return null;
-    // Still use the original text to preserve case in the replacement
     return line.substring(line.toLowerCase().indexOf(text.toLowerCase()) + text.length).trim();
 }
 

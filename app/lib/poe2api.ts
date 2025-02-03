@@ -1,6 +1,7 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import type { Agent } from 'http';
 import tunnel from 'tunnel';
+import { Poe2QueryResponse, QueryRealm } from './types';
 
 interface ProxyConfig {
     host: string;
@@ -15,6 +16,7 @@ class POE2TradeAPI {
     private baseUrl: string;
     private proxyConfig: ProxyConfig | null = null;
     private agent: Agent | null = null;
+    private readonly MAX_RETRIES = 3;
 
     constructor() {
         this.baseUrl = 'https://www.pathofexile.com/api/trade2';
@@ -60,24 +62,29 @@ class POE2TradeAPI {
         return config;
     }
 
-    // Test proxy connection
-    async testProxy() {
-        try {
-            const response = await axios.get('https://api.ipify.org/', this.getAxiosConfig({}));
-            console.log('Proxy IP:', response.data);
-            return response.data;
-        } catch (error: any) {
-            console.error('Proxy test failed:', {
-                message: error.message,
-                code: error.code,
-                response: error.response?.data,
-                stack: error.stack
-            });
-            throw error;
+    private async retryOperation<T>(operation: () => Promise<T>): Promise<T> {
+        let lastError: Error | null = null;
+        for (let attempt = 1; attempt <= this.MAX_RETRIES; attempt++) {
+            try {
+                return await operation();
+            } catch (error: any) {
+                lastError = error;
+                if (error instanceof AxiosError) {
+                    const status = error.response?.status;
+                    if (status && status >= 400) {
+                        if (attempt < this.MAX_RETRIES) {
+                            console.log(`Attempt ${attempt} failed with status ${status}. Retrying immediately...`);
+                            continue;
+                        }
+                    }
+                }
+                throw error;
+            }
         }
+        throw lastError;
     }
 
-    async search(payload: any, league = 'Standard') {
+    async search(payload: any, league = 'Standard'): Promise<Poe2QueryResponse> {
         const url = `${this.baseUrl}/search/poe2/${league}`;
 
         const headers = {
@@ -97,7 +104,7 @@ class POE2TradeAPI {
             'x-requested-with': 'XMLHttpRequest'
         };
 
-        try {
+        return this.retryOperation(async () => {
             const response = await axios.post(url, payload, this.getAxiosConfig(headers));
 
             if (!response.data) {
@@ -109,25 +116,17 @@ class POE2TradeAPI {
             }
 
             return response.data;
-        } catch (error: any) {
-            console.error('Error making trade search request:', {
-                message: error.message,
-                status: error.response?.status,
-                data: error.response?.data,
-                headers: error.response?.headers
-            });
-            throw error;
-        }
+        });
     }
 
-    async fetch(itemIds: string[], query: string, realm = 'poe2') {
+    async fetch(itemIds: string[], queryId: string, realm: QueryRealm = QueryRealm.poe2) {
         if (!Array.isArray(itemIds) || itemIds.length === 0) {
             throw new Error('Item IDs must be a non-empty array');
         }
 
         const batchSize = 10; // API limit of 10 items per request
         const batches = [];
-        
+
         // Split itemIds into batches of 10
         for (let i = 0; i < itemIds.length; i += batchSize) {
             batches.push(itemIds.slice(i, i + batchSize));
@@ -135,14 +134,14 @@ class POE2TradeAPI {
 
         // Create fetch promises for all batches
         const fetchPromises = batches.map(async (batch) => {
-            const url = `${this.baseUrl}/fetch/${batch.join(',')}?query=${query}&realm=${realm}`;
+            const url = `${this.baseUrl}/fetch/${batch.join(',')}?query=${queryId}&realm=${realm}`;
 
             const headers = {
                 'accept': '*/*',
                 'accept-language': 'en-US,en;q=0.9',
                 'origin': 'https://www.pathofexile.com',
                 'priority': 'u=1, i',
-                'referer': `https://www.pathofexile.com/trade2/search/poe2/Standard/${query}`,
+                'referer': `https://www.pathofexile.com/trade2/search/poe2/Standard/${queryId}`,
                 'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
                 'sec-ch-ua-mobile': '?0',
                 'sec-ch-ua-platform': '"macOS"',
@@ -153,7 +152,7 @@ class POE2TradeAPI {
                 'x-requested-with': 'XMLHttpRequest'
             };
 
-            try {
+            return this.retryOperation(async () => {
                 const response = await axios.get(url, this.getAxiosConfig(headers));
 
                 if (!response.data) {
@@ -161,10 +160,7 @@ class POE2TradeAPI {
                 }
 
                 return response.data;
-            } catch (error) {
-                console.error('Error fetching item details:', error);
-                throw error;
-            }
+            });
         });
 
         // Execute all requests in parallel
@@ -174,11 +170,7 @@ class POE2TradeAPI {
             result: results.flatMap(batch => batch.result || [])
         };
 
-        return {
-            headers: {},
-            status: 200,
-            data: combinedResult
-        };
+        return combinedResult;
     }
 }
 

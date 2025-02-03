@@ -1,5 +1,4 @@
 {
-  "name": "",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -8,9 +7,11 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "flatten-items": "tsx app/scripts/flattenItemsData.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-checkbox": "^1.1.3",
     "@radix-ui/react-collapsible": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.5",
@@ -19,6 +20,7 @@
     "@radix-ui/react-radio-group": "^1.2.2",
     "@radix-ui/react-scroll-area": "^1.2.2",
     "@radix-ui/react-select": "^2.1.5",
+    "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-switch": "^1.1.2",
     "@radix-ui/react-tabs": "^1.1.2",
@@ -30,20 +32,24 @@
     "@remix-run/react": "^2.15.2",
     "@remix-run/serve": "^2.15.2",
     "@tanstack/react-form": "^0.41.3",
-    "@tanstack/react-query": "^5.64.2",
+    "@tanstack/react-query": "^5.66.0",
     "@tanstack/zod-form-adapter": "^0.41.3",
+    "@types/lodash": "^4.17.15",
     "@types/tunnel": "^0.0.7",
     "@vercel/remix": "^2.15.2",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "fuse.js": "^7.0.0",
     "https-proxy-agent": "^7.0.6",
     "isbot": "^4.1.0",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.469.0",
     "posthog-js": "^1.210.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.54.2",
     "react-hotkeys-hook": "^4.6.1",
     "remix-themes": "^1.5.1",
     "string-similarity-js": "^2.1.4",
@@ -55,7 +61,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.2",
-    "@types/react": "^18.2.20",
+    "@types/react": "^18.3.18",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
@@ -68,11 +74,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.16",
+    "tsx": "^4.19.2",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
 }
