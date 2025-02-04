@@ -552,3 +552,11 @@ export interface SocketedGem {
     frameType: number;
     socket: number;
 }
+
+export interface ExchangeRateResponse {
+    success: boolean;
+    timestamp: number;
+    rates: {
+        [key: string]: string;  // Currency rates as strings
+    };
+}

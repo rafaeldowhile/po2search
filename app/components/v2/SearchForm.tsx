@@ -51,14 +51,13 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
     const [apiError, setApiError] = useState<string | null>(null);
     const { register, control, handleSubmit, formState: { isSubmitting, errors }, setValue, trigger } = useForm<ItemFormValues>({
         defaultValues: {
-            itemDescription: exampleInput, // existing initial text
+            itemDescription: exampleInput,
             league: QueryLeague.Standard,
             status: QueryStatus.onlineleague,
         },
         resolver: zodResolver(itemFormSchema),
     });
 
-    // Add hotkey for form submission
     useHotkeys(
         `${navigator.platform.includes('Mac') ? 'meta' : 'ctrl'}+enter`,
         (e) => {
@@ -71,20 +70,12 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
         }
     );
 
-    // Add paste handler
     const handlePaste = async (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
         const pastedText = e.clipboardData.getData('text');
-        
-        // Basic validation - check if it looks like a PoE item
-        if (pastedText.includes('Rarity:') && pastedText.includes('--------')) {
-            setValue('itemDescription', pastedText);
-            
-            // Validate the form
-            const isValid = await trigger();
-            if (isValid) {
-                // Submit the form
-                handleSubmit(onSubmit)();
-            }
+        setValue('itemDescription', pastedText);
+        const isValid = await trigger();
+        if (isValid) {
+            handleSubmit(onSubmit)();
         }
     };
 
@@ -95,15 +86,17 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
     const onSubmit = async (data: ItemFormValues) => {
         try {
             setApiError(null);
-            console.log('hey');
+            const queryOptions: QueryOptions = {
+                league: data.league as QueryLeague,
+                status: data.status as QueryStatus,
+            };
+
             const response = await axios.post("/api/v2/search", {
                 input: data.itemDescription,
-                options: {
-                    league: data.league,
-                    status: data.status,
-                }
+                options: queryOptions
             });
-            onSuccess(response.data, { league: data.league as QueryOptions['league'], status: data.status as QueryOptions['status'] });
+
+            onSuccess(response.data, queryOptions);
         } catch (e: any) {
             if (e instanceof AxiosError) {
                 setApiError(e.response?.data?.message || "An error occurred");
@@ -130,9 +123,9 @@ export const SearchForm = ({ onSuccess }: SearchFormProps) => {
                         </li>
                     </ol>
                 </div>
-                <Textarea 
-                    placeholder="Paste item data here..." 
-                    {...register("itemDescription")} 
+                <Textarea
+                    placeholder="Paste item data here..."
+                    {...register("itemDescription")}
                     className="w-full min-h-[100px] p-3 text-sm bg-background border rounded-md resize-y"
                     onPaste={handlePaste}
                     onClick={handleTextAreaClick}

@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import type { Agent } from 'http';
 import tunnel from 'tunnel';
 import { Poe2QueryResponse, QueryRealm } from './types';
@@ -84,39 +84,45 @@ class POE2TradeAPI {
         throw lastError;
     }
 
-    async search(payload: any, league = 'Standard'): Promise<Poe2QueryResponse> {
-        const url = `${this.baseUrl}/search/poe2/${league}`;
-
-        const headers = {
-            'accept': '*/*',
-            'accept-language': 'en-US,en;q=0.9',
-            'content-type': 'application/json',
-            'origin': 'https://www.pathofexile.com',
-            'priority': 'u=1, i',
-            'referer': 'https://www.pathofexile.com/trade2/search/poe2/Standard',
-            'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"macOS"',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-origin',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-            'x-requested-with': 'XMLHttpRequest'
+    async makeRequest<T>(method: string, url: string, config: AxiosRequestConfig = {}) {
+        const axiosConfig = {
+            ...this.getAxiosConfig(config.headers || {}),
+            ...config,
+            method,
+            url,
         };
 
         return this.retryOperation(async () => {
-            const response = await axios.post(url, payload, this.getAxiosConfig(headers));
-
+            const response = await axios(axiosConfig);
             if (!response.data) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            if (response.status === 403) {
-                throw new Error('Forbidden - Access denied');
-            }
-
-            return response.data;
+            return response;
         });
+    }
+
+    async search(payload: any, league = 'Standard'): Promise<Poe2QueryResponse> {
+        const url = `${this.baseUrl}/search/poe2/${league}`;
+        const response = await this.makeRequest('POST', url, {
+            headers: {
+                'accept': '*/*',
+                'accept-language': 'en-US,en;q=0.9',
+                'content-type': 'application/json',
+                'origin': 'https://www.pathofexile.com',
+                'priority': 'u=1, i',
+                'referer': 'https://www.pathofexile.com/trade2/search/poe2/Standard',
+                'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"macOS"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+                'x-requested-with': 'XMLHttpRequest'
+            },
+            data: payload
+        });
+        return response.data;
     }
 
     async fetch(itemIds: string[], queryId: string, realm: QueryRealm = QueryRealm.poe2) {

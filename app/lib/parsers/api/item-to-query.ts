@@ -194,6 +194,9 @@ export function itemToQuery(item: Item, params: QueryOptions) {
                     ]
                 }
             ]
+        },
+        sort: {
+            price: 'asc'
         }
     }
 

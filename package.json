@@ -8,7 +8,8 @@
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
-    "flatten-items": "tsx app/scripts/flattenItemsData.ts"
+    "flatten-items": "tsx app/scripts/flattenItemsData.ts",
+    "generate-exchange": "ts-node scripts/generate-exchange-file.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -34,6 +35,7 @@
     "@tanstack/react-form": "^0.41.3",
     "@tanstack/react-query": "^5.66.0",
     "@tanstack/zod-form-adapter": "^0.41.3",
+    "@tremor/react": "^3.18.7",
     "@types/lodash": "^4.17.15",
     "@types/tunnel": "^0.0.7",
     "@vercel/remix": "^2.15.2",

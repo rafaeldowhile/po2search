@@ -91,6 +91,8 @@ const baseStat = z.object({
     value: minMaxSchema.optional(),
 }).partial();
 
+const sortDirection = z.enum(['asc', 'desc']) as z.ZodEnum<['asc', 'desc']>;
+
 export const poe2QuerySchema = z.object({
     query: z.object({
         id: z.string().optional(),
@@ -106,6 +108,10 @@ export const poe2QuerySchema = z.object({
         }).partial(),
         stats: z.array(baseStat),
     }).partial(),
+    sort: z.object({
+        indexed: sortDirection.optional(),
+        price: sortDirection.optional(),
+    }).partial().optional(),
 });
 
 export type POE2Query = z.infer<typeof poe2QuerySchema>;

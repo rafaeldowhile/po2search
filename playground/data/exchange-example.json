@@ -1,0 +1,3290 @@
+{
+    "success": true,
+    "items": [
+        {
+            "type": "currency",
+            "id": "alch",
+            "name": "Orb of Alchemy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlVG9SYXJlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9b80b44821/CurrencyUpgradeToRare.png",
+            "price": "3.4000000000",
+            "listings_count": 15,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "annul",
+            "name": "Orb of Annulment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5udWxsT3JiIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/2daba8ccca/AnnullOrb.png",
+            "price": "0.0833333333",
+            "listings_count": 10,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "artificers",
+            "name": "Artificer's Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png",
+            "price": "4.0000000000",
+            "listings_count": 8,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "aug",
+            "name": "Orb of Augmentation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb01hZ2ljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/c8ad0ddc84/CurrencyAddModToMagic.png",
+            "price": "390.0000000000",
+            "listings_count": 3,
+            "confidence": "medium"
+        },
+        {
+            "type": "currency",
+            "id": "bauble",
+            "name": "Glassblower's Bauble",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lGbGFza1F1YWxpdHkiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1cec279e01/CurrencyFlaskQuality.png",
+            "price": "4.0000000000",
+            "listings_count": 5,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "chance",
+            "name": "Orb of Chance",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlVG9VbmlxdWUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/93c6cc8d5b/CurrencyUpgradeToUnique.png",
+            "price": "0.2857142857",
+            "listings_count": 15,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "chaos",
+            "name": "Chaos Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lSZXJvbGxSYXJlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/c0ca392a78/CurrencyRerollRare.png",
+            "price": "0.2000000000",
+            "listings_count": 27,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "divine",
+            "name": "Divine Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2986e220b3/CurrencyModValues.png",
+            "price": "0.0038461538",
+            "listings_count": 106,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "etcher",
+            "name": "Arcanist's Etcher",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXZWFwb25NYWdpY1F1YWxpdHkiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/516e8f1131/CurrencyWeaponMagicQuality.png",
+            "price": "3.0000000000",
+            "listings_count": 9,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "exalted",
+            "name": "Exalted Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png",
+            "price": "1.0000000000",
+            "listings_count": 149,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "gcp",
+            "name": "Gemcutter's Prism",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lHZW1RdWFsaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/f4bace18d7/CurrencyGemQuality.png",
+            "price": "0.9090909091",
+            "listings_count": 13,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "mirror",
+            "name": "Mirror of Kalandra",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lEdXBsaWNhdGUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/26bc31680e/CurrencyDuplicate.png",
+            "price": "1.0000000000",
+            "listings_count": 6,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "regal",
+            "name": "Regal Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlTWFnaWNUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e8fb148e80/CurrencyUpgradeMagicToRare.png",
+            "price": "19.0000000000",
+            "listings_count": 12,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "scrap",
+            "name": "Armourer's Scrap",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBcm1vdXJRdWFsaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d5868f596d/CurrencyArmourQuality.png",
+            "price": "2.6625000000",
+            "listings_count": 11,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "transmute",
+            "name": "Orb of Transmutation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlVG9NYWdpYyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2f8e1ff9f8/CurrencyUpgradeToMagic.png",
+            "price": "240.0000000000",
+            "listings_count": 4,
+            "confidence": "medium"
+        },
+        {
+            "type": "currency",
+            "id": "vaal",
+            "name": "Vaal Orb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lWYWFsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/72bc84396c/CurrencyVaal.png",
+            "price": "4.0000000000",
+            "listings_count": 16,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "whetstone",
+            "name": "Blacksmith's Whetstone",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXZWFwb25RdWFsaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/18715ea7be/CurrencyWeaponQuality.png",
+            "price": "3.7500000000",
+            "listings_count": 7,
+            "confidence": "high"
+        },
+        {
+            "type": "currency",
+            "id": "wisdom",
+            "name": "Scroll of Wisdom",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJZGVudGlmaWNhdGlvbiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/884f7bc58b/CurrencyIdentification.png",
+            "price": "999.0000000000",
+            "listings_count": 2,
+            "confidence": "low"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-battle",
+            "name": "Essence of Battle",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9BdHRhY2tFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3cece29e19/AttackEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 361,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-electricity",
+            "name": "Essence of Electricity",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9MaWdodG5pbmdFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/2c3725fdad/LightningEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 247,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-enhancement",
+            "name": "Essence of Enhancement",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9EZWZlbmNlc0Vzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e1e5c1ccb8/DefencesEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 425,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-flames",
+            "name": "Essence of Flames",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9GaXJlRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/add6c12f64/FireEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 393,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-haste",
+            "name": "Essence of Haste",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9TcGVlZEVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/affda36f07/SpeedEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 246,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-ice",
+            "name": "Essence of Ice",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9Db2xkRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/73d9fd8619/ColdEssence.png",
+            "price": "1.2000000000",
+            "listings_count": 385,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-ruin",
+            "name": "Essence of Ruin",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9DaGFvc0Vzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5f0d3c7014/ChaosEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 329,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-sorcery",
+            "name": "Essence of Sorcery",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9DYXN0ZXJFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/6bb099115a/CasterEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 367,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-the-body",
+            "name": "Essence of the Body",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9MaWZlRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/638d6c4cbe/LifeEssence.png",
+            "price": "1.1111111111",
+            "listings_count": 442,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-the-infinite",
+            "name": "Essence of the Infinite",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9BdHRyaWJ1dGVFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/58f9516082/AttributeEssence.png",
+            "price": "1.1428571429",
+            "listings_count": 411,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-the-mind",
+            "name": "Essence of the Mind",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9NYW5hRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c881e6273c/ManaEssence.png",
+            "price": "1.1111111111",
+            "listings_count": 439,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "essence-of-torment",
+            "name": "Essence of Torment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9QaHlzaWNhbEVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e52cd05eeb/PhysicalEssence.png",
+            "price": "1.0000000000",
+            "listings_count": 375,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-battle",
+            "name": "Greater Essence of Battle",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQXR0YWNrRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e2bb5332b8/GreaterAttackEssence.png",
+            "price": "0.0909090909",
+            "listings_count": 41,
+            "confidence": "low"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-electricity",
+            "name": "Greater Essence of Electricity",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTGlnaHRuaW5nRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c6df464bb9/GreaterLightningEssence.png",
+            "price": "0.0066666667",
+            "listings_count": 23,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-enhancement",
+            "name": "Greater Essence of Enhancement",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyRGVmZW5jZXNFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a0ed2df82c/GreaterDefencesEssence.png",
+            "price": "0.0500000000",
+            "listings_count": 59,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-flames",
+            "name": "Greater Essence of Flames",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyRmlyZUVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/9b8d6e7b4e/GreaterFireEssence.png",
+            "price": "0.2000000000",
+            "listings_count": 60,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-haste",
+            "name": "Greater Essence of Haste",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyU3BlZWRFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5a72f95c24/GreaterSpeedEssence.png",
+            "price": "0.0014285714",
+            "listings_count": 5,
+            "confidence": "medium"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-ice",
+            "name": "Greater Essence of Ice",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQ29sZEVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e5224bace0/GreaterColdEssence.png",
+            "price": "0.1000000000",
+            "listings_count": 72,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-ruin",
+            "name": "Greater Essence of Ruin",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQ2hhb3NFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5c71ec7418/GreaterChaosEssence.png",
+            "price": "0.1000000000",
+            "listings_count": 50,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-sorcery",
+            "name": "Greater Essence of Sorcery",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQ2FzdGVyRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/14b7e4c8ef/GreaterCasterEssence.png",
+            "price": "0.0090909091",
+            "listings_count": 22,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-the-body",
+            "name": "Greater Essence of the Body",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTGlmZUVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8906b401fe/GreaterLifeEssence.png",
+            "price": "0.2000000000",
+            "listings_count": 92,
+            "confidence": "high"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-the-infinite",
+            "name": "Greater Essence of the Infinite",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQXR0cmlidXRlRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8a8cb823af/GreaterAttributeEssence.png",
+            "price": "0.0043478261",
+            "listings_count": 26,
+            "confidence": "medium"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-the-mind",
+            "name": "Greater Essence of the Mind",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTWFuYUVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f9e17e6d47/GreaterManaEssence.png",
+            "price": "0.0333333333",
+            "listings_count": 54,
+            "confidence": "medium"
+        },
+        {
+            "type": "essence",
+            "id": "greater-essence-of-torment",
+            "name": "Greater Essence of Torment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyUGh5c2ljYWxFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a28c932def/GreaterPhysicalEssence.png",
+            "price": "0.0142857143",
+            "listings_count": 30,
+            "confidence": "medium"
+        },
+        {
+            "type": "gem",
+            "id": "skill-gem",
+            "name": "Uncut Skill Gem",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9VbmN1dFNraWxsR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5c78b17b3c/UncutSkillGem.png",
+            "price": "1.00",
+            "listings_count": 1834,
+            "confidence": "high"
+        },
+        {
+            "type": "gem",
+            "id": "spirit-gem",
+            "name": "Uncut Spirit Gem",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9VbmN1dFNraWxsR2VtQnVmZiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3b8a50576a/UncutSkillGemBuff.png",
+            "price": "540.00",
+            "listings_count": 10,
+            "confidence": "high"
+        },
+        {
+            "type": "gem",
+            "id": "support-gem",
+            "name": "Uncut Support Gem",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9VbmN1dFN1cHBvcnRHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/9cb67faf4c/UncutSupportGem.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "aerisvane-s-wings",
+            "name": "Aerisvane's Wings",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9BZXJpc3ZhbmVzV2luZ3MiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5faa0c7ee9/AerisvanesWings.png",
+            "price": "5.00",
+            "listings_count": 558,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "against-the-darkness",
+            "name": "Against the Darkness",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1NhbmN0dW1KZXdlbCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/95cd807e91/SanctumJewel.png",
+            "price": "95.00",
+            "listings_count": 8662,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "alkem-eira",
+            "name": "Alkem Eira",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvQWxrZW1FaXJhIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/744604ba46/AlkemEira.png",
+            "price": "1.00",
+            "listings_count": 2850,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "alpha-s-howl",
+            "name": "Alpha's Howl",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQWxwaGFzSG93bCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/172ece8af4/AlphasHowl.png",
+            "price": "5.00",
+            "listings_count": 301,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "andvarius",
+            "name": "Andvarius",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9BbmR2YXJpdXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/62ed73e3a0/Andvarius.png",
+            "price": "3.00",
+            "listings_count": 2956,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "apron-of-emiran",
+            "name": "Apron of Emiran",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0Fwcm9uT2ZFbWlyYW4iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/493c3a232d/ApronOfEmiran.png",
+            "price": "1.00",
+            "listings_count": 3028,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ashrend",
+            "name": "Ashrend",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0FzaHJlbmQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/57812fbbaf/Ashrend.png",
+            "price": "2.00",
+            "listings_count": 1135,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "asphyxia-s-wrath",
+            "name": "Asphyxia's Wrath",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVpdmVycy9VbmlxdWVzL0FzcGh5eGlhc1dyYXRoIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e2de62ad69/AsphyxiasWrath.png",
+            "price": "1.00",
+            "listings_count": 2621,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "assailum",
+            "name": "Assailum",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQXNzYWlsdW0iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5a99862ac5/Assailum.png",
+            "price": "1.00",
+            "listings_count": 4855,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "astramentis",
+            "name": "Astramentis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0FzdHJhbWVudGlzIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/541d1c98f9/Astramentis.png",
+            "price": "225.00",
+            "listings_count": 137,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "atsak-s-sight",
+            "name": "Atsak's Sight",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQmFsZWZ1bFRlbXBlcmFuY2UiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/efc924e150/BalefulTemperance.png",
+            "price": "1.00",
+            "listings_count": 4041,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "atziri-s-acuity",
+            "name": "Atziri's Acuity",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9BdHppcmlzQWN1aXR5IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/190d063426/AtzirisAcuity.png",
+            "price": "200.00",
+            "listings_count": 709,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "atziri-s-disdain",
+            "name": "Atziri's Disdain",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQXR6aXJpc0Rpc2RhaW4iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2af1d71e48/AtzirisDisdain.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "aurseize",
+            "name": "Aurseize",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9BdXJzZWl6ZSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3860d4efbe/Aurseize.png",
+            "price": "1.00",
+            "listings_count": 1894,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "beacon-of-azis",
+            "name": "Beacon of Azis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0JlYWNvbk9mQXppcyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2d0ad03930/BeaconOfAzis.png",
+            "price": "1.00",
+            "listings_count": 4282,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "beetlebite",
+            "name": "Beetlebite",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0NoYWluc09mRGVzaHJldCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e698c477b2/ChainsOfDeshret.png",
+            "price": "1.00",
+            "listings_count": 2582,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "beyond-reach",
+            "name": "Beyond Reach",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVpdmVycy9VbmlxdWVzL0JyZWFjaFF1aXZlciIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/32d8ded0e1/BreachQuiver.png",
+            "price": "1.00",
+            "listings_count": 2797,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "birth-of-fury",
+            "name": "Birth of Fury",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0JpcnRoT2ZGdXJ5IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/11cb01dff1/BirthOfFury.png",
+            "price": "1.00",
+            "listings_count": 4578,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "birthright-buckle",
+            "name": "Birthright Buckle",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9CaXJ0aHJpZ2h0QnVja2xlIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5549f2f4ca/BirthrightBuckle.png",
+            "price": "1.00",
+            "listings_count": 4910,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bitterbloom",
+            "name": "Bitterbloom",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0Rhcmt3b29kUGVyaWFudGgiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/07fdc67fd9/DarkwoodPerianth.png",
+            "price": "1.00",
+            "listings_count": 1212,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blackbraid",
+            "name": "Blackbraid",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0JsYWNrYnJhaWQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1195c80b8d/Blackbraid.png",
+            "price": "1.00",
+            "listings_count": 1365,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blackflame",
+            "name": "Blackflame",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvQmxhY2tGbGFtZUNoYW9zIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/fdbe190aa9/BlackFlameChaos.png",
+            "price": "1.00",
+            "listings_count": 5092,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blackgleam",
+            "name": "Blackgleam",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVpdmVycy9VbmlxdWVzL0JsYWNrZ2xlYW0iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2ccaff8cab/Blackgleam.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blackheart",
+            "name": "Blackheart",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9CbGFja2hlYXJ0IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d6d4fda0c5/Blackheart.png",
+            "price": "3.00",
+            "listings_count": 4589,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blessed-bonds",
+            "name": "Blessed Bonds",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9CbGVzc2VkQm9uZHMiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/53b4944385/BlessedBonds.png",
+            "price": "10.00",
+            "listings_count": 194,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blistering-bond",
+            "name": "Blistering Bond",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9CbGlzdGVyaW5nQm9uZCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/624abc8043/BlisteringBond.png",
+            "price": "1.00",
+            "listings_count": 3880,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "blueflame-bracers",
+            "name": "Blueflame Bracers",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9TdW5Db25zdHJpY3RvciIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9278d6c051/SunConstrictor.png",
+            "price": "1.00",
+            "listings_count": 8267,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bones-of-ullr",
+            "name": "Bones of Ullr",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0JvbmVzT2ZVbGxyIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cae692c545/BonesOfUllr.png",
+            "price": "2.00",
+            "listings_count": 3604,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bramblejack",
+            "name": "Bramblejack",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0JyYW1ibGVqYWNrIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/962f87b63e/Bramblejack.png",
+            "price": "1.00",
+            "listings_count": 4759,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "briarpatch",
+            "name": "Briarpatch",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0JyaWFycGF0Y2giLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5729410c81/Briarpatch.png",
+            "price": "1.00",
+            "listings_count": 5169,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "briskwrap",
+            "name": "Briskwrap",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0JyaXNrd3JhcCIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/218fe84d16/Briskwrap.png",
+            "price": "1.00",
+            "listings_count": 6672,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bristleboar",
+            "name": "Bristleboar",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0JyaXN0bGVib2FyIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a990c318c3/Bristleboar.png",
+            "price": "1.00",
+            "listings_count": 4772,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bronzebeard",
+            "name": "Bronzebeard",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQnJvbnplYmVhcmQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/46de809d9c/Bronzebeard.png",
+            "price": "2.00",
+            "listings_count": 4996,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "brynabas",
+            "name": "Brynabas",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9CeXJuYWJhcyIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f4ee3256e9/Byrnabas.png",
+            "price": "1.00",
+            "listings_count": 1366,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "brynhand-s-mark",
+            "name": "Brynhand's Mark",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvVW5pcXVlcy9CcnluaGFuZHNNYXJrIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d781b9c623/BrynhandsMark.png",
+            "price": "1.00",
+            "listings_count": 5003,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "bushwhack",
+            "name": "Bushwhack",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0J1c2h3YWNrIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/2b4eaa8008/Bushwack.png",
+            "price": "1.00",
+            "listings_count": 7100,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "call-of-the-brotherhood",
+            "name": "Call of the Brotherhood",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvQmFzZXR5cGVzL1RvcGF6UmluZyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/83315d9397/TopazRing.png",
+            "price": "1.00",
+            "listings_count": 9458,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "candlemaker",
+            "name": "Candlemaker",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9DYW5kbGVtYWtlciIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c4ecb2c1cc/Candlemaker.png",
+            "price": "1.00",
+            "listings_count": 2531,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "carnage-heart",
+            "name": "Carnage Heart",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0Nhcm5hZ2VIZWFydCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/fa1b9d80b8/CarnageHeart.png",
+            "price": "50.00",
+            "listings_count": 1283,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "choir-of-the-storm",
+            "name": "Choir of the Storm",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0Nob2lyT2ZUaGVTdG9ybSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/59c9c7bfc8/ChoirOfTheStorm.png",
+            "price": "5.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "cloak-of-flame",
+            "name": "Cloak of Flame",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0Nsb2FrT2ZGbGFtZSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c3f662adf6/CloakOfFlame.png",
+            "price": "1.00",
+            "listings_count": 7899,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "collapsing-horizon",
+            "name": "Collapsing Horizon",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9Db2xsYXBzaW5nSG9yaXpvbiIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b3fba2e984/CollapsingHorizon.png",
+            "price": "2.00",
+            "listings_count": 2458,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "controlled-metamorphosis",
+            "name": "Controlled Metamorphosis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL0JyZWFjaEpld2VsIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9c17747ff2/BreachJewel.png",
+            "price": "40.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "cornathaum",
+            "name": "Cornathaum",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQ29ybmF0aGF1bSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f4b843aeb6/Cornathaum.png",
+            "price": "8.00",
+            "listings_count": 507,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "corpsewade",
+            "name": "Corpsewade",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0NvcnBzZXdhZGUiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8a11e9b486/Corpsewade.png",
+            "price": "1.00",
+            "listings_count": 7612,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "couture-of-crimson",
+            "name": "Couture of Crimson",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0NvdXR1cmVPZkNyaW1zb24iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/0d5b007f91/CoutureOfCrimson.png",
+            "price": "1.00",
+            "listings_count": 1541,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "cowards-legacy",
+            "name": "Coward's Legacy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9Db3dhcmRzTGVnYWN5IiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8fbdb591b3/CowardsLegacy.png",
+            "price": "1.00",
+            "listings_count": 4771,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "cracklecreep",
+            "name": "Cracklecreep",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9DcmFja2xlY3JlZXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8d67f6a770/Cracklecreep.png",
+            "price": "1.00",
+            "listings_count": 4222,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "crest-of-ardura",
+            "name": "Crest of Ardura",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvQ3Jlc3RPZkFyZHVyYSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/00dd22db9d/CrestOfArdura.png",
+            "price": "1.00",
+            "listings_count": 6979,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "crown-of-the-pale-king",
+            "name": "Crown of the Pale King",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQ3Jvd25PZlRoZVBhbGVLaW5nIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4f2d8b7dc4/CrownOfThePaleKing.png",
+            "price": "1.00",
+            "listings_count": 4645,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "crown-of-the-victor",
+            "name": "Crown of the Victor",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQ3Jvd25PZlRoZVZpY3RvciIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8397c94ec0/CrownOfTheVictor.png",
+            "price": "5.00",
+            "listings_count": 1564,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "crown-of-thorns",
+            "name": "Crown of Thorns",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvQ3Jvd25PZlRob3JucyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9fa4aff8d2/CrownOfThorns.png",
+            "price": "1.00",
+            "listings_count": 4711,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "darkray-vectors",
+            "name": "Darkray Vectors",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0RhcmtyYXlWZWN0b3JzIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/1d850eef22/DarkrayVectors.png",
+            "price": "1.00",
+            "listings_count": 1551,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "death-rush",
+            "name": "Death Rush",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9EZWF0aFJ1c2giLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/85c32a7b7b/DeathRush.png",
+            "price": "10.00",
+            "listings_count": 2529,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "death-s-harp",
+            "name": "Death's Harp",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Cb3dzL1VuaXF1ZXMvRGVhdGhzSGFycCIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2205f4c8b2/DeathsHarp.png",
+            "price": "1.00",
+            "listings_count": 5135,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "deathblow",
+            "name": "Deathblow",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9EZWF0aGJsb3ciLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/dff2783525/Deathblow.png",
+            "price": "1.00",
+            "listings_count": 2494,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "defiance-of-destiny",
+            "name": "Defiance of Destiny",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0RlZmlhbmNlT2ZEZXN0aW55IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/713775c874/DefianceOfDestiny.png",
+            "price": "40.00",
+            "listings_count": 234,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "demon-stitcher",
+            "name": "Demon Stitcher",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9EZW1vblN0aXRjaGVyIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/85db93f065/DemonStitcher.png",
+            "price": "1.00",
+            "listings_count": 6540,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "dionadair",
+            "name": "Dionadair",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvRGlvbmFkYWlyIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e3a7524c37/Dionadair.png",
+            "price": "1.00",
+            "listings_count": 3767,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "doedre-s-damning",
+            "name": "Doedre's Damning",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9Eb2VkcmVzRGFtbmluZyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8b682589c5/DoedresDamning.png",
+            "price": "1.00",
+            "listings_count": 1606,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "doedre-s-tenure",
+            "name": "Doedre's Tenure",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9FbnJhcHRIYW5kcyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e11537f12a/EnraptHands.png",
+            "price": "2.00",
+            "listings_count": 7798,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "doomgate",
+            "name": "Doomgate",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvRG9vbWdhdGUiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d38a404d2f/Doomgate.png",
+            "price": "1.00",
+            "listings_count": 4562,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "dream-fragments",
+            "name": "Dream Fragments",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9EcmVhbUZyYWdtZW50cyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9cec05becb/DreamFragments.png",
+            "price": "84.00",
+            "listings_count": 253,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "dusk-vigil",
+            "name": "Dusk Vigil",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVW5pcXVlcy9EdXNrVmlnaWwiLCJ3IjoxLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b954b60c30/DuskVigil.png",
+            "price": "1.00",
+            "listings_count": 9770,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "dustbloom",
+            "name": "Dustbloom",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0R1c3RibG9vbSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/293dfc4810/Dustbloom.png",
+            "price": "1.00",
+            "listings_count": 4662,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "earthbound",
+            "name": "Earthbound",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVW5pcXVlcy9FYXJ0aGJvdW5kIiwidyI6MSwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/6262196371/Earthbound.png",
+            "price": "1.00",
+            "listings_count": 9281,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "edyrn-s-tusks",
+            "name": "Edyrn's Tusks",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0VkeXJuc1R1c2tzIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9a332a0d2e/EdyrnsTusks.png",
+            "price": "1.00",
+            "listings_count": 4690,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "elevore",
+            "name": "Elevore",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvRWxldm9yZSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/1444032605/Elevore.png",
+            "price": "1.00",
+            "listings_count": 4514,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "enezun-s-charge",
+            "name": "Enezun's Charge",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9XYW5kcy9VbmlxdWVzL0VuZXp1bnNDaGFyZ2UiLCJ3IjoxLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/0c8063f72c/EnezunsCharge.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "enfolding-dawn",
+            "name": "Enfolding Dawn",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0VuZm9sZGluZ0Rhd24iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/161d56efb4/EnfoldingDawn.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "erian-s-cobble",
+            "name": "Erian's Cobble",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0Jhc2V0eXBlcy9IZWxtZXRTdHJEZXgwMiIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/76592dc5c5/HelmetStrDex02.png",
+            "price": "1.00",
+            "listings_count": 6384,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "eye-of-chayula",
+            "name": "Eye of Chayula",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0V5ZU9mQ2hheXVsYSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b46b4e3204/EyeOfChayula.png",
+            "price": "25.00",
+            "listings_count": 158,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "fireflower",
+            "name": "Fireflower",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0ZpcmVmbG93ZXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/9430446301/Fireflower.png",
+            "price": "50.00",
+            "listings_count": 1966,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "fixation-of-yix",
+            "name": "Fixation of Yix",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0ZpeGF0aW9uT2ZZaXgiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a9ecf97e35/FixationOfYix.png",
+            "price": "1.00",
+            "listings_count": 4926,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "font-of-power",
+            "name": "Font of Power",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9TY2VwdGVycy9VbmlxdWVzL0ZvbnRPZlBvd2VyIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b2eb2bdf05/FontOfPower.png",
+            "price": "1.00",
+            "listings_count": 8226,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "forbidden-gaze",
+            "name": "Forbidden Gaze",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvRm9yYmlkZGVuR2F6ZSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8668aaf2b9/ForbiddenGaze.png",
+            "price": "1.00",
+            "listings_count": 6260,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "foxshade",
+            "name": "Foxshade",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0ZveGZvcm0iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f0823ddf72/Foxform.png",
+            "price": "1.00",
+            "listings_count": 4693,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "from-nothing",
+            "name": "From Nothing",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1JpdHVhbEpld2VsIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/192c7799d7/RitualJewel.png",
+            "price": "45.00",
+            "listings_count": 2718,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "frostbreath",
+            "name": "Frostbreath",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvVW5pcXVlcy9Gcm9zdGJyZWF0aCIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/876b9638d1/Frostbreath.png",
+            "price": "1.00",
+            "listings_count": 4847,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "gamblesprint",
+            "name": "Gamblesprint",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0dhbWJsZXNwcmludCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/cec4f3257a/Gamblesprint.png",
+            "price": "1.00",
+            "listings_count": 6290,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ghostmarch",
+            "name": "Ghostmarch",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0dob3N0bWFyY2giLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f006ab6d79/Ghostmarch.png",
+            "price": "1.00",
+            "listings_count": 2193,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ghostwrithe",
+            "name": "Ghostwrithe",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0dob3N0d3JpdGhlIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b30945f896/Ghostwrithe.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "glimpse-of-chaos",
+            "name": "Glimpse of Chaos",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvR2xpbXBzZU9mQ2hhb3MiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/680ff239e6/GlimpseOfChaos.png",
+            "price": "1.00",
+            "listings_count": 4723,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "gloomform",
+            "name": "Gloomform",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0dhdGhlcmluZ0dsb29tIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8a3d890f79/GatheringGloom.png",
+            "price": "1.00",
+            "listings_count": 5046,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "glowswarm",
+            "name": "Glowswarm",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9HbG93c3dhcm0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a6ab61abaf/Glowswarm.png",
+            "price": "1.00",
+            "listings_count": 5857,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "goldrim",
+            "name": "Goldrim",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvR29sZHJpbSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/0e0b09916b/Goldrim.png",
+            "price": "3.00",
+            "listings_count": 3856,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "grand-spectrum",
+            "name": "Grand Spectrum",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1VuaXF1ZXMvR3JhbmRTcGVjdHJ1bV9SdWJ5IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8d964b3e88/GrandSpectrum_Ruby.png",
+            "price": "20.00",
+            "listings_count": 3165,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "gravebind",
+            "name": "Gravebind",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9HcmF2ZWJpbmQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b24b39dbcc/Gravebind.png",
+            "price": "1.00",
+            "listings_count": 2112,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "greed-s-embrace",
+            "name": "Greed's Embrace",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0dyZWVkc0VtYnJhY2UiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/05ecc071b0/GreedsEmbrace.png",
+            "price": "1.00",
+            "listings_count": 2503,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "greymake",
+            "name": "Greymake",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvR3JleW1ha2UiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad331cc55d/Greymake.png",
+            "price": "10.00",
+            "listings_count": 2953,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "grip-of-winter",
+            "name": "Grip of Winter",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9HcmlwT2ZXaW50ZXIiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7a9121352d/GripOfWinter.png",
+            "price": "2.00",
+            "listings_count": 9240,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "guiding-palm",
+            "name": "Guiding Palm",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9TY2VwdGVycy9VbmlxdWVzL0d1aWRpbmdQYWxtTGlnaHRuaW5nIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4a37445a92/GuidingPalmLightning.png",
+            "price": "1.00",
+            "listings_count": 6502,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "hand-of-wisdom-and-action",
+            "name": "Hand of Wisdom and Action",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9IYW5kT2ZXaXNkb21BbmRBY3Rpb24iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4445974994/HandOfWisdomAndAction.png",
+            "price": "250.00",
+            "listings_count": 9539,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "hateforge",
+            "name": "Hateforge",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9IYXRlZm9yZ2UiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2e7a2f58b3/Hateforge.png",
+            "price": "1.00",
+            "listings_count": 939,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "headhunter",
+            "name": "Headhunter",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9IZWFkaHVudGVyIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/24accb4eec/Headhunter.png",
+            "price": "790.00",
+            "listings_count": 1565,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "heartbound-loop",
+            "name": "Heartbound Loop",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvSGVhcnRib3VuZFJpbmciLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/51a704b903/HeartboundRing.png",
+            "price": "1.00",
+            "listings_count": 5971,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "heroic-tragedy",
+            "name": "Heroic Tragedy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL0V4cGVkaXRpb25KZXdlbCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8356e82d27/ExpeditionJewel.png",
+            "price": "42.00",
+            "listings_count": 190,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "husk-of-dreams",
+            "name": "Husk of Dreams",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0h1c2tPZkRyZWFtcyIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/62b9636e39/HuskOfDreams.png",
+            "price": "1.00",
+            "listings_count": 4403,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "icetomb",
+            "name": "Icetomb",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0ljZXRvbWIiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/22e917e9e1/Icetomb.png",
+            "price": "1.00",
+            "listings_count": 4536,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "idle-hands",
+            "name": "Idle Hands",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9JZGxlSGFuZHMiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/3c2ae5adeb/IdleHands.png",
+            "price": "1.00",
+            "listings_count": 5693,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "idol-of-uldurn",
+            "name": "Idol of Uldurn",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0lkb2xPZlVsZHVybiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/86bf4bd5d7/IdolOfUldurn.png",
+            "price": "5.00",
+            "listings_count": 1512,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "igniferis",
+            "name": "Igniferis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0lnbmlmZXJpcyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5283d32ccb/Igniferis.png",
+            "price": "1.00",
+            "listings_count": 4354,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "incomplete",
+            "name": "INCOMPLETE",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL0Jhc2V0eXBlcy8xSFN3b3JkMDUiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bf38867f5f/1HSword05.png",
+            "price": "40.00",
+            "listings_count": 22,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "infernoclasp",
+            "name": "Infernoclasp",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9JbmZlcm5vY2xhc3AiLCJ3IjoyLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8b588f973c/Infernoclasp.png",
+            "price": "1.00",
+            "listings_count": 6422,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ingenuity",
+            "name": "Ingenuity",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9XaWRvd21ha2VyIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/394f71de07/Widowmaker.png",
+            "price": "1.00",
+            "listings_count": 4488,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "innsmouth",
+            "name": "Innsmouth",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvSW5uc21vdXRoIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8446a9220d/Innsmouth.png",
+            "price": "1.00",
+            "listings_count": 4084,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ironride",
+            "name": "Ironride",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0Jhc2V0eXBlcy9IZWxtZXRTdHJEZXgwMyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/388d8eea74/HelmetStrDex03.png",
+            "price": "1.00",
+            "listings_count": 1669,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "jarngreipr",
+            "name": "Jarngreipr",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9KYXJuZ3JlaXByIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/17f7200860/Jarngreipr.png",
+            "price": "1.00",
+            "listings_count": 5713,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "kalandra-s-touch",
+            "name": "Kalandra's Touch",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvTWlycm9yUmluZyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIiLCJkdXBsaWNhdGVkIjp0cnVlfV0/ec1c789fca/MirrorRing.png",
+            "price": "550.00",
+            "listings_count": 11,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "kaom-s-heart",
+            "name": "Kaom's Heart",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0thb21zSGVhcnQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d8f621abcf/KaomsHeart.png",
+            "price": "5.00",
+            "listings_count": 453,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "keelhaul",
+            "name": "Keelhaul",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9LZWVsaGF1bCIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/4a427d3e49/Keelhaul.png",
+            "price": "1.00",
+            "listings_count": 4142,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "keeper-of-the-arc",
+            "name": "Keeper of the Arc",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvS2VlcGVyT2ZUaGVBcmMiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8325686753/KeeperOfTheArc.png",
+            "price": "1.00",
+            "listings_count": 1345,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "killjoy",
+            "name": "Killjoy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9LaWxsam95IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b7650eb8b3/Killjoy.png",
+            "price": "1.00",
+            "listings_count": 3630,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "kingsguard",
+            "name": "Kingsguard",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0tpbmdzZ3VhcmQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d9e01f3a0d/Kingsguard.png",
+            "price": "1.00",
+            "listings_count": 4100,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "kitoko-s-current",
+            "name": "Kitoko's Current",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9HYXJ1a3NDdXJyZW50IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/37ca4af501/GaruksCurrent.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "leer-cast",
+            "name": "Leer Cast",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvTGVlcmNhc3QiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7bddf9699d/Leercast.png",
+            "price": "1.00",
+            "listings_count": 4806,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "legionstride",
+            "name": "Legionstride",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0xlZ2lvbnN0cmlkZSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/21e4beb29d/Legionstride.png",
+            "price": "1.00",
+            "listings_count": 4953,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "levinstone",
+            "name": "Levinstone",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9TdG9uZU9mT25kYXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/c79d385052/StoneOfOndar.png",
+            "price": "20.00",
+            "listings_count": 1546,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "lifesprig",
+            "name": "Lifesprig",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9XYW5kcy9VbmlxdWVzL0xpZmVzcHJpZyIsInciOjEsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/cbe8c8c6dd/Lifesprig.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ligurium-talisman",
+            "name": "Ligurium Talisman",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0xpZ3VyaXVtVGFsaXNtYW4iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad4bae46d9/LiguriumTalisman.png",
+            "price": "1.00",
+            "listings_count": 4742,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "lochtonial-caress",
+            "name": "Lochtonial Caress",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9Mb2NodG9uaWFsQ2FyZXNzIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3136a23eaa/LochtonialCaress.png",
+            "price": "1.00",
+            "listings_count": 5264,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "luminous-pace",
+            "name": "Luminous Pace",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0JhdGVkUGFjZSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9230893f4e/BatedPace.png",
+            "price": "1.00",
+            "listings_count": 6320,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "lycosidae",
+            "name": "Lycosidae",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvTHljb3NhIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/6f1b56c26a/Lycosa.png",
+            "price": "1.00",
+            "listings_count": 1239,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "mahuxotl-s-machination",
+            "name": "Mahuxotl's Machination",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvTWFodXhvdGxzTWFjaGluYXRpb24iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1d32df0ae5/MahuxotlsMachination.png",
+            "price": "9.00",
+            "listings_count": 7914,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "maligaro-s-virtuosity",
+            "name": "Maligaro's Virtuosity",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9NYWxpZ2Fyb3NWaXJ0dW9zaXR5IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/08f6808733/MaligarosVirtuosity.png",
+            "price": "100.00",
+            "listings_count": 1427,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "mask-of-the-sanguimancer",
+            "name": "Mask of the Sanguimancer",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvUGhhbnRvbUJsb29kIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/913957c654/PhantomBlood.png",
+            "price": "1.00",
+            "listings_count": 2362,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "mask-of-the-stitched-demon",
+            "name": "Mask of the Stitched Demon",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvTWFza09mVGhlU3RpdGNoZWREZW1vbiIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6848b807d5/MaskOfTheStitchedDemon.png",
+            "price": "6.00",
+            "listings_count": 4549,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "matsya",
+            "name": "Matsya",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9NYXRzeWEiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8bdeb43831/Matsya.png",
+            "price": "1.00",
+            "listings_count": 4068,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "megalomaniac",
+            "name": "Megalomaniac",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL0RlbGlyaXVtSmV3ZWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d1d171dc8b/DeliriumJewel.png",
+            "price": "10.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "meginords-girdle",
+            "name": "Meginord's Girdle",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9NZWdpbm9yZHNHaXJkbGUiLCJ3IjoyLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2feba3dafb/MeginordsGirdle.png",
+            "price": "2.00",
+            "listings_count": 7351,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "melting-maelstrom",
+            "name": "Melting Maelstrom",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/af4036c345/CurrencyModValues.png",
+            "price": "8.00",
+            "listings_count": 654,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "midnight-braid",
+            "name": "Midnight Braid",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9NaWRuaWdodEJyYWlkIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/191c4a3640/MidnightBraid.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ming-s-heart",
+            "name": "Ming's Heart",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9NaW5nc0hlYXJ0IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/aa98f01580/MingsHeart.png",
+            "price": "3.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "mist-whisper",
+            "name": "Mist Whisper",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Dcm9zc2Jvd3MvVW5pcXVlcy9NaXN0V2hpc3BlciIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bc16946b14/MistWhisper.png",
+            "price": "1.00",
+            "listings_count": 6409,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "myris-uxor",
+            "name": "Myris Uxor",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0Jhc2V0eXBlcy9IZWxtZXREZXgwMSIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/dcff771f29/HelmetDex01.png",
+            "price": "1.00",
+            "listings_count": 1755,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "nazir-s-judgement",
+            "name": "Nazir's Judgement",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9OYXppcnNKdWRnZW1lbnQiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d993287a1d/NazirsJudgement.png",
+            "price": "1.00",
+            "listings_count": 6293,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "necromantle",
+            "name": "Necromantle",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL05lY3JvbWFudGxlIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/68d9c43f50/Necromantle.png",
+            "price": "1.00",
+            "listings_count": 6294,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "northpaw",
+            "name": "Northpaw",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9Ob3J0aHBhdyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/14ac29a0a2/Northpaw.png",
+            "price": "1.00",
+            "listings_count": 5036,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "oaksworn",
+            "name": "Oaksworn",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvT2Frc3dvcm4iLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/db91a1ce52/Oaksworn.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "obern-s-bastion",
+            "name": "Obern's Bastion",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL09iZXJuc0Jhc3Rpb24iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/51ed405611/ObernsBastion.png",
+            "price": "1.00",
+            "listings_count": 6552,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "olroth-s-resolve",
+            "name": "Olroth's Resolve",
+            "icon": "https://web.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvVW5pcXVlcy9PbHJvdGhzUmVzb2x2ZSIsInciOjEsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIiLCJsZXZlbCI6MX1d/8c4fbaeb37/OlrothsResolve.png",
+            "price": "26.00",
+            "listings_count": 101,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "olrovasara",
+            "name": "Olrovasara",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvVW5pcXVlcy9PbHJvdmFzYXJhIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a8c1322bad/Olrovasara.png",
+            "price": "2.00",
+            "listings_count": 1730,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "original-sin",
+            "name": "Original Sin",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9PcmlnaW5hbFNpbiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b911400c32/OriginalSin.png",
+            "price": "3.00",
+            "listings_count": 148,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "painter-s-servant",
+            "name": "Painter's Servant",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9QYWludGVyc1NlcnZhbnQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b0ab8bb2b3/PaintersServant.png",
+            "price": "1.00",
+            "listings_count": 7296,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "perandus-seal",
+            "name": "Perandus Seal",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9QZXJhbmR1c1NlYWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/72cf86d082/PerandusSeal.png",
+            "price": "1.00",
+            "listings_count": 1531,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "pillar-of-the-caged-god",
+            "name": "Pillar of the Caged God",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9QaWxsYXJPZlRoZUNhZ2VkR29kIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b79c320a48/PillarOfTheCagedGod.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "plaguefinger",
+            "name": "Plaguefinger",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9QbGFndWVmaW5nZXIiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f88ef1cca5/Plaguefinger.png",
+            "price": "1.00",
+            "listings_count": 2024,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "polcirkeln",
+            "name": "Polcirkeln",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9Qb2xjaXJrZWxuIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/dc74bcffd7/Polcirkeln.png",
+            "price": "3.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "powertread",
+            "name": "Powertread",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1Bvd2VydHJlYWQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5f6db9c27d/Powertread.png",
+            "price": "1.00",
+            "listings_count": 2183,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "prayers-for-rain",
+            "name": "Prayers for Rain",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1ByYXllcnNGb3JSYWluIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/695847a00b/PrayersForRain.png",
+            "price": "1.00",
+            "listings_count": 4837,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "prism-of-belief",
+            "name": "Prism of Belief",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1NhY3JlZEZsYW1lSmV3ZWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/04600d71f9/SacredFlameJewel.png",
+            "price": "3.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "quatl-s-molt",
+            "name": "Quatl's Molt",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1F1YXRsc01vbHQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/737d22c152/QuatlsMolt.png",
+            "price": "1.00",
+            "listings_count": 1394,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "queen-of-the-forest",
+            "name": "Queen of the Forest",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1F1ZWVuT2ZUaGVGb3Jlc3QiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b55d425217/QueenOfTheForest.png",
+            "price": "240.00",
+            "listings_count": 1009,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "radiant-grief",
+            "name": "Radiant Grief",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvUmFkaWFudEdyaWVmIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/6966d29a8e/RadiantGrief.png",
+            "price": "1.00",
+            "listings_count": 6724,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "rampart-raptor",
+            "name": "Rampart Raptor",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Dcm9zc2Jvd3MvVW5pcXVlcy9SYW1wYXJ0UmFwdG9yIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/72f2d2f130/RampartRaptor.png",
+            "price": "1.00",
+            "listings_count": 5901,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "redflare-conduit",
+            "name": "Redflare Conduit",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1JlZGZsYXJlQ29uZHVpdCIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6b4425ca6d/RedflareConduit.png",
+            "price": "1.00",
+            "listings_count": 4142,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "revered-resin",
+            "name": "Revered Resin",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1JldmVyZWRSZXNpbiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6139c327c5/ReveredResin.png",
+            "price": "1.00",
+            "listings_count": 3839,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "rise-of-the-phoenix",
+            "name": "Rise of the Phoenix",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL0NyZXN0MDYiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6ba061f56a/Crest06.png",
+            "price": "1.00",
+            "listings_count": 5172,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "rondel-of-fragility",
+            "name": "Rondel of Fragility",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1JvbmRlbE9mRnJhZ2lsaXR5IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/156889f601/RondelOfFragility.png",
+            "price": "1.00",
+            "listings_count": 5050,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ryslathas-coil",
+            "name": "Ryslatha's Coil",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9SeXNsYXRoYXNDb2lsIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/09d92223e5/RyslathasCoil.png",
+            "price": "25.00",
+            "listings_count": 1270,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "sacred-flame",
+            "name": "Sacred Flame",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9TY2VwdGVycy9VbmlxdWVzL1NhY3JlZEZsYW1lIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/f6c6572ac6/SacredFlame.png",
+            "price": "35.00",
+            "listings_count": 1959,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "saffell-s-frame",
+            "name": "Saffell's Frame",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvU2FmZmVsc0ZyYW1lIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b030222d54/SaffelsFrame.png",
+            "price": "1.00",
+            "listings_count": 1712,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "sandstorm-visage",
+            "name": "Sandstorm Visage",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvU2FuZHN0b3JtVmlzYWdlIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a4393c873a/SandstormVisage.png",
+            "price": "10.00",
+            "listings_count": 231,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "sanguine-diviner",
+            "name": "Sanguine Diviner",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9XYW5kcy9VbmlxdWVzL1Nhbmd1aW5lRGl2aW5lciIsInciOjEsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f4a70f16ee/SanguineDiviner.png",
+            "price": "1.00",
+            "listings_count": 7697,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "seed-of-cataclysm",
+            "name": "Seed of Cataclysm",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9TZWVkT2ZDYXRhY2x5c20iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4ae8a2cc6d/SeedOfCataclysm.png",
+            "price": "5.00",
+            "listings_count": 2001,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "sekhema-s-resolve",
+            "name": "Sekhema's Resolve",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9FbWJlcmhlYXJ0U2VhbCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/4cc4a73cfb/EmberheartSeal.png",
+            "price": "10.00",
+            "listings_count": 1000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "serpent-s-egg",
+            "name": "Serpent's Egg",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1RoZVNlcnBlbnRzRWdnIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/fe60331911/TheSerpentsEgg.png",
+            "price": "10.00",
+            "listings_count": 2397,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "shackles-of-the-wretched",
+            "name": "Shackles of the Wretched",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9TaGFja2xlc09mVGhlV3JldGNoZWQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5d61242edf/ShacklesOfTheWretched.png",
+            "price": "1.00",
+            "listings_count": 4493,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "shavronnes-satchel",
+            "name": "Shavronne's Satchel",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9TaGF2cm9ubmVzU2F0Y2hlbCIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/03b20ba6b9/ShavronnesSatchel.png",
+            "price": "1.00",
+            "listings_count": 1736,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "sierran-inheritance",
+            "name": "Sierran Inheritance",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL011dGV3aW5kU2FpbCIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/41563c0946/MutewindSail.png",
+            "price": "1.00",
+            "listings_count": 1448,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "skysliver",
+            "name": "Skysliver",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3BlYXJzL1NreXNsaXZlciIsInciOjEsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/28135e8a06/Skysliver.png",
+            "price": "1.00",
+            "listings_count": 2,
+            "confidence": "low"
+        },
+        {
+            "type": "unique",
+            "id": "snakebite",
+            "name": "Snakebite",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9TbmFrZWJpdGUiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/363ad81979/Snakebite.png",
+            "price": "1.00",
+            "listings_count": 4029,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "snakepit",
+            "name": "Snakepit",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9TbmFrZXBpdCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b272f3e194/Snakepit.png",
+            "price": "10.00",
+            "listings_count": 2034,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "soul-tether",
+            "name": "Soul Tether",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9Tb3VsVGV0aGVyIiwidyI6MiwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3a7bb8985a/SoulTether.png",
+            "price": "1.00",
+            "listings_count": 1632,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "splinter-of-loratta",
+            "name": "Splinter of Loratta",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3BlYXJzLzFIU3BlYXIwMSIsInciOjEsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/84a2d1da16/1HSpear01.png",
+            "price": "1.00",
+            "listings_count": 1,
+            "confidence": "low"
+        },
+        {
+            "type": "unique",
+            "id": "splinterheart",
+            "name": "Splinterheart",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Cb3dzL1VuaXF1ZXMvU3BsaW50ZXJoZWFydCIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b52c3b7e08/Splinterheart.png",
+            "price": "1.00",
+            "listings_count": 8150,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "strugglescream",
+            "name": "Strugglescream",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL0RlbGlyaXVtQW11bGV0IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9e8a23019a/DeliriumAmulet.png",
+            "price": "2.00",
+            "listings_count": 1772,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "surefooted-sigil",
+            "name": "Surefooted Sigil",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1N1cmVmb290ZWRTaWdpbCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/78449612a8/SurefootedSigil.png",
+            "price": "5.00",
+            "listings_count": 3999,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "svalinn",
+            "name": "Svalinn",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvU3ZhbGlubiIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9725b3d511/Svalinn.png",
+            "price": "10.00",
+            "listings_count": 1374,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "taryn-s-shiver",
+            "name": "Taryn's Shiver",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVW5pcXVlcy9UYXJ5bnNTaGl2ZXIiLCJ3IjoxLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/105c6f77ea/TarynsShiver.png",
+            "price": "1.00",
+            "listings_count": 2255,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "temporalis",
+            "name": "Temporalis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1BpbGdyaW1zSW1hZ2UiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/69db95b9aa/PilgrimsImage.png",
+            "price": "245.00",
+            "listings_count": 245,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "tetzlapokal-s-desire",
+            "name": "Tetzlapokal's Desire",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RldHpsYXBva2Fsc0Rlc2lyZSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/a100163884/TetzlapokalsDesire.png",
+            "price": "1.00",
+            "listings_count": 2129,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-adorned",
+            "name": "The Adorned",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1RyaWFsbWFzdGVySmV3ZWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/fa6b8d5683/TrialmasterJewel.png",
+            "price": "40.00",
+            "listings_count": 564,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-anvil",
+            "name": "The Anvil",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1RoZUFudmlsIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/ee5dc2e9b8/TheAnvil.png",
+            "price": "1.00",
+            "listings_count": 925,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-black-doubt",
+            "name": "The Black Doubt",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RoZUJsYWNrRG91YnQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/023ca4d7af/TheBlackDoubt.png",
+            "price": "1.00",
+            "listings_count": 4692,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-blood-thorn",
+            "name": "The Blood Thorn",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9UaGVCbG9vZFRob3JuIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/f36189922c/TheBloodThorn.png",
+            "price": "1.00",
+            "listings_count": 5225,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-brass-dome",
+            "name": "The Brass Dome",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL0JyYXNzRG9tZSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e2c74f60ea/BrassDome.png",
+            "price": "1.00",
+            "listings_count": 2573,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-burden-of-shadows",
+            "name": "The Burden of Shadows",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVW5pcXVlcy9CdXJkZW5PZlNoYWRvd3MiLCJ3IjoxLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f12933ae7d/BurdenOfShadows.png",
+            "price": "2.00",
+            "listings_count": 747,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-burrower",
+            "name": "The Burrower",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9UaGVCdXJyb3dlciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/27fc2ce96e/TheBurrower.png",
+            "price": "1.00",
+            "listings_count": 3962,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-covenant",
+            "name": "The Covenant",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RoZUNvdmVuYW50IiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/90335a8685/TheCovenant.png",
+            "price": "5.00",
+            "listings_count": 510,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-dancing-mirage",
+            "name": "The Dancing Mirage",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RoZURhbmNpbmdNaXJhZ2UiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cff15b65e4/TheDancingMirage.png",
+            "price": "1.00",
+            "listings_count": 4409,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-dark-defiler",
+            "name": "The Dark Defiler",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9TY2VwdGVycy9VbmlxdWVzL0RhcmtEZWZpbGVyIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8aa299f0eb/DarkDefiler.png",
+            "price": "1.00",
+            "listings_count": 8606,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-devouring-diadem",
+            "name": "The Devouring Diadem",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvRGV2b3VyaW5nRGlhZGVtIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/46221d1e66/DevouringDiadem.png",
+            "price": "1.00",
+            "listings_count": 5264,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-everlasting-gaze",
+            "name": "The Everlasting Gaze",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1RoZUV2ZXJsYXN0aW5nR2F6ZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6712f57467/TheEverlastingGaze.png",
+            "price": "5.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-hollow-mask",
+            "name": "The Hollow Mask",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvTWFza09mVGhlSG9sbG93IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9da92fc685/MaskOfTheHollow.png",
+            "price": "1.00",
+            "listings_count": 4063,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-immortan",
+            "name": "The Immortan",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RoZVJvYWRXYXJyaW9yIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/729d923846/TheRoadWarrior.png",
+            "price": "1.00",
+            "listings_count": 216,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-infinite-pursuit",
+            "name": "The Infinite Pursuit",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1RoZUluZmluaXRlUHVyc3VpdCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/4fdafe7cbb/TheInfinitePursuit.png",
+            "price": "1.00",
+            "listings_count": 6224,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-knight-errant",
+            "name": "The Knight-errant",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL0tuaWdodEVycmFudCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c9b81f5301/KnightErrant.png",
+            "price": "1.00",
+            "listings_count": 4527,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-pandemonius",
+            "name": "The Pandemonius",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1RoZVBhbmRlbW9uaXVzIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5757408698/ThePandemonius.png",
+            "price": "1.00",
+            "listings_count": 6594,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-rat-cage",
+            "name": "The Rat Cage",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RoZVJhdENhZ2UiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/c28265f92c/TheRatCage.png",
+            "price": "1.00",
+            "listings_count": 4113,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-searing-touch",
+            "name": "The Searing Touch",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVW5pcXVlcy9TZWFyaW5nVG91Y2giLCJ3IjoxLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5cbbb578a8/SearingTouch.png",
+            "price": "1.00",
+            "listings_count": 2085,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-sentry",
+            "name": "The Sentry",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvVW5pcXVlcy9UaGVTZW50cnkiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a21add4399/TheSentry.png",
+            "price": "1.00",
+            "listings_count": 6277,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-smiling-knight",
+            "name": "The Smiling Knight",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVGhlU21pbGluZ0tuaWdodCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f3cc309ae7/TheSmilingKnight.png",
+            "price": "1.00",
+            "listings_count": 4184,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-surrender",
+            "name": "The Surrender",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvVGhlU3VycmVuZGVyIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/364055985d/TheSurrender.png",
+            "price": "35.00",
+            "listings_count": 848,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-three-dragons",
+            "name": "The Three Dragons",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVGhlVGhyZWVEcmFnb25zIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/42dce91438/TheThreeDragons.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-vertex",
+            "name": "The Vertex",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVGhlVmVydGV4IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/baf0218c37/TheVertex.png",
+            "price": "150.00",
+            "listings_count": 508,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-vile-knight",
+            "name": "The Vile Knight",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVGhlVmlsZUtuaWdodCIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2a8eb27e3e/TheVileKnight.png",
+            "price": "1.00",
+            "listings_count": 4379,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "the-wailing-wall",
+            "name": "The Wailing Wall",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvVGhlV2FpbGluZ1dhbGwiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/3b26286c81/TheWailingWall.png",
+            "price": "1.00",
+            "listings_count": 1160,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "thief-s-torment",
+            "name": "Thief's Torment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9UaGllZnNUb3JtZW50IiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/77112d5a83/ThiefsTorment.png",
+            "price": "60.00",
+            "listings_count": 2905,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "thunderstep",
+            "name": "Thunderstep",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1RodW5kZXJvdXNTaWxlbmNlIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3b1b1d732d/ThunderousSilence.png",
+            "price": "1.00",
+            "listings_count": 5805,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "titanrot-cataphract",
+            "name": "Titanrot Cataphract",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1RpdGFucm90Q2F0YXBocmFjdCIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/488faa86b6/TitanrotCataphract.png",
+            "price": "1.00",
+            "listings_count": 5982,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "trampletoe",
+            "name": "Trampletoe",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1RyYW1wbGV0b2UiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eed7a02130/Trampletoe.png",
+            "price": "20.00",
+            "listings_count": 5267,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "treefingers",
+            "name": "Treefingers",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvVW5pcXVlcy9UcmVlZmluZ2VycyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/37d281ee36/Treefingers.png",
+            "price": "1.00",
+            "listings_count": 1728,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "trenchtimbre",
+            "name": "Trenchtimbre",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvVW5pcXVlcy9UcmVuY2h0aW1icmUiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b07d6d6d58/Trenchtimbre.png",
+            "price": "2.00",
+            "listings_count": 6243,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ungil-s-harmony",
+            "name": "Ungil's Harmony",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1VuZ2lsc0hhcm1vbnkiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6865185b8f/UngilsHarmony.png",
+            "price": "1.00",
+            "listings_count": 4891,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "veil-of-the-night",
+            "name": "Veil of the Night",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVmVpbE9mVGhlTmlnaHQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8a2266e6be/VeilOfTheNight.png",
+            "price": "1.00",
+            "listings_count": 999,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "ventor-s-gamble",
+            "name": "Ventor's Gamble",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvVW5pcXVlcy9WZW50b3JzR2FtYmxlIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/bc113c96d9/VentorsGamble.png",
+            "price": "2.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "visage-of-ayah",
+            "name": "Visage of Ayah",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL1VuaXF1ZXMvVmlzYWdlT2ZBeWFoIiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/2dca37cc27/VisageOfAyah.png",
+            "price": "1.00",
+            "listings_count": 5494,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "voll-s-protector",
+            "name": "Voll's Protector",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1ZvbGxzUHJvdGVjdG9yIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/ccf71dd4ca/VollsProtector.png",
+            "price": "1.00",
+            "listings_count": 1183,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "wandering-reliquary",
+            "name": "Wandering Reliquary",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9VbmlxdWVzL1dhbmRlcmluZ1JlbGlxdWFyeSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/d01510d8c2/WanderingReliquary.png",
+            "price": "1.00",
+            "listings_count": 4813,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "wanderlust",
+            "name": "Wanderlust",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1dhbmRlcmx1c3QiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/3a2a185e0f/Wanderlust.png",
+            "price": "1.00",
+            "listings_count": 4814,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "whisper-of-the-brotherhood",
+            "name": "Whisper of the Brotherhood",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvQmFzZXR5cGVzL1NhcHBoaXJlUmluZyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/14608c24b1/SapphireRing.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "widowhail",
+            "name": "Widowhail",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Cb3dzL1VuaXF1ZXMvV2lkb3doYWlsIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/2003f478c3/Widowhail.png",
+            "price": "1.00",
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "windscream",
+            "name": "Windscream",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1dpbmRzY3JlYW0iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/12efc65e3f/Windscream.png",
+            "price": "1.00",
+            "listings_count": 2345,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "wondertrap",
+            "name": "Wondertrap",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9VbmlxdWVzL1dvbmRlcnRyYXAiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f646d327d6/Wondertrap.png",
+            "price": "2.00",
+            "listings_count": 9102,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "wulfsbane",
+            "name": "Wulfsbane",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvT2ZmaGFuZC9TaGllbGRzL1VuaXF1ZXMvV3VsZnNiYW5lIiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/651230662e/Wulfsbane.png",
+            "price": "1.00",
+            "listings_count": 2955,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "wylund-s-stake",
+            "name": "Wylund's Stake",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvVW5pcXVlcy9UaGVTdGFrZSIsInciOjIsImgiOjMsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5fe28e2d93/TheStake.png",
+            "price": "1.00",
+            "listings_count": 4832,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "xoph-s-blood",
+            "name": "Xoph's Blood",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1hvcGhzQmxvb2QiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2e10b554f9/XophsBlood.png",
+            "price": "1.00",
+            "listings_count": 6993,
+            "confidence": "high"
+        },
+        {
+            "type": "unique",
+            "id": "zerphis-genesis",
+            "name": "Zerphi's Genesis",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvVW5pcXVlcy9aZXJwaGlzR2VuZXNpcyIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/adbb363605/ZerphisGenesis.png",
+            "price": "1.00",
+            "listings_count": 4031,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "body-rune",
+            "name": "Body Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png",
+            "price": "0.1000000000",
+            "listings_count": 837,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "desert-rune",
+            "name": "Desert Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png",
+            "price": "0.1000000000",
+            "listings_count": 965,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "glacial-rune",
+            "name": "Glacial Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png",
+            "price": "0.1000000000",
+            "listings_count": 956,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "inspiration-rune",
+            "name": "Inspiration Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png",
+            "price": "0.1111111111",
+            "listings_count": 806,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "iron-rune",
+            "name": "Iron Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png",
+            "price": "0.5000000000",
+            "listings_count": 1522,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "mind-rune",
+            "name": "Mind Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png",
+            "price": "0.0833333333",
+            "listings_count": 801,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "rebirth-rune",
+            "name": "Rebirth Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png",
+            "price": "0.2000000000",
+            "listings_count": 719,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "stone-rune",
+            "name": "Stone Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png",
+            "price": "0.1000000000",
+            "listings_count": 737,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "storm-rune",
+            "name": "Storm Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png",
+            "price": "0.2000000000",
+            "listings_count": 977,
+            "confidence": "high"
+        },
+        {
+            "type": "rune",
+            "id": "vision-rune",
+            "name": "Vision Rune",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png",
+            "price": "0.1000000000",
+            "listings_count": 793,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 18,
+            "name": "Breach Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCcmVhY2giLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/295c0839d7/PrecursorTabletBreach.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 20,
+            "name": "Delirium Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXREZWxpcml1bSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/81acb86b9f/PrecursorTabletDelirium.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 19,
+            "name": "Expedition Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRFeHBlZGl0aW9uIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4450dac451/PrecursorTabletExpedition.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 22,
+            "name": "Overseer Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png",
+            "price": null,
+            "listings_count": null,
+            "confidence": null
+        },
+        {
+            "type": "waystone",
+            "id": 17,
+            "name": "Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 21,
+            "name": "Ritual Precursor Tablet",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRSaXR1YWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7c49d00f07/PrecursorTabletRitual.png",
+            "price": 4,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 1,
+            "name": "Waystone (Tier 1)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bb4c55989d/EndgameMap1.png",
+            "price": 5,
+            "listings_count": 7256,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 10,
+            "name": "Waystone (Tier 10)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTAiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4a1266867a/EndgameMap10.png",
+            "price": 5,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 11,
+            "name": "Waystone (Tier 11)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/77da168a75/EndgameMap11.png",
+            "price": 5,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 12,
+            "name": "Waystone (Tier 12)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTIiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1b37ec5864/EndgameMap12.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 13,
+            "name": "Waystone (Tier 13)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4877b17436/EndgameMap13.png",
+            "price": 6,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 14,
+            "name": "Waystone (Tier 14)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/9149454787/EndgameMap14.png",
+            "price": 9,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 15,
+            "name": "Waystone (Tier 15)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cea6af97d7/EndgameMap15.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 16,
+            "name": "Waystone (Tier 16)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTYiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/098fff71c2/EndgameMap16.png",
+            "price": 2,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 2,
+            "name": "Waystone (Tier 2)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b4ffda8e35/EndgameMap2.png",
+            "price": 1,
+            "listings_count": 7734,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 3,
+            "name": "Waystone (Tier 3)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/7940d0ad1a/EndgameMap3.png",
+            "price": 1,
+            "listings_count": 9223,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 4,
+            "name": "Waystone (Tier 4)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwNCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e405b6783b/EndgameMap4.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 5,
+            "name": "Waystone (Tier 5)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwNSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/22247ac187/EndgameMap5.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 6,
+            "name": "Waystone (Tier 6)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwNiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f64d3b6889/EndgameMap6.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 7,
+            "name": "Waystone (Tier 7)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwNyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/7f32b3664e/EndgameMap7.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 8,
+            "name": "Waystone (Tier 8)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwOCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/fb8a8651b5/EndgameMap8.png",
+            "price": 1,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "waystone",
+            "id": 9,
+            "name": "Waystone (Tier 9)",
+            "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwOSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/420f1c6412/EndgameMap9.png",
+            "price": 2,
+            "listings_count": 10000,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-atmohua",
+            "name": "Soul Core of Atmohua",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png",
+            "price": "10.0000000000",
+            "listings_count": 131,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-azcapa",
+            "name": "Soul Core of Azcapa",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png",
+            "price": "700.0000000000",
+            "listings_count": 12,
+            "confidence": "medium"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-cholotl",
+            "name": "Soul Core of Cholotl",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png",
+            "price": "9.0000000000",
+            "listings_count": 148,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-citaqualotl",
+            "name": "Soul Core of Citaqualotl",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png",
+            "price": "40.0000000000",
+            "listings_count": 145,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-jiquani",
+            "name": "Soul Core of Jiquani",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png",
+            "price": "14.0000000000",
+            "listings_count": 123,
+            "confidence": "medium"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-opiloti",
+            "name": "Soul Core of Opiloti",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png",
+            "price": "3.0000000000",
+            "listings_count": 227,
+            "confidence": "medium"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-puhuarte",
+            "name": "Soul Core of Puhuarte",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png",
+            "price": "10.0000000000",
+            "listings_count": 64,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-quipolatl",
+            "name": "Soul Core of Quipolatl",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png",
+            "price": "20.0000000000",
+            "listings_count": 90,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-tacati",
+            "name": "Soul Core of Tacati",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png",
+            "price": "10.0000000000",
+            "listings_count": 184,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-ticaba",
+            "name": "Soul Core of Ticaba",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png",
+            "price": "14.0000000000",
+            "listings_count": 76,
+            "confidence": "medium"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-topotante",
+            "name": "Soul Core of Topotante",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png",
+            "price": "8.0000000000",
+            "listings_count": 232,
+            "confidence": "medium"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-tzamoto",
+            "name": "Soul Core of Tzamoto",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png",
+            "price": "10.0000000000",
+            "listings_count": 89,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-xopec",
+            "name": "Soul Core of Xopec",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png",
+            "price": "12.0000000000",
+            "listings_count": 77,
+            "confidence": "low"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-zalatl",
+            "name": "Soul Core of Zalatl",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png",
+            "price": "79.0000000000",
+            "listings_count": 72,
+            "confidence": "high"
+        },
+        {
+            "type": "soulcore",
+            "id": "soul-core-of-zantipi",
+            "name": "Soul Core of Zantipi",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png",
+            "price": "12.0000000000",
+            "listings_count": 71,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "adaptive-catalyst",
+            "name": "Adaptive Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0QXR0cmlidXRlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/015f6c9ac8/BreachCatalystAttribute.png",
+            "price": "1.0000000000",
+            "listings_count": 864,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "carapace-catalyst",
+            "name": "Carapace Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0RGVmZW5jZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/568ca70b04/BreachCatalystDefences.png",
+            "price": "0.1666666667",
+            "listings_count": 721,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "chayulas-catalyst",
+            "name": "Chayula's Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0Q2hhb3MiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/c80d8d7b1b/BreachCatalystChaos.png",
+            "price": "0.5000000000",
+            "listings_count": 545,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "eshs-catalyst",
+            "name": "Esh's Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0TGlnaHRuaW5nIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/299e62fc33/BreachCatalystLightning.png",
+            "price": "1.0000000000",
+            "listings_count": 767,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "flesh-catalyst",
+            "name": "Flesh Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0TGlmZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/06ec489870/BreachCatalystLife.png",
+            "price": "0.5000000000",
+            "listings_count": 658,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "neural-catalyst",
+            "name": "Neural Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0TWFuYSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/61d3a7a832/BreachCatalystMana.png",
+            "price": "0.9333333333",
+            "listings_count": 934,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "reaver-catalyst",
+            "name": "Reaver Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0QXR0YWNrIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/ccc363f502/BreachCatalystAttack.png",
+            "price": "0.9500000000",
+            "listings_count": 702,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "sibilant-catalyst",
+            "name": "Sibilant Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0Q2FzdGVyIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/51dc6bc317/BreachCatalystCaster.png",
+            "price": "0.3333333333",
+            "listings_count": 542,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "skittering-catalyst",
+            "name": "Skittering Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0U3BlZWQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/14b5db3c3c/BreachCatalystSpeed.png",
+            "price": "0.1666666667",
+            "listings_count": 564,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "tuls-catalyst",
+            "name": "Tul's Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0Q29sZCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c3bc9abf43/BreachCatalystCold.png",
+            "price": "1.0000000000",
+            "listings_count": 797,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "uul-netols-catalyst",
+            "name": "Uul-Netol's Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0UGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bc9406c106/BreachCatalystPhysical.png",
+            "price": "0.1428571429",
+            "listings_count": 588,
+            "confidence": "high"
+        },
+        {
+            "type": "breachcatalyst",
+            "id": "xophs-catalyst",
+            "name": "Xoph's Catalyst",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0RmlyZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/05b1999374/BreachCatalystFire.png",
+            "price": "1.0000000000",
+            "listings_count": 611,
+            "confidence": "high"
+        },
+        {
+            "type": "expedition",
+            "id": "black-scythe-artifact",
+            "name": "Black Scythe Artifact",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9SdW5lNiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2260f34070/Rune6.png",
+            "price": "0.2777777778",
+            "listings_count": 784,
+            "confidence": "high"
+        },
+        {
+            "type": "expedition",
+            "id": "broken-circle-artifact",
+            "name": "Broken Circle Artifact",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9SdW5lMTYiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/46b487f53f/Rune16.png",
+            "price": "0.1500000000",
+            "listings_count": 1015,
+            "confidence": "high"
+        },
+        {
+            "type": "expedition",
+            "id": "exotic-coinage",
+            "name": "Exotic Coinage",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9CYXJ0ZXJSZWZyZXNoQ3VycmVuY3kiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8a4fe1f468/BarterRefreshCurrency.png",
+            "price": "1.0000000000",
+            "listings_count": 934,
+            "confidence": "high"
+        },
+        {
+            "type": "expedition",
+            "id": "order-artifact",
+            "name": "Order Artifact",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9SdW5lMTMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/47a41c9782/Rune13.png",
+            "price": "0.1000000000",
+            "listings_count": 914,
+            "confidence": "high"
+        },
+        {
+            "type": "expedition",
+            "id": "sun-artifact",
+            "name": "Sun Artifact",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9SdW5lMTciLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ca2335fdef/Rune17.png",
+            "price": "0.4545454545",
+            "listings_count": 582,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-amelioration",
+            "name": "Omen of Amelioration",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzQmx1ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/b5ee965352/VoodooOmens3Blue.png",
+            "price": "120.0000000000",
+            "listings_count": 116,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-corruption",
+            "name": "Omen of Corruption",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9cfdcc9e1a/VoodooOmens3Red.png",
+            "price": "66.0000000000",
+            "listings_count": 67,
+            "confidence": "low"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-dextral-alchemy",
+            "name": "Omen of Dextral Alchemy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyR3JlZW4iLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/0ff0cfbb93/VoodooOmens2Green.png",
+            "price": "1.0000000000",
+            "listings_count": 815,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-dextral-annulment",
+            "name": "Omen of Dextral Annulment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzUHVycGxlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d901658529/VoodooOmens3Purple.png",
+            "price": null,
+            "listings_count": null,
+            "confidence": null
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-dextral-coronation",
+            "name": "Omen of Dextral Coronation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/f1bbb78614/VoodooOmens2Red.png",
+            "price": "1.0000000000",
+            "listings_count": 845,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-dextral-erasure",
+            "name": "Omen of Dextral Erasure",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzRGFyayIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6e2bb52963/VoodooOmens3Dark.png",
+            "price": null,
+            "listings_count": null,
+            "confidence": null
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-dextral-exaltation",
+            "name": "Omen of Dextral Exaltation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzWWVsbG93Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/ed7cf06fa4/VoodooOmens3Yellow.png",
+            "price": "1.0000000000",
+            "listings_count": 434,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-greater-annulment",
+            "name": "Omen of Greater Annulment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxUHVycGxlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a6848dff1c/VoodooOmens1Purple.png",
+            "price": "10.0000000000",
+            "listings_count": 74,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-greater-exaltation",
+            "name": "Omen of Greater Exaltation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxWWVsbG93Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/22d9b6478d/VoodooOmens1Yellow.png",
+            "price": "1.0000000000",
+            "listings_count": 820,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-refreshment",
+            "name": "Omen of Refreshment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxQmx1ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/213474d1d5/VoodooOmens1Blue.png",
+            "price": "1.0000000000",
+            "listings_count": 724,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-resurgence",
+            "name": "Omen of Resurgence",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyQmx1ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/044d5086da/VoodooOmens2Blue.png",
+            "price": "4.0000000000",
+            "listings_count": 667,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-sinistral-alchemy",
+            "name": "Omen of Sinistral Alchemy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxR3JlZW4iLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/11c49d2322/VoodooOmens1Green.png",
+            "price": "1.0000000000",
+            "listings_count": 491,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-sinistral-annulment",
+            "name": "Omen of Sinistral Annulment",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyUHVycGxlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b9eaf38592/VoodooOmens2Purple.png",
+            "price": "400.0000000000",
+            "listings_count": 1,
+            "confidence": "low"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-sinistral-coronation",
+            "name": "Omen of Sinistral Coronation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b8e2b8ed3f/VoodooOmens1Red.png",
+            "price": "1.0000000000",
+            "listings_count": 743,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-sinistral-erasure",
+            "name": "Omen of Sinistral Erasure",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyRGFyayIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/0cfa6959be/VoodooOmens2Dark.png",
+            "price": null,
+            "listings_count": null,
+            "confidence": null
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-sinistral-exaltation",
+            "name": "Omen of Sinistral Exaltation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMyWWVsbG93Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/6d316b47ee/VoodooOmens2Yellow.png",
+            "price": "1.0000000000",
+            "listings_count": 469,
+            "confidence": "high"
+        },
+        {
+            "type": "ritualomen",
+            "id": "omen-of-whittling",
+            "name": "Omen of Whittling",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxRGFyayIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2dea0999d5/VoodooOmens1Dark.png",
+            "price": "2700.0000000000",
+            "listings_count": 7,
+            "confidence": "low"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-despair",
+            "name": "Distilled Despair",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkRGVzcGFpciIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c676bf7dae/DistilledDespair.png",
+            "price": "14.0000000000",
+            "listings_count": 131,
+            "confidence": "medium"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-disgust",
+            "name": "Distilled Disgust",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkRGlzZ3VzdCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f462426de0/DistilledDisgust.png",
+            "price": "7.0000000000",
+            "listings_count": 174,
+            "confidence": "medium"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-envy",
+            "name": "Distilled Envy",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkRW52eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/abf219916e/DistilledEnvy.png",
+            "price": "4.0000000000",
+            "listings_count": 237,
+            "confidence": "high"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-fear",
+            "name": "Distilled Fear",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkRmVhciIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8cffdae445/DistilledFear.png",
+            "price": "30.0000000000",
+            "listings_count": 72,
+            "confidence": "medium"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-greed",
+            "name": "Distilled Greed",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkR3JlZWQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5888a4ae61/DistilledGreed.png",
+            "price": "1.0000000000",
+            "listings_count": 323,
+            "confidence": "high"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-guilt",
+            "name": "Distilled Guilt",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkR3VpbHQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/21cd0fd17b/DistilledGuilt.png",
+            "price": "1.0000000000",
+            "listings_count": 371,
+            "confidence": "high"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-ire",
+            "name": "Distilled Ire",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkSXJlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cbd99f0eff/DistilledIre.png",
+            "price": "0.6300000000",
+            "listings_count": 461,
+            "confidence": "high"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-isolation",
+            "name": "Distilled Isolation",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkSXNvbGF0aW9uIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/997a6a442e/DistilledIsolation.png",
+            "price": "198.0000000000",
+            "listings_count": 28,
+            "confidence": "medium"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-paranoia",
+            "name": "Distilled Paranoia",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkUGFyYW5vaWEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/279e807e8f/DistilledParanoia.png",
+            "price": "4.0000000000",
+            "listings_count": 237,
+            "confidence": "high"
+        },
+        {
+            "type": "deliriumdistillation",
+            "id": "distilled-suffering",
+            "name": "Distilled Suffering",
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkU3VmZmVyaW5nIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/801a53662a/DistilledSuffering.png",
+            "price": "65.0000000000",
+            "listings_count": 49,
+            "confidence": "low"
+        }
+    ]
+}

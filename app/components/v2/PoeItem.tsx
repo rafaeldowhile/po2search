@@ -11,10 +11,13 @@ import { Button } from "~/components/ui/button";
 import { useToast } from "~/hooks/use-toast";
 import { formatDistanceToNow } from 'date-fns';
 import { useState } from 'react';
+import { convertCurrency } from "~/hooks/use-exchange-rates";
 
 interface PoeItemProps {
     item: PoeItemResponse;
     query?: POE2Query;
+    preferredCurrency: string;
+    exchangeRates?: { [key: string]: number };
 }
 
 const ItemHeader = ({ item }: { item: PoeItemResponse['item'] }) => {
@@ -28,44 +31,92 @@ const ItemHeader = ({ item }: { item: PoeItemResponse['item'] }) => {
     }[rarity] || 'text-normal';
 
     return (
-        <div className="flex items-center gap-3">
-            <img src={item.icon} alt={item.name} className="w-12 h-12" />
-            <div className="space-y-1">
-                <div className={cn("font-semibold", rarityClass)}>
-                    {item.name || item.baseType}
-                </div>
-                <div className="text-sm text-muted-foreground flex items-center gap-2">
+        <div className="flex items-start gap-3">
+            <img src={item.icon} alt={item.name} className="w-10 h-10" />
+            <div>
+                {/* Show name only if it exists and is different from baseType */}
+                {item.name && item.name !== item.baseType && (
+                    <div className={cn("text-sm font-medium", rarityClass)}>
+                        {item.name}
+                    </div>
+                )}
+                <div className="text-xs text-muted-foreground">
                     {item.baseType}
-                    <Badge variant="outline" className="text-xs">
-                        iLvl {item.ilvl}
-                    </Badge>
                 </div>
             </div>
         </div>
     );
 };
 
-const ItemPrice = ({ listing }: { listing: PoeItemResponse['listing'] }) => {
-    const currencyData = getCurrencyData(listing.price.currency);
+const ItemPrice = ({ 
+    listing,
+    preferredCurrency,
+    exchangeRates 
+}: { 
+    listing: PoeItemResponse['listing'];
+    preferredCurrency: string;
+    exchangeRates?: { [key: string]: number };
+}) => {
+    const originalAmount = listing.price.amount;
+    const originalCurrency = listing.price.currency;
+    const originalCurrencyData = getCurrencyData(originalCurrency);
+    const preferredCurrencyData = getCurrencyData(preferredCurrency);
+    
+    let convertedAmount = originalAmount;
+    
+    if (exchangeRates && originalCurrency !== preferredCurrency) {
+        // Rates are in relation to 1 exalted, so:
+        // If rate is 0.2 for chaos, it means 1 exalt = 5 chaos (1/0.2)
+        
+        // First convert to exalted
+        if (originalCurrency !== 'exalted') {
+            // Need to divide since rates are "X per 1 exalt"
+            const toExaltedRate = exchangeRates[originalCurrency];
+            if (toExaltedRate) {
+                convertedAmount = originalAmount / toExaltedRate;
+            }
+        }
+
+        // Then convert from exalted to preferred currency
+        if (preferredCurrency !== 'exalted') {
+            const fromExaltedRate = exchangeRates[preferredCurrency];
+            if (fromExaltedRate) {
+                // Multiply by rate since it's "X per 1 exalt"
+                convertedAmount = convertedAmount * fromExaltedRate;
+            }
+        }
+    }
+
+    const shouldShowConverted = originalCurrency !== preferredCurrency;
     
     return (
-        <div className="flex items-center gap-2 bg-secondary/50 rounded-lg px-3 py-2">
-            <span className="font-medium text-sm">
-                {listing.price.amount}
-            </span>
-            {currencyData && (
-                <div className="relative group">
+        <div className="flex flex-col items-end gap-0.5">
+            {/* Original Price */}
+            <div className="flex items-center gap-1.5 bg-secondary/50 rounded-lg px-2 py-1">
+                <span className="font-medium text-sm">
+                    {originalAmount}
+                </span>
+                {originalCurrencyData && (
                     <img
-                        src={`https://www.pathofexile.com${currencyData.image}`}
-                        alt={currencyData.text}
-                        className="w-6 h-6"
+                        src={`https://www.pathofexile.com${originalCurrencyData.image}`}
+                        alt={originalCurrencyData.text}
+                        className="w-5 h-5"
+                        title={originalCurrencyData.text}
                     />
-                    <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 
-                        bg-popover/90 text-popover-foreground text-xs rounded shadow-md
-                        opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap
-                        border border-border">
-                        {currencyData.text}
-                    </span>
+                )}
+            </div>
+            {/* Converted Price */}
+            {shouldShowConverted && (
+                <div className="text-[10px] text-muted-foreground flex items-center gap-1">
+                    ≈ {convertedAmount.toFixed(1)}
+                    {preferredCurrencyData && (
+                        <img
+                            src={`https://www.pathofexile.com${preferredCurrencyData.image}`}
+                            alt={preferredCurrencyData.text}
+                            className="w-3 h-3"
+                            title={preferredCurrencyData.text}
+                        />
+                    )}
                 </div>
             )}
         </div>
@@ -485,7 +536,7 @@ const ListingInfo = ({ listing }: { listing: PoeItemResponse['listing'] }) => {
     );
 };
 
-export const PoeItem = ({ item, query }: PoeItemProps) => {
+export const PoeItem = ({ item, query, preferredCurrency, exchangeRates }: PoeItemProps) => {
     const cardClassName = cn(
         "overflow-hidden",
         item.item.corrupted && "border-t-2 border-t-destructive"
@@ -493,10 +544,14 @@ export const PoeItem = ({ item, query }: PoeItemProps) => {
 
     return (
         <Card className={cardClassName}>
-            <div className="p-4 space-y-2">
-                <div className="flex items-center justify-between">
+            <div className="p-3 space-y-2">
+                <div className="flex items-center justify-between pb-2 border-b border-border/50">
                     <ItemHeader item={item.item} />
-                    <ItemPrice listing={item.listing} />
+                    <ItemPrice 
+                        listing={item.listing} 
+                        preferredCurrency={preferredCurrency}
+                        exchangeRates={exchangeRates}
+                    />
                 </div>
                 <Requirements requirements={item.item.requirements} />
                 <ItemStatus item={item.item} />
