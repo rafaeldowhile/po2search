@@ -122,6 +122,9 @@ class POE2TradeAPI {
             },
             data: payload
         });
+
+        console.log(response);
+        console.log(response.data);
         return response.data;
     }
 

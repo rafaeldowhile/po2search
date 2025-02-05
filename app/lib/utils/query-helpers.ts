@@ -44,3 +44,48 @@ export const mergeWithEmptyQuery = (existingQuery?: Partial<POE2Query>): POE2Que
         }
     };
 };
+
+export function cleanQuery(obj: any): any {
+    if (obj === null || obj === undefined) return undefined;
+    
+    // Early return if disabled is true
+    if (obj.disabled === true) {
+        return undefined;
+    }
+    
+    if (Array.isArray(obj)) {
+        const filtered = obj
+            .map(item => cleanQuery(item))
+            .filter(item => item !== undefined);
+        return filtered.length ? filtered : undefined;
+    }
+    
+    if (typeof obj === 'object') {
+        const cleaned: any = {};
+        for (const [key, value] of Object.entries(obj)) {
+            // Skip the disabled field initially
+            if (key === 'disabled') continue;
+            
+            const cleanedValue = cleanQuery(value);
+            if (cleanedValue !== undefined) {
+                cleaned[key] = cleanedValue;
+            }
+        }
+
+        // Only add disabled:false if there are other properties
+        if (Object.keys(cleaned).length > 0 && obj.disabled === false) {
+            cleaned.disabled = false;
+        }
+        
+        // Don't return empty objects
+        return Object.keys(cleaned).length ? cleaned : undefined;
+    }
+    
+    // Return undefined for empty strings, null, or undefined
+    if (obj === '' || obj === null || obj === undefined) {
+        return undefined;
+    }
+    
+    // Keep all other values (numbers, booleans, non-empty strings)
+    return obj;
+}

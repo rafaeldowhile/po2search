@@ -168,6 +168,11 @@ export default function Index() {
             filters: {
                 type_filters: {
                     disabled: true,
+                    filters: {
+                        category: {
+                            option: 'any'
+                        }
+                    }
                 },
                 equipment_filters: {
                     disabled: true,
