@@ -26,6 +26,12 @@ const StatGroup = ({
     });
 
     const groupType = form.watch(`query.stats.${index}.type`) as StatGroupTypes;
+    const groups = form.watch('query.stats');
+
+    // Check if this is the first count group after index 0
+    const isFirstCountAfterZero = index > 0 &&
+        groupType === 'count' &&
+        !groups.slice(1, index).some(g => g.type === 'count');
 
     const renderTypeSpecificInput = () => {
         switch (groupType) {
@@ -68,8 +74,7 @@ const StatGroup = ({
 
     return (
         <Card className="p-4 space-y-4">
-            {/* Change the condition to check for count type */}
-            {groupType === 'count' && (
+            {isFirstCountAfterZero && (
                 <div className="text-muted-foreground text-xs italic">
                     PoE2 has multiple mods with identical names. These stats help narrow down the search to find exact matches.
                 </div>
