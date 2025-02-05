@@ -12,6 +12,7 @@ import { useToast } from "~/hooks/use-toast";
 import { formatDistanceToNow } from 'date-fns';
 import { useState } from 'react';
 import { convertCurrency } from "~/hooks/use-exchange-rates";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "~/components/ui/tooltip";
 
 interface PoeItemProps {
     item: PoeItemResponse;
@@ -48,11 +49,11 @@ const ItemHeader = ({ item }: { item: PoeItemResponse['item'] }) => {
     );
 };
 
-const ItemPrice = ({ 
+const ItemPrice = ({
     listing,
     preferredCurrency,
-    exchangeRates 
-}: { 
+    exchangeRates
+}: {
     listing: PoeItemResponse['listing'];
     preferredCurrency: string;
     exchangeRates?: { [key: string]: number };
@@ -61,13 +62,13 @@ const ItemPrice = ({
     const originalCurrency = listing.price.currency;
     const originalCurrencyData = getCurrencyData(originalCurrency);
     const preferredCurrencyData = getCurrencyData(preferredCurrency);
-    
+
     let convertedAmount = originalAmount;
-    
+
     if (exchangeRates && originalCurrency !== preferredCurrency) {
         // Rates are in relation to 1 exalted, so:
         // If rate is 0.2 for chaos, it means 1 exalt = 5 chaos (1/0.2)
-        
+
         // First convert to exalted
         if (originalCurrency !== 'exalted') {
             // Need to divide since rates are "X per 1 exalt"
@@ -88,7 +89,7 @@ const ItemPrice = ({
     }
 
     const shouldShowConverted = originalCurrency !== preferredCurrency;
-    
+
     return (
         <div className="flex flex-col items-end gap-0.5">
             {/* Original Price */}
@@ -97,12 +98,20 @@ const ItemPrice = ({
                     {originalAmount}
                 </span>
                 {originalCurrencyData && (
-                    <img
-                        src={`https://www.pathofexile.com${originalCurrencyData.image}`}
-                        alt={originalCurrencyData.text}
-                        className="w-5 h-5"
-                        title={originalCurrencyData.text}
-                    />
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <img
+                                    src={`https://www.pathofexile.com${originalCurrencyData.image}`}
+                                    alt={originalCurrencyData.text}
+                                    className="w-5 h-5"
+                                />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                {originalCurrencyData.text}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 )}
             </div>
             {/* Converted Price */}
@@ -110,12 +119,20 @@ const ItemPrice = ({
                 <div className="text-[10px] text-muted-foreground flex items-center gap-1">
                     ≈ {convertedAmount.toFixed(1)}
                     {preferredCurrencyData && (
-                        <img
-                            src={`https://www.pathofexile.com${preferredCurrencyData.image}`}
-                            alt={preferredCurrencyData.text}
-                            className="w-3 h-3"
-                            title={preferredCurrencyData.text}
-                        />
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <img
+                                        src={`https://www.pathofexile.com${preferredCurrencyData.image}`}
+                                        alt={preferredCurrencyData.text}
+                                        className="w-3 h-3"
+                                    />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    {preferredCurrencyData.text}
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     )}
                 </div>
             )}
@@ -139,9 +156,9 @@ const ItemStatus = ({ item }: { item: PoeItemResponse['item'] }) => {
     }
     if (item.mirrored) {
         statuses.push(
-            <Badge 
+            <Badge
                 key="mirrored"
-                variant="secondary" 
+                variant="secondary"
                 className="text-xs"
             >
                 Mirrored
@@ -150,9 +167,9 @@ const ItemStatus = ({ item }: { item: PoeItemResponse['item'] }) => {
     }
     if (!item.identified) {
         statuses.push(
-            <Badge 
+            <Badge
                 key="unidentified"
-                variant="outline" 
+                variant="outline"
                 className="text-xs"
             >
                 Unidentified
@@ -183,9 +200,9 @@ const Requirements = ({ requirements }: { requirements?: RequirementType[] }) =>
                 </Badge>
             )}
             {attrReqs.map(req => (
-                <Badge 
+                <Badge
                     key={req.name}
-                    variant="outline" 
+                    variant="outline"
                     className="text-xs"
                 >
                     {removeSquareBrackets(req.name)} {req.values[0][0]}
@@ -195,7 +212,7 @@ const Requirements = ({ requirements }: { requirements?: RequirementType[] }) =>
     );
 };
 
-const GrantedSkills = ({ item }: { item: { grantedSkills?: GrantedSkill[] }}) => {
+const GrantedSkills = ({ item }: { item: { grantedSkills?: GrantedSkill[] } }) => {
     if (!item.grantedSkills?.length) return null;
 
     return (
@@ -217,7 +234,7 @@ const GrantedSkills = ({ item }: { item: { grantedSkills?: GrantedSkill[] }}) =>
     );
 };
 
-const SocketDisplay = ({ item }: { item: { sockets?: Socket[], socketedItems?: SocketedGem[] }}) => {
+const SocketDisplay = ({ item }: { item: { sockets?: Socket[], socketedItems?: SocketedGem[] } }) => {
     if (!item.sockets?.length) return null;
 
     const totalSockets = item.sockets.length;
@@ -315,13 +332,13 @@ const ModValueComparison = ({ diff, type }: { diff: number; type: 'higher' | 'lo
     );
 };
 
-const ItemMods = ({ item, query }: { 
+const ItemMods = ({ item, query }: {
     item: PoeItemResponse['item'];
     query?: POE2Query;
 }) => {
     const renderModSection = (
         title: string,
-        mods: ReturnType<typeof buildMods>, 
+        mods: ReturnType<typeof buildMods>,
         type: 'implicit' | 'explicit' | 'enchant' | 'rune'
     ) => {
         if (!mods?.length) return null;
@@ -338,12 +355,12 @@ const ItemMods = ({ item, query }: {
                 <div className="text-[12px] text-muted-foreground">{title}</div>
                 {mods.map((mod, idx) => {
                     if (!mod) return null;
-                    const comparison = mod.matched && mod.matchingFilter ? 
+                    const comparison = mod.matched && mod.matchingFilter ?
                         compareValues(mod.text, mod.matchingFilter) : null;
-                    
-                    const tooltipContent = mod.matched ? 
+
+                    const tooltipContent = mod.matched ?
                         `Search criteria: ${mod.matchingFilter?.value?.min ?? ''} ${mod.matchingFilter?.value?.max ? `- ${mod.matchingFilter.value.max}` : ''}` : null;
-                    
+
                     return (
                         <div key={idx} className="group relative">
                             <div className="flex items-center gap-2 cursor-help">
@@ -358,9 +375,9 @@ const ItemMods = ({ item, query }: {
                                 )}>
                                     {mod.text}
                                     {comparison && (
-                                        <ModValueComparison 
-                                            diff={comparison.diff} 
-                                            type={comparison.type as 'higher' | 'lower'} 
+                                        <ModValueComparison
+                                            diff={comparison.diff}
+                                            type={comparison.type as 'higher' | 'lower'}
                                         />
                                     )}
                                 </div>
@@ -369,7 +386,7 @@ const ItemMods = ({ item, query }: {
                                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 
                                     bg-popover text-popover-foreground text-xs rounded shadow-md
                                     opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap
-                                    pointer-events-none border border-border">
+                                    pointer-events-none border border-border z-[9999]">
                                     {tooltipContent}
                                 </div>
                             )}
@@ -390,7 +407,7 @@ const ItemMods = ({ item, query }: {
     );
 };
 
-const ItemProperties = ({ item }: { item: { properties?: ItemProperty[] }}) => {
+const ItemProperties = ({ item }: { item: { properties?: ItemProperty[] } }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     if (!item.properties?.length) return null;
 
@@ -415,9 +432,9 @@ const ItemProperties = ({ item }: { item: { properties?: ItemProperty[] }}) => {
                     </Badge>
                 )}
             </div>
-            
+
             {otherProperties.length > 0 && (
-                <button 
+                <button
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="w-full flex items-center gap-2 group hover:bg-secondary/50 rounded px-1"
                 >
@@ -433,7 +450,7 @@ const ItemProperties = ({ item }: { item: { properties?: ItemProperty[] }}) => {
                     </div>
                 </button>
             )}
-            
+
             {isExpanded && otherProperties.length > 0 && (
                 <div className="grid grid-cols-2 gap-1 pt-1">
                     {otherProperties.map((prop, idx) => (
@@ -504,7 +521,7 @@ const ItemExtendedProperties = ({ extended }: { extended?: PoeItemResponse['item
 
 const ListingInfo = ({ listing }: { listing: PoeItemResponse['listing'] }) => {
     const { toast } = useToast();
-    
+
     const handleCopyWhisper = () => {
         navigator.clipboard.writeText(listing.whisper);
         toast({
@@ -547,8 +564,8 @@ export const PoeItem = ({ item, query, preferredCurrency, exchangeRates }: PoeIt
             <div className="p-3 space-y-2">
                 <div className="flex items-center justify-between pb-2 border-b border-border/50">
                     <ItemHeader item={item.item} />
-                    <ItemPrice 
-                        listing={item.listing} 
+                    <ItemPrice
+                        listing={item.listing}
                         preferredCurrency={preferredCurrency}
                         exchangeRates={exchangeRates}
                     />
@@ -559,7 +576,7 @@ export const PoeItem = ({ item, query, preferredCurrency, exchangeRates }: PoeIt
                 <ItemExtendedProperties extended={item.item.extended} />
                 <SocketDisplay item={item.item} />
                 <GrantedSkills item={item.item} />
-                <ItemMods item={item.item} query={query}/>
+                <ItemMods item={item.item} query={query} />
                 <ListingInfo listing={item.listing} />
             </div>
         </Card>

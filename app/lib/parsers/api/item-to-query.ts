@@ -17,51 +17,6 @@ const DEFAULT_DISABLED = {
     },
 };
 
-/**
- * Recursively removes properties that are empty objects.
- * If an object (or array) becomes empty, it returns undefined.
- *
- * @param obj The object to filter.
- * @returns A new object with empty objects removed, or undefined if everything is removed.
- */
-function removeEmptyObjects(obj: any): any {
-    // For non-objects, return as-is.
-    if (typeof obj !== "object" || obj === null) {
-        return obj;
-    }
-
-    // Process arrays: filter out any elements that become undefined.
-    if (Array.isArray(obj)) {
-        const newArr = obj
-            .map(removeEmptyObjects)
-            .filter((item) => item !== undefined);
-        return newArr.length > 0 ? newArr : undefined;
-    }
-
-    // Process objects.
-    const newObj: { [key: string]: any } = {};
-
-    Object.keys(obj).forEach((key) => {
-        const value = removeEmptyObjects(obj[key]);
-        // Only add the property if:
-        // 1. The value is not undefined, and
-        // 2. The value is not an object that is empty.
-        if (
-            value !== undefined &&
-            !(
-                typeof value === "object" &&
-                !Array.isArray(value) &&
-                Object.keys(value).length === 0
-            )
-        ) {
-            newObj[key] = value;
-        }
-    });
-
-    // If no properties were added, return undefined.
-    return Object.keys(newObj).length > 0 ? newObj : undefined;
-}
-
 export function itemToQuery(item: Item, params: QueryOptions) {
     const query: POE2Query = {
         query: {

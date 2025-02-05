@@ -13,7 +13,7 @@ interface StatEntry {
 
 const fuseOptions = {
     keys: ['text', 'type'],
-    threshold: 0.2,
+    threshold: 0.15,
     includeScore: true,
 };
 

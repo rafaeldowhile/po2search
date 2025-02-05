@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Path, useFieldArray, useFormContext } from "react-hook-form";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
@@ -5,10 +6,11 @@ import { POE2Query, StatGroupTypeLabels, StatGroupTypes } from "~/lib/poe2-query
 import { createEmptyStatItem } from "~/lib/utils/query-helpers";
 import { StatInputSelect } from "./StatInputSelect";
 import { Button } from "~/components/ui/button";
-import { Plus, Trash2 } from "lucide-react";
+import { InfoIcon, Plus, Trash2 } from "lucide-react";
 import { SchemaFormField } from "./SchemaFormField";
 import { FormField, FormItem, FormLabel } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/popover";
 
 const StatGroup = ({
     index,
@@ -31,12 +33,32 @@ const StatGroup = ({
             case 'weight':
             case 'weight2':
                 return (
-                    <div className="flex-1">
-                        <SchemaFormField
-                            path={`query.stats.${index}.value`}
-                            schemaType="minMax"
-                            label=""
-                        />
+                    <div className="flex items-center gap-2">
+                        <div className="flex-1">
+                            <SchemaFormField
+                                path={`query.stats.${index}.value`}
+                                schemaType="minMax"
+                                label=""
+                            />
+                        </div>
+                        {groupType === 'count' && (
+                            <Popover>
+                                <PopoverTrigger>
+                                    <InfoIcon className="h-3 w-3 text-muted-foreground hover:text-foreground cursor-help" />
+                                </PopoverTrigger>
+                                <PopoverContent className="w-80">
+                                    <div className="space-y-2">
+                                        <h4 className="font-medium text-sm">Count Matching</h4>
+                                        <p className="text-sm text-muted-foreground">
+                                            Instead of requiring all stats to match exactly, Count Matching lets you find items that have at least X number of your desired stats.
+                                        </p>
+                                        <p className="text-sm text-muted-foreground">
+                                            For example: If you're looking for an item with 6 specific stats, but set the count to 4, it will find items that match any 4 (or more) of those 6 stats.
+                                        </p>
+                                    </div>
+                                </PopoverContent>
+                            </Popover>
+                        )}
                     </div>
                 );
             default:
@@ -46,6 +68,12 @@ const StatGroup = ({
 
     return (
         <Card className="p-4 space-y-4">
+            {/* Change the condition to check for count type */}
+            {groupType === 'count' && (
+                <div className="text-muted-foreground text-xs italic">
+                    PoE2 has multiple mods with identical names. These stats help narrow down the search to find exact matches.
+                </div>
+            )}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4 flex-1">
                     <Select
