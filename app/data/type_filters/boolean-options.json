@@ -1,0 +1,14 @@
+[
+    {
+        "id": "any",
+        "text": "Any"
+    },
+    {
+        "id": "true",
+        "text": "Yes"
+    },
+    {
+        "id": "false",
+        "text": "No"
+    }
+]

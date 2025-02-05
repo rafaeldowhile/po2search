@@ -13,13 +13,13 @@ import {
     DialogTrigger,
 } from "~/components/ui/dialog";
 import { NoResultsFound } from "~/components/v2/NoResultsFound";
-import { QueryEditor } from "~/components/v2/QueryEditor";
 import { Results } from "~/components/v2/Results";
-import { SearchForm } from "~/components/v2/SearchForm";
 import { Item } from "~/lib/models/item";
 import { POE2Query } from "~/lib/poe2-query-schema";
-import { QueryOptions, SearchResponse } from "~/lib/types";
+import { QueryLeague, QueryOptions, QueryStatus, SearchResponse } from "~/lib/types";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { CustomSearchForm } from "~/components/v2/CustomSearchForm";
+import { createEmptyStatItem } from "~/lib/utils/query-helpers";
 
 export const meta: MetaFunction = () => {
     return [
@@ -66,7 +66,7 @@ const WhatsNewDialog = () => {
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div className="space-y-4">
                         <h3 className="font-medium">Coming Soon</h3>
                         <div className="text-sm space-y-2">
@@ -163,22 +163,46 @@ const queryClient = new QueryClient({
 });
 
 export default function Index() {
-    const [query, setQuery] = useState<POE2Query>();
+    const [query, setQuery] = useState<POE2Query>({
+        query: {
+            filters: {
+                type_filters: {
+                    disabled: true,
+                },
+                equipment_filters: {
+                    disabled: true,
+                },
+                req_filters: {
+                    disabled: true,
+                },
+                misc_filters: {
+                    disabled: true,
+                }
+            },
+            stats: [
+                {
+                    type: 'and',
+                    disabled: false,
+                    filters: [createEmptyStatItem(), createEmptyStatItem(), createEmptyStatItem(), createEmptyStatItem()]
+                }
+            ],
+        },
+        sort: {}
+    });
     const [item, setItem] = useState<Item>();
     const [searchResponse, setSearchResponse] = useState<SearchResponse>();
     const [searchFormVisible, setSearchFormVisible] = useState(true);
-    const [options, setOptions] = useState<QueryOptions>();
+    const [options, setOptions] = useState<QueryOptions>({
+        league: QueryLeague.Standard,
+        status: QueryStatus.onlineleague,
+    });
 
     const onSuccess = (response: SearchResponse, options: QueryOptions) => {
         setItem(response.item);
-        setQuery(response.query);
+        setQuery(response.query as POE2Query);
         setSearchResponse(response);
         setOptions(options);
         setSearchFormVisible(false);
-    }
-
-    const onSearchUpdate = (response: SearchResponse) => {
-        setSearchResponse(response);
     }
 
     const handleQueryUpdate = async (newQuery: POE2Query, response: SearchResponse) => {
@@ -186,35 +210,44 @@ export default function Index() {
         setSearchResponse(response);
     };
 
+    const handleQueryChange = (newQuery: POE2Query) => {
+        setQuery(newQuery);
+    }
+
+    const handleOptionsChange = (newOptions: QueryOptions) => {
+        setOptions(newOptions);
+    };
+
+    const handleSearchResponse = (response: SearchResponse) => {
+        setSearchResponse(response);
+    };
+
     const renderContent = () => {
-        if (!query || !searchResponse) {
-            return <SearchForm onSuccess={onSuccess} />;
-        }
- 
         return (
             <>
-                <QueryEditor
-                    item={item!}
+                <CustomSearchForm
                     query={query}
-                    onSearchUpdate={onSearchUpdate}
                     options={options}
+                    onQueryChange={handleQueryChange}
+                    onOptionsChange={handleOptionsChange}
+                    onSearchResponse={handleSearchResponse}
                 />
 
-                {searchResponse.data?.results?.length > 0 ? (
+                {searchResponse && searchResponse?.data?.results?.length > 0 ? (
                     <Results
                         searchResponse={searchResponse}
                         query={query}
-                        options={options!}
+                        options={options}
                         onSearchUpdate={handleQueryUpdate}
                     />
-                ) : (
+                ) : searchResponse ? (
                     <NoResultsFound
                         query={query}
-                        options={options!}
+                        options={options}
                         searchId={searchResponse.data?.id}
                         onUpdateQuery={handleQueryUpdate}
                     />
-                )}
+                ) : null}
             </>
         );
     };

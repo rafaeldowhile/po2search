@@ -38,23 +38,25 @@ export const NoResultsFound = ({ query, options, searchId, onUpdateQuery }: NoRe
 
         try {
             setIsSubmitting(true);
-            const newQuery = { ...query };
-            if (!newQuery.query.stats?.[0]) return;
+            const newQuery = structuredClone(query); // Deep clone to ensure clean update
 
-            newQuery.query.stats[0] = {
-                ...newQuery.query.stats[0],
-                type: 'count',
-                value: {
-                    min: countSuggestion.newMinCount
-                }
-            };
+            if (newQuery.query.stats?.[0]) {
+                newQuery.query.stats[0] = {
+                    ...newQuery.query.stats[0],
+                    type: 'count',
+                    value: {
+                        min: countSuggestion.newMinCount
+                    }
+                };
 
-            const response = await axios.post('/api/v2/search/update', {
-                query: newQuery,
-                options: options
-            });
+                const response = await axios.post('/api/v2/search/update', {
+                    query: newQuery,
+                    options: options
+                });
 
-            onUpdateQuery(newQuery, response.data);
+                // This will update both the results and the form
+                onUpdateQuery(newQuery, response.data);
+            }
         } catch (e: any) {
             console.error(e);
         } finally {

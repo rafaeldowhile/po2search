@@ -9,19 +9,19 @@ const optionSchema = z.object({
     option: z.string().optional(),
 }).partial();
 
-const typeFiltersAttributes = z.object({
-    category: optionSchema.optional(),
-    rarity: optionSchema.optional(),
-    ilvl: minMaxSchema.optional(),
-    quality: minMaxSchema.optional(),
-}).partial()
+export const typeFiltersAttributes = z.object({
+    category: optionSchema.optional().default({ option: 'any' }),
+    rarity: optionSchema.optional().default({ option: 'any' }),
+    ilvl: minMaxSchema.optional().default({}),
+    quality: minMaxSchema.optional().default({}),
+}).partial().default({});
 
 const typeFilters = z.object({
-    disabled: z.boolean(),
+    disabled: z.boolean().default(true),
     filters: typeFiltersAttributes,
 }).partial();
 
-const equipmentFiltersAttributes = z.object({
+export const equipmentFiltersAttributes = z.object({
     damage: minMaxSchema.optional(),
     aps: minMaxSchema.optional(),
     dps: minMaxSchema.optional(),
@@ -37,11 +37,11 @@ const equipmentFiltersAttributes = z.object({
 }).partial();
 
 const equipmentFilters = z.object({
-    disabled: z.boolean(),
-    filters: equipmentFiltersAttributes
+    disabled: z.boolean().default(true),
+    filters: equipmentFiltersAttributes,
 }).partial();
 
-const reqFiltersAttributes = z.object({
+export const reqFiltersAttributes = z.object({
     lvl: minMaxSchema.optional(),
     dex: minMaxSchema.optional(),
     str: minMaxSchema.optional(),
@@ -49,11 +49,11 @@ const reqFiltersAttributes = z.object({
 }).partial();
 
 const reqFilters = z.object({
-    disabled: z.boolean(),
+    disabled: z.boolean().default(true),
     filters: reqFiltersAttributes,
 }).partial();
 
-const misFiltersAttributes =  z.object({
+export const misFiltersAttributes =  z.object({
     gem_level: minMaxSchema.optional(),
     area_level: minMaxSchema.optional(),
     identified: optionSchema.optional(),
@@ -67,13 +67,13 @@ const misFiltersAttributes =  z.object({
 }).partial();
 
 const miscFilters = z.object({
-    disabled: z.boolean(),
+    disabled: z.boolean().default(true),
     filters: misFiltersAttributes
 }).partial();
 
 export const statItem = z.object({
     id: z.string(),
-    disabled: z.boolean().optional(),
+    disabled: z.boolean().optional().default(false),
     value: z.object({
         weight: z.number().optional(),
         min: z.number().optional(),
@@ -81,12 +81,12 @@ export const statItem = z.object({
     }).partial(),
 }).partial();
 
-const statTypes = z.enum(['count', 'and', 'weight2']) as z.ZodEnum<['count', 'and', 'weight2']>;
+const statGroupTypes = z.enum(['count', 'and', 'weight', 'weight2', 'if', 'not']) as z.ZodEnum<['count', 'and', 'weight', 'weight2', 'if', 'not']>;
 const statusTypes = z.enum(['any', 'online', 'onlineleague']) as z.ZodEnum<['any', 'online', 'onlineleague']>;
 
 const baseStat = z.object({
     disabled: z.boolean().optional(),
-    type: statTypes,
+    type: statGroupTypes,
     filters: z.array(statItem).optional(),
     value: minMaxSchema.optional(),
 }).partial();
@@ -125,3 +125,16 @@ export type MiscFilters = z.infer<typeof miscFilters>;
 export type MiscFiltersAttributes = z.infer<typeof misFiltersAttributes>;
 export type ReqFilters = z.infer<typeof reqFilters>;
 export type ReqFiltersAttributes = z.infer<typeof reqFiltersAttributes>;
+export type BaseStatsFilter = z.infer<typeof baseStat>;
+export type StatsFilterItem = z.infer<typeof statItem>;
+
+export type StatGroupTypes = z.infer<typeof statGroupTypes>;
+
+export const StatGroupTypeLabels: Record<StatGroupTypes, string> = {
+    [statGroupTypes.Values.and]: 'And',
+    [statGroupTypes.Values.count]: 'Count',
+    [statGroupTypes.Values.weight]: 'Weight',
+    [statGroupTypes.Values.weight2]: 'Weight 2',
+    [statGroupTypes.Values.if]: 'If',
+    [statGroupTypes.Values.not]: 'Not',
+};
