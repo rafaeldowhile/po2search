@@ -4,6 +4,7 @@ import { hydrateRoot } from "react-dom/client";
 import posthog from "posthog-js";
 
 function PosthogInit() {
+  if (window.origin.includes("localhost")) return;
   useEffect(() => {
     posthog.init('phc_HwQKAZcSVlJNhssL2SsGT6o786sh3J03TXbPNVtXwWM', {
       api_host: 'https://us.i.posthog.com',
