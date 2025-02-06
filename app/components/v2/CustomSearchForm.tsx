@@ -29,6 +29,28 @@ const itemSchema = z.object({
     itemDescription: z.string()
 });
 
+const exampleInput = `
+Item Class: Helmets
+Rarity: Rare
+Gale Visor
+Advanced Soldier Greathelm
+--------
+Armour: 331 (augmented)
+--------
+Requirements:
+Level: 48
+Str: 88
+--------
+Item Level: 58
+--------
+78% increased Armour
++10 to maximum Life
++33 to maximum Mana
+16% increased Rarity of Items found
+32% increased Critical Hit Chance
+15.6 Life Regeneration per second`.trim()
+
+
 export const CustomSearchForm = ({
     query,
     options,
@@ -43,7 +65,7 @@ export const CustomSearchForm = ({
 
     const itemForm = useForm<{ itemDescription: string }>({
         resolver: zodResolver(itemSchema),
-        defaultValues: { itemDescription: '' }
+        defaultValues: { itemDescription: exampleInput }
     });
 
     const [isSearching, setIsSearching] = useState(false);
@@ -121,8 +143,18 @@ export const CustomSearchForm = ({
 
                 <div className="flex flex-col gap-2 mb-4">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <span>Quick search:</span>
-                        <span>Paste an item here to automatically generate a search query</span>
+                        <span>How to use:</span>
+                        <ol className="flex items-center gap-2">
+                            <li className="flex items-center gap-1">
+                                1. Hover over an item in-game
+                            </li>
+                            <li className="flex items-center gap-1">
+                                2. Press <kbd className="px-1.5 py-0.5 text-xs rounded bg-muted">Ctrl + C</kbd>
+                            </li>
+                            <li className="flex items-center gap-1">
+                                3. Paste here to generate search filters automatically
+                            </li>
+                        </ol>
                     </div>
                     <Textarea
                         placeholder="Paste item data here..."

@@ -258,11 +258,9 @@ export default function Index() {
     };
 
     return (
-        <QueryClientProvider client={queryClient}>
-            <div className="container mx-auto px-2 sm:px-4 py-4 space-y-6 sm:space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
-                <Header />
-                {renderContent()}
-            </div>
-        </QueryClientProvider>
+        <div className="container mx-auto px-2 sm:px-4 py-4 space-y-6 sm:space-y-8 max-w-[1400px] min-h-screen bg-background text-foreground">
+            <Header />
+            {renderContent()}
+        </div>
     )
 }
