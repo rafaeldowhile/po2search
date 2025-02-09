@@ -3,10 +3,10 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "vite build && vite build --ssr",
-    "dev": "vite dev",
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "node ./api/index.js",
+    "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
     "flatten-items": "tsx app/scripts/flattenItemsData.ts",
     "generate-exchange": "ts-node scripts/generate-exchange-file.ts"

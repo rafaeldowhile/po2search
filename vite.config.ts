@@ -1,6 +1,13 @@
 import { vitePlugin as remix } from "@remix-run/dev";
+import { vercelPreset } from '@vercel/remix/vite';
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+
+declare module "@remix-run/node" {
+  interface Future {
+    v3_singleFetch: true;
+  }
+}
 
 export default defineConfig({
   plugins: [
@@ -11,12 +18,10 @@ export default defineConfig({
         v3_throwAbortReason: true,
         v3_lazyRouteDiscovery: true,
         v3_singleFetch: true,
+        unstable_optimizeDeps: true,
       },
-      serverModuleFormat: "esm",
+      presets: [vercelPreset()],
     }),
     tsconfigPaths(),
   ],
-  ssr: {
-    target: "node",
-  },
 });
