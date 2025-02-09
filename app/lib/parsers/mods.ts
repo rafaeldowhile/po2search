@@ -20,7 +20,7 @@ const fuseOptions = {
 const allStats = statsData.result.flatMap(category =>
     category.entries.map(entry => ({
         id: entry.id,
-        text: entry.text,
+        text: entry.text, 
         type: entry.type,
     } as StatEntry))
 );
@@ -74,7 +74,7 @@ export function parseMods(inputData: InputData, item: Item) {
 function simpleSearch(line: string, suffix: keyof typeof GameDescription.suffixesRegex): SearchModResult[] | null {
     const patternLine = replaceNumbersWithHash(line);
     const cleanLine = cleanUpSuffix(patternLine, suffix);
-    const result = allStats.filter(stat => stat.text === cleanLine && stat.type === suffix);
+    const result = allStats.filter(stat => stat.text.toLocaleLowerCase() === cleanLine.toLocaleLowerCase() && stat.type === suffix);
     if (result.length > 0) {
         return result.map(stat => ({
             id: stat.id,
@@ -88,6 +88,9 @@ function simpleSearch(line: string, suffix: keyof typeof GameDescription.suffixe
 
 function cleanUpSuffix(text: string, suffix: keyof typeof GameDescription.suffixesRegex) {
     const regex = new RegExp(`\\s*${GameDescription.suffixesRegex[suffix]}\\s*$`, 'i');
+    console.log(regex);
+    console.log(text)
+    console.log(text.replace(regex, '').trim());
     return text.replace(regex, '').trim();
 }
 

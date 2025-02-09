@@ -161,7 +161,7 @@
                 },
                 {
                     "id": "explicit.stat_3484657501",
-                    "text": "# to Armour",
+                    "text": "+# To Armour",
                     "type": "explicit"
                 },
                 {
@@ -346,7 +346,7 @@
                 },
                 {
                     "id": "explicit.stat_809229260",
-                    "text": "# to Armour",
+                    "text": "+# To Armour",
                     "type": "explicit"
                 },
                 {
@@ -5847,7 +5847,7 @@
                 },
                 {
                     "id": "implicit.stat_809229260",
-                    "text": "# to Armour",
+                    "text": "+# To Armour",
                     "type": "implicit"
                 },
                 {

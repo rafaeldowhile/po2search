@@ -10,7 +10,7 @@ export async function action({ request }: ActionFunctionArgs) {
     try {
         const poe2query = cleanQuery(dirtyQuery);
         const api = new POE2TradeAPI();
-        console.log(JSON.stringify(poe2query, null, 2));
+        // console.log(JSON.stringify(poe2query, null, 2));
         
         const { id, complexity, result, total } = await api.search(poe2query, options.league);
 

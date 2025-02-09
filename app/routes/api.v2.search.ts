@@ -12,6 +12,8 @@ export async function action({ request }: ActionFunctionArgs) {
         const item = await inputToItem(input);
         const poe2query = getPoeQuery(item, options);
         const api = new POE2TradeAPI();
+        console.log(item);
+        console.log(poe2query);
         const { id, complexity, result, total } = await api.search(poe2query, options.league);
 
         if (result.length === 0) {

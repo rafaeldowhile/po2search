@@ -1,3 +1,4 @@
+import { StatFilter } from "~/types/search";
 import { RANGE_TYPES } from "./constants";
 import { Item } from "./models/item";
 import { POE2Query } from "./poe2-query-schema";
@@ -502,6 +503,11 @@ export interface ModInfo {
     type: 'implicit' | 'explicit' | 'enchant' | 'rune';
     hash: string;
     searchCriteria?: string;
+    magnitudes?: Array<{
+        min: string | number;
+        max: string | number;
+        hash?: string;
+    }>;
 }
 
 export interface ItemProperty {

@@ -16,6 +16,9 @@ import { SearchQueryOptions } from "./filters/SearchQueryOptions";
 import { useEffect, useState } from "react";
 import { Textarea } from "~/components/ui/textarea";
 import { z } from "zod";
+import { usePoeTypes } from "~/hooks/use-poe-types";
+import { SchemaFormField } from "./filters/SchemaFormField";
+import { QueryFiltersSection } from "./filters/QueryFiltersSection";
 
 interface CustomSearchFormProps {
     query: POE2Query;
@@ -58,6 +61,7 @@ export const CustomSearchForm = ({
     onOptionsChange,
     onSearchResponse
 }: CustomSearchFormProps) => {
+    const { data: itemTypes } = usePoeTypes();
     const form = useForm<POE2Query>({
         resolver: zodResolver(poe2QuerySchema),
         defaultValues: query
@@ -168,6 +172,7 @@ export const CustomSearchForm = ({
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr,800px] gap-4">
                     <div className="flex flex-col gap-2">
+                        <QueryFiltersSection />
                         <TypeFiltersSection />
                         <EquipmentFiltersSection />
                         <RequirementFiltersSection />

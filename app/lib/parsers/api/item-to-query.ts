@@ -1,6 +1,45 @@
 import { Item } from "~/lib/models/item";
 import { POE2Query } from "~/lib/poe2-query-schema";
 import { QueryOptions, QueryStatus } from "~/lib/types";
+import items from "~/data/items.json";
+
+// Helper function to find item in the database
+function findItemInDatabase(headerType?: string, headerName?: string) {
+    const allItems = items.result.flatMap(category => category.entries);
+    
+    if (headerName) {
+        // Try to find by name first
+        const foundByName = allItems.find(item => 
+            item.name?.toLowerCase() === headerName.toLowerCase()
+        );
+        if (foundByName) {
+            return {
+                type: foundByName.type,
+                name: foundByName.name,
+                found: true
+            };
+        }
+    }
+
+    if (headerType) {
+        // Try to find by type
+        const foundByType = allItems.find(item => 
+            item.type.toLowerCase() === headerType.toLowerCase()
+        );
+        if (foundByType) {
+            return {
+                type: foundByType.type,
+                found: true
+            };
+        }
+    }
+
+    // If nothing is found, return the original values as term
+    return {
+        term: headerName || headerType,
+        found: false
+    };
+}
 
 const DEFAULT_DISABLED = {
     type_filters: {
@@ -18,8 +57,19 @@ const DEFAULT_DISABLED = {
 };
 
 export function itemToQuery(item: Item, params: QueryOptions) {
+    const itemInfo = findItemInDatabase(item.header?.type, item.header?.name);
+    
     const query: POE2Query = {
         query: {
+            ...(itemInfo.found 
+                ? {
+                    type: itemInfo.type,
+                    ...(itemInfo.name && { name: itemInfo.name })
+                  }
+                : {
+                    term: itemInfo.term
+                  }
+            ),
             status: {
                 option: params.status ?? QueryStatus.any
             },

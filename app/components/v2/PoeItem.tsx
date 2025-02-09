@@ -358,8 +358,9 @@ const ItemMods = ({ item, query }: {
                     const comparison = mod.matched && mod.matchingFilter ?
                         compareValues(mod.text, mod.matchingFilter) : null;
 
-                    const tooltipContent = mod.matched ?
-                        `Search criteria: ${mod.matchingFilter?.value?.min ?? ''} ${mod.matchingFilter?.value?.max ? `- ${mod.matchingFilter.value.max}` : ''}` : null;
+                    const magnitudesText = mod.magnitudes?.map(m => 
+                        `${m.min}${m.max !== m.min ? `-${m.max}` : ''}`
+                    ).join(', ');
 
                     return (
                         <div key={idx} className="group relative">
@@ -373,7 +374,23 @@ const ItemMods = ({ item, query }: {
                                     colorClasses[type],
                                     mod.matched && "font-medium"
                                 )}>
-                                    {mod.text}
+                                    <span className="flex-1">
+                                        {mod.text}
+                                        {mod.tier && (
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <span className="ml-1 text-[10px] text-muted-foreground hover:text-muted-foreground/80 cursor-help">
+                                                            (T{mod.tier.replace(/[PS]/, '')})
+                                                        </span>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent className="text-xs">
+                                                        {magnitudesText ? `Roll range: ${magnitudesText}` : 'No range data'}
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                        )}
+                                    </span>
                                     {comparison && (
                                         <ModValueComparison
                                             diff={comparison.diff}
@@ -382,14 +399,6 @@ const ItemMods = ({ item, query }: {
                                     )}
                                 </div>
                             </div>
-                            {tooltipContent && (
-                                <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 
-                                    bg-popover text-popover-foreground text-xs rounded shadow-md
-                                    opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap
-                                    pointer-events-none border border-border z-[9999]">
-                                    {tooltipContent}
-                                </div>
-                            )}
                         </div>
                     );
                 })}

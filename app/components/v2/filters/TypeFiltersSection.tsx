@@ -122,6 +122,7 @@ export const TypeFiltersSection = () => {
                                 label={'Rarity'}
                                 options={poeRarities}
                             />
+                            
                             <SchemaFormField
                                 path={'query.filters.type_filters.filters.ilvl'}
                                 schemaType={'minMax'}
