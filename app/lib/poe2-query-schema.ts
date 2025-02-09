@@ -87,6 +87,7 @@ const statusTypes = z.enum(['any', 'online', 'onlineleague']) as z.ZodEnum<['any
 const baseStat = z.object({
     disabled: z.boolean().optional(),
     type: statGroupTypes,
+    name: z.string().optional(),
     filters: z.array(statItem).optional(),
     value: minMaxSchema.optional(),
 }).partial();

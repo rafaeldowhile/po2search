@@ -31,7 +31,7 @@ const StatGroup = ({
     // Check if this is the first count group after index 0
     const isFirstCountAfterZero = index > 0 &&
         groupType === 'count' &&
-        !groups.slice(1, index).some(g => g.type === 'count');
+        !groups?.slice(1, index).some(g => g.type === 'count');
 
     const renderTypeSpecificInput = () => {
         switch (groupType) {
@@ -81,6 +81,20 @@ const StatGroup = ({
             )}
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4 flex-1">
+                    <FormField
+                        control={form.control}
+                        name={`query.stats.${index}.name`}
+                        render={({ field }) => (
+                            <FormItem className="flex-1">
+                                <Input
+                                    {...field}
+                                    value={field.value || ''}
+                                    placeholder={`Group ${index + 1}`}
+                                    className="h-6 text-xs"
+                                />
+                            </FormItem>
+                        )}
+                    />
                     <Select
                         value={groupType}
                         onValueChange={(value: StatGroupTypes) => {
@@ -151,17 +165,8 @@ export const StatGroupsSection = () => {
         <Card className="flex flex-col gap-1 bg-primary-foreground">
             <CardHeader className="flex flex-row items-center justify-between m-0 p-0 px-2 pt-2">
                 <CardTitle className="text-[14px]">Stat Groups</CardTitle>
-                <Button
-                    type="button"
-                    variant="ghost"
-                    size="icon"
-                    onClick={addStatsGroup}
-                    className="h-8 w-8"
-                >
-                    <Plus className="h-4 w-4" />
-                </Button>
             </CardHeader>
-            <CardContent className="p-0 pb-2 px-2">
+            <CardContent className="p-0 pb-2 px-2 flex flex-col gap-4">
                 <div className="space-y-4">
                     {statGroups.fields.map((group, index) => (
                         <StatGroup
@@ -171,6 +176,15 @@ export const StatGroupsSection = () => {
                         />
                     ))}
                 </div>
+                <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={addStatsGroup}
+                    className="w-full"
+                >
+                    Create new stats group <Plus className="h-4 w-4 ml-2" />
+                </Button>
             </CardContent>
         </Card>
     );
