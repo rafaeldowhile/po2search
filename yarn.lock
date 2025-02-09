@@ -1155,7 +1155,7 @@
   resolved "https://registry.npmjs.org/@react-types/shared/-/shared-3.27.0.tgz"
   integrity sha512-gvznmLhi6JPEf0bsq7SwRYTHAKKq/wcmKqFez9sRdbED+SPMUmK5omfZ6w3EwUFQHbYUa4zPBYedQ7Knv70RMw==
 
-"@remix-run/dev@^2.15.2", "@remix-run/dev@2.15.2":
+"@remix-run/dev@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@remix-run/dev/-/dev-2.15.2.tgz"
   integrity sha512-o8lix8t4GBhtXjo/G1IzwtHVW5GRMs7amtFtBHiR1bhSyK7VyX5qGtTDmJyny5QDv83pxaLOCiE0dUng2BCoyQ==
@@ -1223,7 +1223,7 @@
   dependencies:
     "@remix-run/node" "2.15.2"
 
-"@remix-run/node@^2.15.0", "@remix-run/node@^2.15.2", "@remix-run/node@2.15.2":
+"@remix-run/node@^2.15.0", "@remix-run/node@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@remix-run/node/-/node-2.15.2.tgz"
   integrity sha512-NS/h5uxje7DYCNgcKqKAiUhf0r2HVnoYUBWLyIIMmCUP1ddWurBP6xTPcWzGhEvV/EvguniYi1wJZ5+X8sonWw==
@@ -1236,7 +1236,7 @@
     stream-slice "^0.1.2"
     undici "^6.11.1"
 
-"@remix-run/react@^2.15.2", "@remix-run/react@>= 1":
+"@remix-run/react@^2.15.2", "@remix-run/react@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@remix-run/react/-/react-2.15.2.tgz"
   integrity sha512-NAAMsSgoC/sdOgovUewwRCE/RUm3F+MBxxZKfwu3POCNeHaplY5qGkH/y8PUXvdN1EBG7Z0Ko43dyzCfcEy5PA==
@@ -1252,7 +1252,7 @@
   resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.21.0.tgz"
   integrity sha512-xfSkCAchbdG5PnbrKqFWwia4Bi61nH+wm8wLEqfHDyp7Y3dZzgqS2itV8i4gAq9pC2HsTpwyBC6Ds8VHZ96JlA==
 
-"@remix-run/serve@^2.15.2":
+"@remix-run/serve@^2.15.2", "@remix-run/serve@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@remix-run/serve/-/serve-2.15.2.tgz"
   integrity sha512-m/nZtAUzzGcixNgNc3RNjA1ocFlWAuZFALpZ5fJdPXmITwqRwfjo/1gI+jx7AL7haoo+4j/sAljuAQw2CiswXA==
@@ -1266,7 +1266,7 @@
     morgan "^1.10.0"
     source-map-support "^0.5.21"
 
-"@remix-run/server-runtime@>= 1", "@remix-run/server-runtime@2.15.2":
+"@remix-run/server-runtime@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@remix-run/server-runtime/-/server-runtime-2.15.2.tgz"
   integrity sha512-OqiPcvEnnU88B8b1LIWHHkQ3Tz2GDAmQ1RihFNQsbrFKpDsQLkw0lJlnfgKA/uHd0CEEacpfV7C9qqJT3V6Z2g==
@@ -1733,7 +1733,7 @@
   resolved "https://registry.npmjs.org/@vanilla-extract/private/-/private-1.0.6.tgz"
   integrity sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==
 
-"@vercel/remix@^2.15.2":
+"@vercel/remix@2.15.2":
   version "2.15.2"
   resolved "https://registry.npmjs.org/@vercel/remix/-/remix-2.15.2.tgz"
   integrity sha512-JZJmuM/pZl5zLACRHzq2uOamzTOeiKRnco0o07A+hUxTKemhS1tqc2R9PdQ6Mf/8ZcXY5ZxW5tah3zjBea6D4w==
@@ -2407,6 +2407,11 @@ cookie@^0.6.0:
   version "0.6.0"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.6.0.tgz"
   integrity sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==
+
+cookie@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/cookie/-/cookie-1.0.2.tgz"
+  integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
 
 cookie@0.7.1:
   version "0.7.1"
@@ -5823,7 +5828,7 @@ react-day-picker@^8.10.1:
   resolved "https://registry.npmjs.org/react-day-picker/-/react-day-picker-8.10.1.tgz"
   integrity sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==
 
-react-dom@*, "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom@^18 || ^19 || ^19.0.0-rc", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, react-dom@>=16.8.1:
+react-dom@*, "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom@^18 || ^19 || ^19.0.0-rc", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, react-dom@>=16.8.1, react-dom@>=18:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -5899,6 +5904,16 @@ react-router-dom@6.28.1:
     "@remix-run/router" "1.21.0"
     react-router "6.28.1"
 
+react-router@>=7.0.0:
+  version "7.1.5"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-7.1.5.tgz"
+  integrity sha512-8BUF+hZEU4/z/JD201yK6S+UYhsf58bzYIDq2NS1iGpwxSXDu7F+DeGSkIXMFBuHZB21FSiCzEcUb18cQNdRkA==
+  dependencies:
+    "@types/cookie" "^0.6.0"
+    cookie "^1.0.1"
+    set-cookie-parser "^2.6.0"
+    turbo-stream "2.4.0"
+
 react-router@6.28.1:
   version "6.28.1"
   resolved "https://registry.npmjs.org/react-router/-/react-router-6.28.1.tgz"
@@ -5946,7 +5961,7 @@ react-window@^1.8.11:
     "@babel/runtime" "^7.0.0"
     memoize-one ">=3.1.1 <6"
 
-react@*, "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react@^17.0.0 || ^18.0.0 || ^19.0.0", "react@^18 || ^19", "react@^18 || ^19 || ^19.0.0-rc", react@^18.0.0, react@^18.2.0, react@^18.3.1, react@>=16.12.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=16.8.1:
+react@*, "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react@^17.0.0 || ^18.0.0 || ^19.0.0", "react@^18 || ^19", "react@^18 || ^19 || ^19.0.0-rc", react@^18.0.0, react@^18.2.0, react@^18.3.1, react@>=16.12.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=16.8.1, react@>=18:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -6101,10 +6116,10 @@ remark-rehype@^10.0.0:
     mdast-util-to-hast "^12.1.0"
     unified "^10.0.0"
 
-remix-themes@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/remix-themes/-/remix-themes-1.5.1.tgz"
-  integrity sha512-3/qo8pLjWdL5c6QORCzRp2KwT9izg294wCjL9grNPGhOaO/tkAkzf36imV7nkIhUc8U+7QGffiRl+Zg0prGfgA==
+remix-themes@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/remix-themes/-/remix-themes-2.0.4.tgz"
+  integrity sha512-S1vIx86xdsMv+ceaWGWtlVZBMhU4tmZeBOBzOiZnhbHnGBbd5YeyIlZ5EL3BSEhZq35oEcINeTrMrVju9GPYEA==
 
 require-from-string@^2.0.2:
   version "2.0.2"
