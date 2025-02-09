@@ -33,7 +33,7 @@ const WhatsNewDialog = () => {
         <Dialog>
             <DialogTrigger asChild>
                 <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">v1.1</span>
+                    <span className="px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">v1.2</span>
                     <button className="text-xs flex items-center gap-1.5 px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 animate-pulse hover:animate-none hover:bg-primary/20 transition-colors">
                         <Sparkles className="w-3 h-3" />
                         <span>NEW</span>
@@ -42,50 +42,27 @@ const WhatsNewDialog = () => {
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                    <DialogTitle>What's New in v1.1</DialogTitle>
+                    <DialogTitle>What's New in v1.2</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-6">
                     <div className="space-y-4">
                         <p className="text-sm text-muted-foreground">
-                            We're excited to introduce new features that will help you analyze item prices and filter results more effectively:
+                            We're excited to announce major improvements to help you find exactly what you're looking for:
                         </p>
                         <div className="text-sm space-y-2">
                             <ul className="list-disc list-inside space-y-2">
-                                <li>New Charts tab with detailed price analysis</li>
-                                <li>Price distribution visualization</li>
-                                <li>Price clustering to identify common price points</li>
-                                <li>Advanced statistics including mean, median, and mode</li>
-                                <li>Enhanced filtering options:
-                                    <ul className="list-circle list-inside ml-4 mt-1 space-y-1">
-                                        <li>Time-based filters (today, 3 days, week)</li>
-                                        <li>Improved sorting options (price, date)</li>
-                                        <li>Better currency conversion display</li>
-                                    </ul>
-                                </li>
-                                <li>Improved performance and stability</li>
+                                <li>Custom Search is now live!</li>
+                                <li>Enhanced Search Refinement now with Item type and Name</li>
+                                <li>Display Tier info on search results</li>
+                                <li>Advanced Stat Group Management</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <h3 className="font-medium">Coming Soon</h3>
-                        <div className="text-sm space-y-2">
-                            <div className="flex items-start gap-2 p-3 rounded-md bg-primary/5 border border-primary/20">
-                                <Sparkles className="w-4 h-4 mt-0.5 text-primary" />
-                                <div>
-                                    <p className="font-medium">Custom Queries with Weighted Values</p>
-                                    <p className="text-muted-foreground mt-1">
-                                        Create advanced searches with weighted mod values to find items that best match your specific requirements. Perfect for finding optimal gear upgrades.
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div className="flex items-start gap-2 p-3 rounded-md bg-blue-500/10 border border-blue-500/20">
                         <InfoIcon className="w-4 h-4 mt-0.5 text-blue-500" />
                         <p className="text-sm text-muted-foreground">
-                            The charts feature is in beta. We're continuously working to improve its accuracy and add more analysis tools.
+                            Have questions about the new features? Check out our documentation or reach out to us directly.
                         </p>
                     </div>
 
