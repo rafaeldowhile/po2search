@@ -99,6 +99,7 @@ export const poe2QuerySchema = z.object({
         id: z.string().optional(),
         type: z.optional(z.string()),
         name: z.string().optional(),
+        term: z.string().optional(),
         status: z.object({
             option: statusTypes,
         }),

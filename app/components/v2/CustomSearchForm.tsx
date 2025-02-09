@@ -19,6 +19,7 @@ import { z } from "zod";
 import { usePoeTypes } from "~/hooks/use-poe-types";
 import { SchemaFormField } from "./filters/SchemaFormField";
 import { QueryFiltersSection } from "./filters/QueryFiltersSection";
+import { retryOperation } from "~/lib/utils/retry";
 
 interface CustomSearchFormProps {
     query: POE2Query;
@@ -82,14 +83,16 @@ export const CustomSearchForm = ({
     const onSubmit = async (data: POE2Query) => {
         try {
             setIsSearching(true);
-            const response = await axios.post('/api/v2/search/update', {
-                query: data,
-                options: options
-            });
+            const response = await retryOperation(() => 
+                axios.post('/api/v2/search/update', {
+                    query: data,
+                    options: options
+                })
+            );
             onQueryChange(data);
             onSearchResponse(response.data);
         } catch (error) {
-            console.error(error);
+            console.error('Failed after 3 retries:', error);
         } finally {
             setIsSearching(false);
         }
@@ -101,15 +104,17 @@ export const CustomSearchForm = ({
 
         try {
             setIsSearching(true);
-            const response = await axios.post("/api/v2/search", {
-                input: pastedText,
-                options: options
-            });
+            const response = await retryOperation(() => 
+                axios.post("/api/v2/search", {
+                    input: pastedText,
+                    options: options
+                })
+            );
             onQueryChange(response.data.query as POE2Query);
             onSearchResponse(response.data);
             itemForm.setValue('itemDescription', pastedText); // Keep the pasted text
         } catch (error) {
-            console.error(error);
+            console.error('Failed after 3 retries:', error);
             itemForm.setValue('itemDescription', pastedText); // Keep text in case of error
         } finally {
             setIsSearching(false);
